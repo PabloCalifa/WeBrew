@@ -1,0 +1,13 @@
+.navbar{
+   border-width: 0px;
+   -webkit-box-shadow: 0px 0px;
+   box-shadow: 0px 0px;
+ }
+
+.navbar ul li .market {
+  width:2%;
+}
+
+img {
+  width: 100%;  
+}
