@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="navCss.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="navCss.css" />
     <title>- - - - - We Brew- - - - - </title>
-  </head>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    </head>
+  <nav class="navbar navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -20,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">WE BREW</a>
+          <a class="navbar-brand" href="#">WE BREW</a> <!--!agregar imagen!-->
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -62,9 +62,8 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-      <img src="woodsfondo.jpg">
       </nav>
-
+      <img src="woodsfondo.jpg">
 
 
   <!-- Optional JavaScript -->
