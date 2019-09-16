@@ -8,10 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="navCss.css" />
-    <title>- - - - - We Brew- - - - - </title>
+    <title> WeBrew </title>
+    <link rel="shortcut icon" href="../fotosComunes/logotitulo.ico">
+
     </head>
         <nav class="navbar navbar-fixed-top"role="navigation">
-            <div class="container-fluid">
+            <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -64,7 +66,14 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
             </nav>
-            <img src="woodsfondo.jpg">
+            <div class="text-center contenedor">
+              <img  src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
+            </div>
+            <img src="../fotosComunes/maderanav.jpg" class="img-fluid fondonav" alt="Responsive image">
+
+
+
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
