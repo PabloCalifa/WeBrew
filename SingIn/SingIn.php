@@ -64,11 +64,15 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
             </nav>
-
             <img id="fondonav" src="woodsfondo.jpg">
-
-            <div class="container" id="singin">
+            <div class="espacio" style="padding:20px">
+            </div>
+            <div class="container" id="singin" style="margin-left:30%; width:070%">
               <form class="form-horizontal">
+                <div class="form-group">
+                  <div class="titulo" style="text-align-last: center" ><h2>Inicio de sesión</h2></label>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
@@ -85,7 +89,7 @@
                   <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox"> Remember me
+                        <input type="checkbox"> Recordarme
                       </label>
                     </div>
                   </div>
@@ -93,11 +97,11 @@
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Sign in</button>
+                    <button type="submit" class="btn btn-default">Olvidé mi contraseña</button>
+                    <button type="submit" class="btn btn-default">Crear Cuenta</button>
                   </div>
                 </div>
               </form>
-
-
             </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
