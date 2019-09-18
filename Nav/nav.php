@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="navCss.css" />
     <title> WeBrew </title>
     <link rel="shortcut icon" href="../fotosComunes/logotitulo.ico">
-
     </head>
-        <nav class="navbar navbar-fixed-top"role="navigation">
+      <nav class="navbar navbar-fixed-top"role="navigation">
             <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -66,10 +65,8 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
             </nav>
-            <div class="text-center contenedor">
-              <img  src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
-            </div>
-            <img src="../fotosComunes/maderanav.jpg" class="img-fluid fondonav" alt="Responsive image">
+            <img src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
+            <img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">
 
 
 
