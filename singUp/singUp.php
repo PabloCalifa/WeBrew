@@ -10,8 +10,10 @@
     <link rel="stylesheet" type="text/css" href="singUp.css" />
     <title>- - - - - We Brew- - - - - </title>
     </head>
-        <nav class="navbar navbar-fixed-top"role="navigation">
-            <div class="container-fluid">
+    <link rel="shortcut icon" href="../fotosComunes/logotitulo.ico">
+    </head>
+      <nav class="navbar navbar-fixed-top"role="navigation">
+            <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -64,7 +66,8 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
             </nav>
-            <img id="fondonav" src="woodsfondo.jpg">
+            <img src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
+            <img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">
             <div class="espacio" style="padding:20px"></div>
             <div class="container" id="singin" style="margin-left:30%; width:070%">
               <form class="form-horizontal">

@@ -9,7 +9,7 @@ nav .navbar {
    right: 0;
    left: 0;
    z-index: 1030;
-}
+ }
 
 .nav>li>a{
   color: ghostwhite;
@@ -18,10 +18,12 @@ nav .navbar {
 
 .nav>li>a:hover{
 background-color: rgba(255,255,255,0.15);
+
 }
 
 .nav>li>a:focus{
 background-color: rgba(0,0,0,0.15)
+
 }
 
 .navbar-toggle{
@@ -35,6 +37,7 @@ background-color: rgba(255,255,255,0.15);
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
 background-color: rgba(0,0,0,0.15);
+
 }
 
 .navbar-nav>li>.dropdown-menu{
@@ -56,16 +59,28 @@ font-weight: bold;
 
 .navbar ul li .market {
   width:3%;
-
 }
 
-img#fondonav {
+img.logoWeBrew {
+    margin-left: -150px;
+    position: absolute;
+    width: 300px;
+    margin-top: 50px;
+    left: 50%;
+}
+
+
+img.fondonav {
   width: 100%;
-  height: 50px;
   padding: 0px;
   margin: 0 auto;
   border-bottom: 3vw;
 }
+
+.vermas  {
+  font-size: 20px;
+}
+
 
 form.form-horizontal {
     border: solid lightgrey 1px;
