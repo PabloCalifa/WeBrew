@@ -22,7 +22,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">WE BREW</a> <!--!agregar imagen!-->
+                <a class="navbar-brand" href="#"><img src="../fotosComunes/weBrewnav.png" class="miniLogoWeBrew" alt="..."></a> <!--!agregar imagen!-->
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,7 +69,7 @@
             <img src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
             <img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">
             <div class="espacio" style="padding:20px"></div>
-            <div class="container" id="singin" style="margin-left:30%; width:070%">
+            <div class="container" id="singin" style="text-align: -webkit-center;">
               <form class="form-horizontal">
                 <div class="form-group">
                   <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
