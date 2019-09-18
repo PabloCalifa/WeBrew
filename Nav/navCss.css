@@ -71,10 +71,11 @@ img.logoWeBrew {
 
 
 img.fondonav {
-  width: 100%;
-  padding: 0px;
-  margin: 0 auto;
-  border-bottom: 3vw;
+    width: 100%;
+    height: fit-content;
+    padding: 0px;
+    margin: 0 auto;
+    border-bottom: 3vw;
 }
 
 .vermas  {
