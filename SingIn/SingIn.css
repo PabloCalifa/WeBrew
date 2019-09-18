@@ -92,7 +92,7 @@ form.form-horizontal {
     border: solid lightgrey 1px;
     padding: 3vw;
     padding-top:2vw ;
-    width: 60%;
+    max-width: 800px;
   }
 
 .titulo h2 {

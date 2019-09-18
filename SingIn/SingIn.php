@@ -68,7 +68,7 @@
           <img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">
           <div class="espacio" style="padding:20px">
           </div>
-          <div class="container" id="singin" style="margin-left:30%; width:070%">
+          <div class="container" id="singin" style="text-align: -webkit-center">
             <form class="form-horizontal">
               <div class="form-group">
                 <div class="titulo" style="text-align-last: center" ><h2>Inicio de sesión</h2></label>
