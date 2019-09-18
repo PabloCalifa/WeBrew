@@ -61,6 +61,13 @@ font-weight: bold;
   width:3%;
 }
 
+img.miniLogoWeBrew {
+
+  width: 150px;
+
+  left: 3%;
+
+}
 img.logoWeBrew {
     margin-left: -150px;
     position: absolute;

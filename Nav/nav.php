@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="navCss.css" />
     <title> WeBrew </title>
-    <link rel="shortcut icon" href="../fotosComunes/logotitulo.ico">
+    <link rel="shortcut icon" href=".../fotosComunes/logotitulo.ico">
     </head>
       <nav class="navbar navbar-fixed-top"role="navigation">
             <div class="container">
@@ -21,7 +21,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">WE BREW</a> <!--!agregar imagen!-->
+                <a class="navbar-brand" href="#">            <img src="../fotosComunes/weBrewnav.png" class="miniLogoWeBrew" alt="..."></a> <!--!agregar imagen!-->
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
