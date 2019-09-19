@@ -1,34 +1,37 @@
-.row {
+.row#rowfooter {
   background-color: black;
   text-align: -webkit-center;
   color:antiquewhite;
   text-decoration: none;
   padding: 0px;
   margin: 0 auto;
+
 }
 
-.row h5{
+.row#rowfooter h5{
   color:lightgrey;
   text-align: -webkit-center;
   list-style-type: none;
 
 }
 
-.row ul {
+.row#rowfooter ul#ulfooter {
   color:white;
   list-style-type: none;
   padding: 0px;
   margin: 0 auto;
+  margin-bottom: 3vw;
 }
 
-.row ul li a  {
+.row#rowfooter ul#ulfooter li a  {
   color:white;
   padding: 0px;
   margin: 0 auto;
   text-decoration: none;
+
 }
 
-.row ul li a:focus, .row ul li a:hover  {
+.row#rowfooter ul#ulfooter li a:focus, .row#rowfooter ul#ulfooter li a:hover  {
 
   padding: 0px;
   margin: 0 auto;

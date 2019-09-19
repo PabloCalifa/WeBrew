@@ -87,7 +87,6 @@ img.fondonav {
 }
 
 
-
 form.form-horizontal {
     border: solid lightgrey 1px;
     padding: 3vw;
@@ -98,4 +97,41 @@ form.form-horizontal {
 .titulo h2 {
     font-size: 30px;
     padding-left: 8px;
+}
+
+.row {
+  background-color: black;
+  text-align: -webkit-center;
+  color:antiquewhite;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0 auto;
+}
+
+.row h5{
+  color:lightgrey;
+  text-align: -webkit-center;
+  list-style-type: none;
+
+}
+
+.row ul {
+  color:white;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0 auto;
+}
+
+.row ul li a  {
+  color:white;
+  padding: 0px;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.row ul li a:focus, .row ul li a:hover  {
+
+  padding: 0px;
+  margin: 0 auto;
+  background-color: rgba(255,253,200,0.15);
 }
