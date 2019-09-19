@@ -11,10 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
     <link rel="stylesheet" type="text/css" href="../Nav/nav.css" />
     <title>- - - - - We Brew- - - - - </title>
+    <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
     </head>
-    <link rel="shortcut icon" href="../fotosComunes/logotitulo.ico">
-    </head>
-          <?php include "../Nav/nav.php" ?>
+          <?php require "../Nav/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
               <form class="form-horizontal">
@@ -275,7 +274,7 @@
             </div>
             <div class="espacio" style="padding-top:3vw">
             </div>
-            <?php include "../Footer/Footer.php" ?>
+            <?php require "../Footer/Footer.php" ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>

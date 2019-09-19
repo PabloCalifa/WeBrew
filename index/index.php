@@ -11,8 +11,10 @@
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
     <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
     <title>- - - - - We Brew- - - - - </title>
+    <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
+
     </head>
-          <?php include "../Nav/nav.php" ?>
+          <?php require "../Nav/nav.php" ?>
           <div class="espacio" style="padding:3vw">
           </div>
         <div class="container">
@@ -33,7 +35,7 @@
       <div class="espacio" style="padding-top:3vw">
       </div>
 
-      <?php include "../Footer/Footer.php" ?>
+      <?php require "../Footer/Footer.php" ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -5,14 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="SingIn.css" />
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
-    <link rel="stylesheet" type="text/css" href="../Nav/nav.css" />
+    <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
     <title>- - - - - We Brew- - - - - </title>
-    </head>
-          <?php include "../Nav/nav.php" ?>
+  </head>
+          <?php require "../Nav/nav.php" ?>
           <div class="espacio" style="padding:3vw">
           </div>
           <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
@@ -54,7 +55,7 @@
           </div>
           <div class="espacio" style="padding-top:3vw">
           </div>
-          <?php include "../Footer/Footer.php" ?>
+          <?php require "../Footer/Footer.php" ?>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
