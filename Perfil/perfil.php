@@ -17,23 +17,28 @@
           <?php require "../Navloged/nav.php" ?>
           <div class="espacio" style="padding-top:3vw"></div>
             <div class="container">
-              <div class="row">
-                <div class="col-sm-8"style="text-align-last: cENTER">
-                  <div class="titulo" style="text-align-last: left;"><h3>Mis Compras</h3></label></div>
-                    <ul>
-                      <li><a href="#">COMPRAS</a></li>
-                      <li><a href="#">CALIFICACIONES</a></li>
-                      <li><a href="#">CONTACTO</a></li>
+              <div class="row" id="perfil">
+                <div class="col-sm-8"id="perfil">
+                  <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="perfil">
+                      <li role="presentation"class="active"><a href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab">Pedidos</a></li>
+                      <li role="presentation"class="active"><a href="#volveracomprar" aria-controls="volveracomprar" role="tab" data-toggle="tab">Volver a comprar</a></li>
+                      <li role="presentation"class="active"><a href="#pedidosencurso" aria-controls="pedidosencurso" role="tab" data-toggle="tab">Pedidos en curso</a></li>
+                      <li role="presentation"class="active"><a href="#fav" aria-controls="fav" role="tab" data-toggle="tab">Favoritos</a></li>
                     </ul>
-                  <div class="titulo" style="text-align-last: left;"><a href="#"><h3>Favoritos</h3></a></label></div>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="pedidos">
+                          <h1>Tus pedidos</h1>
 
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="volveracomprar"><h1>Volver a comprar</h1></div>
+                      <div role="tabpanel" class="tab-pane" id="pedidosencurso">...</div>
+                      <div role="tabpanel" class="tab-pane" id="fav">...</div>
+                    </div>
 
-                  <div class="titulo" style="text-align-last: left;"><h3>Mis Datos</h3></label></div>
-                  <ul>
-                    <li><a href="#">DATOS REGISTRADOS</a></li>
-                    <li><a href="#">CAMBIAR CONTRASEÑA</a></li>
-                    <li><a href="#">DIRECCIONES</a></li>
-                  </ul>
+                  </div>
                 </div>
                 <div class="col-sm-4">
                 <?php require "../Avatar/avatar.php" ?>

@@ -1,0 +1,28 @@
+.nav-tabs>li.active>a{
+  border-width: 0px;
+  background-color: black;
+  color: rgba(255,255,255,1);
+
+}
+
+, .nav-tabs>li.active>a:focus {
+  border-width: 0px;
+  background-color: rgba(255,255,255,0.1);
+
+
+}
+
+.nav-tabs>li.active>a:hover{
+
+
+
+}
+
+
+
+/* li.dropdownPerfil{
+  background-color: black;
+  color: ghostwhite;
+  font-weight: bold;
+
+} */
