@@ -1,0 +1,12 @@
+.botonesfaq {
+    border-radius: 10px;
+    width: 100%;
+    height: 55px;
+    font-size: 100%;
+    border-width: 2px;
+    color: black;
+}
+.btn-link:focus, .btn-link:hover {
+    text-decoration: none;
+    border-radius: 10px;
+}
