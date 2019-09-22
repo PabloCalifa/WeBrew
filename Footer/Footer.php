@@ -3,7 +3,7 @@
         <div class="col-sm-3">
           <h5>Acerca de</h5>
           <ul id="ulfooter">
-            <li><a href="#">We Brew</a></li>
+            <li><a href="../index/index.php">We Brew</a></li>
             <li><a href="#">Investors</a></li>
             <li><a href="#">Trending</a></li>
             <ul>
@@ -11,10 +11,10 @@
         <div class="col-sm-3">
           <h5>Ayuda</h5>
           <ul id="ulfooter">
-            <li><a href="#">Preguntas frecuentes</a></li>
-            <li><a href="#">Terminos y condiciones</a></li>
-            <li><a href="#">Métodos de costo y envío</a></li>
-            <li><a href="#">Política de devolución y cambios</a></li>
+            <li><a href="../FAQ/faq.php">Preguntas frecuentes</a></li>
+            <li><a href="../FAQ/faq.php">Terminos y condiciones</a></li>
+            <li><a href="../FAQ/faq.php">Métodos de costo y envío</a></li>
+            <li><a href="../FAQ/faq.php">Política de devolución y cambios</a></li>
           <ul>
         </div>
         <div class="col-sm-3">

@@ -13,9 +13,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">PREGUNTAS FRECUENTES</a></li>
-            <li><a href="#">CONTACTO</a></li>
+            <li><a href="../index/index.php">HOME</a></li>
+            <li><a href="../FAQ/faq.php">PREGUNTAS FRECUENTES</a></li>
+            <li><a href="../contacto/contacto.php">CONTACTO</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"
               role="button" aria-haspopup="true" aria-expanded="false">PRODUCTOS <span class="caret"></span></a>
@@ -36,15 +36,15 @@
             <div class="form-group">
               <input type="text" class="form-control" placeholder="¿ Qué estás buscando ?">
             </div>
-            <button type="submit" class="btn btn-default">Tuyo!</button>
+            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">LOGIN</a></li>
+                <li><a href="../SingIn/SingIn.php">LOGIN</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">REGISTRO</a></li>
+                <li><a href="../singUp/singUp.php">REGISTRO</a></li>
               </ul>
             </li>
             <li id="market"><a> <i class="fas fa-shopping-cart"></i></a></li>
