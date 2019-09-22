@@ -20,10 +20,10 @@
         <div class="col-sm-3">
           <h5>Redes Sociales</h5>
           <ul id="ulfooter">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Youtube</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-twitter-square"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-facebook-square"></i> Facebook</a> </li>
+            <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
           <ul>
         </div>
         <div class="col-sm-3">

@@ -22,22 +22,218 @@
                   <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist" id="perfil">
-                      <li role="presentation"class="active"><a href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab">Pedidos</a></li>
-                      <li role="presentation"class="active"><a href="#volveracomprar" aria-controls="volveracomprar" role="tab" data-toggle="tab">Volver a comprar</a></li>
-                      <li role="presentation"class="active"><a href="#pedidosencurso" aria-controls="pedidosencurso" role="tab" data-toggle="tab">Pedidos en curso</a></li>
-                      <li role="presentation"class="active"><a href="#fav" aria-controls="fav" role="tab" data-toggle="tab">Favoritos</a></li>
+                      <li role="presentation" class="active" ><a class="perfil" href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab">Pedidos</a></li>
+                      <li role="presentation"><a class="perfil" href="#pedidosencurso" aria-controls="pedidosencurso" role="tab" data-toggle="tab">Pedidos en curso</a></li>
+                      <li role="presentation"><a class="perfil" href="#volveracomprar" aria-controls="volveracomprar" role="tab" data-toggle="tab">Volver a comprar</a></li>
+                      <li role="presentation"><a class="perfil" href="#fav" aria-controls="fav" role="tab" data-toggle="tab">Favoritos</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="pedidos">
-                          <h1>Tus pedidos</h1>
-
+                      <!-- INICIO INIDIVIDUAL TABPANE -->
+                      <div role="tabpanel" class="tab-pane active" id="pedidos" style="padding-top:10px">
+                        <!-- INICIO NAV -->
+                        <nav class="navbar navbar-dark bg-dark justify-content-between" id="perfil">
+                          <a class="navbar-brand"id="perfil">Tus pedidos</a>
+                          <form class="form-inline">
+                            <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                          </form>
+                        </nav>
+                        <!-- FIN DEL NAV -->
+                        <!-- INICI DEL ROW -->
+                        <div class="row" id="perfilrowproductos" >
+                          <div class="col-sm-3">
+                            <div class"pedidoRealizado">
+                                <h5>PEDIDOS REALIZADOS</h5>
+                                <p>22 de julio de 2019</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"Total">
+                                <h5>TOTAL</h5>
+                                <p>$50,00</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"direccion">
+                                <h5>DIRECCIÓN</h5>
+                                <p>Calle falsa 123</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"codigoPedido">
+                                <h5>CÓDIGO DE PEDIDO</h5>
+                                <p>A0123456789</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- FIN DEL ROW  -->
+                        <br> </br>
+                        <!-- INICIO DESCRIPCION DE PRODUCTOS -->
+                        <div class="row" id="rowcompras" >
+                          <div class="col-sm-3">
+                            <div class"fotoproducto">
+                                <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="detalleProducto">
+                                <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
+                                <p><b>Cantidad:</b>12 unidades</p>
+                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
+                                <p><b>Valor :</b>$50,00</p>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
+                            </div>
+                          </div>
+                          <div class="row" id="rowcompras" >
+                            <div class="col-sm-3">
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Pedir reembolso</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Problema con el pedido</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Evaluar compra</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ocultar pedido</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ver productos simiilares</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- FIN DE DESCRIPCION PRODUCTOS -->
                       </div>
-                      <div role="tabpanel" class="tab-pane" id="volveracomprar"><h1>Volver a comprar</h1></div>
-                      <div role="tabpanel" class="tab-pane" id="pedidosencurso">...</div>
-                      <div role="tabpanel" class="tab-pane" id="fav">...</div>
-                    </div>
+                      <!-- FIN INIDIVIDUAL TABPANE -->
+                      <!-- INICIO INIDIVIDUAL TABPANE -->
+                      <div role="tabpanel" class="tab-pane" id="pedidosencurso" style="padding-top:10px;">
+                        <!-- INICIO NAV -->
+                        <nav class="navbar navbar-dark bg-dark justify-content-between" id="perfil">
+                          <a class="navbar-brand"id="perfil">Pedidos en curso</a>
+                          <form class="form-inline">
+                            <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                          </form>
+                        </nav>
+                        <!-- FIN DEL NAV -->
+                        <!-- INICI DEL ROW -->
+                        <div class="row" id="perfilrowproductos" >
+                          <div class="col-sm-3">
+                            <div class"pedidoRealizado">
+                                <h5>PEDIDOS REALIZADOS</h5>
+                                <p>22 de julio de 2019</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"Total">
+                                <h5>TOTAL</h5>
+                                <p>$50,00</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"direccion">
+                                <h5>DIRECCIÓN</h5>
+                                <p>Calle falsa 123</p>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class"codigoPedido">
+                                <h5>CÓDIGO DE PEDIDO</h5>
+                                <p>A0123456789</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- FIN DEL ROW  -->
+                        <br> </br>
+                        <!-- INICIO DESCRIPCION DE PRODUCTOS -->
+                        <div class="row" id="rowcompras" >
+                          <div class="col-sm-3">
+                            <div class"fotoproducto">
+                                <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="detalleProducto">
+                                <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
+                                <p><b>Cantidad:</b>12 unidades</p>
+                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
+                                <p><b>Valor :</b>$50,00</p>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
+                            </div>
+                          </div>
+                          <div class="row" id="rowcompras" >
+                            <div class="col-sm-3">
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Pedir reembolso</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Problema con el pedido</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Evaluar compra</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ocultar pedido</button>
+                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ver productos simiilares</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- FIN DE DESCRIPCION PRODUCTOS -->
+                      </div>
+                      <!-- FIN INIDIVIDUAL TABPANE -->
+                      <!-- INICIO INIDIVIDUAL TABPANE -->
+                      <div role="tabpanel" class="tab-pane" id="volveracomprar"style="padding-top:10px;">
+                        <!-- INICIO NAV -->
+                        <nav class="navbar navbar-dark bg-dark justify-content-between" id="perfil">
+                          <a class="navbar-brand"id="perfil">Volver a comprar</a>
+                          <form class="form-inline">
+                            <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                          </form>
+                        </nav>
+                        <!-- FIN DEL NAV -->
+                        <!-- INICIO DESCRIPCION DE PRODUCTOS -->
+                        <div class="row" id="rowcompras" >
+                          <div class="col-sm-4">
+                            <div class"fotoproducto">
+                                <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
+                            </div>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="detalleProducto">
+                                <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
+                                <p><b>Cantidad:</b>12 unidades</p>
+                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
+                                <p><b>Valor :</b>$50,00</p>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
+                                <br></br>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- FIN DE DESCRIPCION PRODUCTOS -->
+                      </div>
+                      <!-- FIN INIDIVIDUAL TABPANE -->
+                      <!-- INICIO INIDIVIDUAL TABPANE -->
+                      <div role="tabpanel" class="tab-pane" id="fav"style="padding-top:10px;">
+                        <!-- INICIO NAV -->
+                        <nav class="navbar navbar-dark bg-dark justify-content-between" id="perfil">
+                          <a class="navbar-brand"id="perfil">Favoritos</a>
+                          <form class="form-inline">
+                            <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                          </form>
+                        </nav>
+                        <!-- FIN DEL NAV -->
+                        <!-- INICIO DESCRIPCION DE PRODUCTOS -->
+                        <div class="row" id="rowcompras" >
+                          <div class="col-sm-4">
+                            <div class"fotoproducto">
+                                <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
+                            </div>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="detalleProducto">
+                                <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
+                                <p><b>Cantidad:</b>12 unidades</p>
+                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
+                                <p><b>Valor :</b>$50,00</p>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Comprar</button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Quitar de favoritos</button>
 
+                                <br></br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- FIN INIDIVIDUAL TABPANE -->
+                    <!-- FIN TAB PANE -->
+                    </div>
                   </div>
                 </div>
                 <div class="col-sm-4">
