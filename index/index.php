@@ -36,7 +36,7 @@
     <div class="espacio" style="padding:2vw"></div>
     <div  class="container">
       <div id="rowIndex"class="row   ">
-            <div class="col-sm-3 div-img"><img  class="img" class="productoBuscado" src="productos/accesorios/1.png" alt="Helaera Corona">  <div class="">$58.00</div> <button type="button" class="btn btn-primary">Agregar al Carrito </button></div>
+            <div class="col-sm-3 div-img"> <a href="../productos/productos.php"> <img  class="img" class="productoBuscado" src="productos/accesorios/1.png" alt="Helaera Corona"> </a>  <div class="">$58.00</div> <button type="button" class="btn btn-primary">Agregar al Carrito </button></div>
             <div class="col-sm-3 div-img"><img  class="img" class="productoBuscado" src="productos/accesorios/2.png" alt="vasos termicos"><div class="">$58.00</div> <button type="button" class="btn btn-primary">Agregar al Carrito </button></div>
             <div class="col-sm-3 div-img"><img class="img" class="productoBuscado" src="productos/accesorios/3.png" alt="Tapas goma"><div class="">$58.00</div> <button type="button" class="btn btn-primary">Agregar al Carrito </button></div>
             <div class="col-sm-3 div-img"><img  class="img" class="productoBuscado" src="productos/accesorios/4.png" alt="estuche latita"><div class="">$58.00</div> <button type="button" class="btn btn-primary">Agregar al Carrito </button></div>
