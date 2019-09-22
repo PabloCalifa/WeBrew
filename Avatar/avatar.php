@@ -3,9 +3,9 @@
   <h1>Hola, Homero</h1>
   <p class="user"><b>User:</b> Homer</p>
   <p><b>E-mail:</b> homer@gmail.com</p>
-  <p><button>Pedidos</button>
-    <br><button>Pedidos en curso</button>
-    <br><button>Volver a comprar</button>
+  <p><button>Compras</button>
     <br><button>Favoritos</button>
+    <br><button>Mis Datos</button>
+    <br><button>Salir</button>
   </p>
 </div>
