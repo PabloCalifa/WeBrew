@@ -11,10 +11,10 @@
         <div class="col-sm-3">
           <h5>Ayuda</h5>
           <ul id="ulfooter">
-            <li><a href="#">Compras</a></li>
-            <li><a href="#">Envíos</a></li>
-            <li><a href="#">Resolución de problemas</a></li>
-            <li><a href="#">F.A.Q.</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Terminos y condiciones</a></li>
+            <li><a href="#">Métodos de costo y envío</a></li>
+            <li><a href="#">Política de devolución y cambios</a></li>
           <ul>
         </div>
         <div class="col-sm-3">

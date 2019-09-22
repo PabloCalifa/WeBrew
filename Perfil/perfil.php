@@ -189,7 +189,7 @@
                             <div class="detalleProducto">
                                 <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
                                 <p><b>Cantidad:</b>12 unidades</p>
-                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
+                                <p><b>Última compra:</b>22 de julio de 2019</p>
                                 <p><b>Valor :</b>$50,00</p>
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
                                 <br></br>
@@ -221,7 +221,6 @@
                             <div class="detalleProducto">
                                 <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
                                 <p><b>Cantidad:</b>12 unidades</p>
-                                <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
                                 <p><b>Valor :</b>$50,00</p>
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Comprar</button>
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Quitar de favoritos</button>
