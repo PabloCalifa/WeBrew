@@ -20,7 +20,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"
               role="button" aria-haspopup="true" aria-expanded="false">PRODUCTOS <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Porrones</a></li>
+                <li><a href="../productos/porrones.php">Porrones</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Barriles</a></li>
                 <li role="separator" class="divider"></li>

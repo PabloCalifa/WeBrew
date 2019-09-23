@@ -8,7 +8,9 @@
 #rowIndex {
   background-color: white;
   color: black;
+  text-align: center;
 }
+
 
 .productosMas{
   margin-left: auto;
@@ -16,7 +18,7 @@
 
 #promo {
   background-color: #160c05;
-  
+
 }
 
 img.productoBuscado:hover {
