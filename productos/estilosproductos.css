@@ -1,6 +1,7 @@
 #rowProducto{
   background-color:  white;
   color: black;
+  list-style: none;
 
 }
 #rowtitulo{
@@ -14,9 +15,11 @@
 #rowdetalle{
   background-color:  white;
   color: grey;
+  list-style: none;
 }
 #listacompraproducto{
   color: black;
+  list-style: none;
 
 }
 
@@ -46,6 +49,10 @@
 .listadocompra{
 padding-top: 10px;
 
+}
+
+.listaproducto{
+  list-style: none;
 }
 
 .section-title span {
