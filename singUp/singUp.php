@@ -1,6 +1,21 @@
+<?php
+require("users.php");
+require("security.php");
+
+$users = obtenerUsuario();
+
+if ($_POST) {
+
+  $user=crearusuario();
+  $user["id"] = count($users) + 1;
+  $users [] = $user;
+  $json = json_encode($users);
+  file_put_contents("users.json", $json);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<body>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,31 +27,32 @@
     <link rel="stylesheet" type="text/css" href="../Nav/nav.css" />
     <title>- - - - - We Brew- - - - - </title>
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
-    </head>
+  </head>
+  <body>
           <?php require "../Nav/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
-              <form class="form-horizontal">
+              <form class="form-horizontal" id="singup" action="singUp.php" method="post" >
                 <div class="form-group">
                   <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="email" name="inputEmail1" class="form-control" id="inputEmail3" placeholder="Email" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Reescríbelo</label>
+                  <label for="inputEmail2" class="col-sm-2 control-label">Reescríbelo</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="email" class="form-control" name="inputEmail2" id="inputEmail2" placeholder="Email" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
+                  <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword3" placeholder="Password">
+                    <input type="password" name="inputPassword" class="form-control" id="inputPassword3" placeholder="Password" value="" >
                   </div>
                 </div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
@@ -44,7 +60,7 @@
                 </div>
                 <div class="form-group">
                   <label for="dia" class="col-sm-4 control-label">Día
-                    <select>
+                    <select name="dia" id="dia">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -78,86 +94,30 @@
                       <option>31</option>
                     </select>
                   </label>
-                  <label for="Mes" class="col-sm-4 control-label">Mes
-                    <select>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
+                  <label for="mes" class="col-sm-4 control-label" value="">Mes
+                    <select name="mes" id="mes">
+                      <option value="1">ene</option> <option value="2">feb</option> <option value="3">mar</option> <option value="4">abr</option>
+                      <option value="5">may</option> <option value="6">jun</option> <option value="7">jul</option> <option value="8">ago</option>
+                      <option value="9">sep</option> <option value="10">oct</option> <option value="11">nov</option> <option value="12">dic</option>
                     </select>
                   </label>
-                  <label for="ano" class="col-sm-4 control-label">Año
-                    <select>
-                      <option>2001</option>
-                      <option>2000</option>
-                      <option>1999</option>
-                      <option>1998</option>
-                      <option>1997</option>
-                      <option>1996</option>
-                      <option>1995</option>
-                      <option>1994</option>
-                      <option>1993</option>
-                      <option>1992</option>
-                      <option>1991</option>
-                      <option>1990</option>
-                      <option>1989</option>
-                      <option>1988</option>
-                      <option>1987</option>
-                      <option>1986</option>
-                      <option>1985</option>
-                      <option>1984</option>
-                      <option>1983</option>
-                      <option>1982</option>
-                      <option>1981</option>
-                      <option>1980</option>
-                      <option>1979</option>
-                      <option>1978</option>
-                      <option>1977</option>
-                      <option>1976</option>
-                      <option>1975</option>
-                      <option>1974</option>
-                      <option>1973</option>
-                      <option>1972</option>
-                      <option>1971</option>
-                      <option>1970</option>
-                      <option>1969</option>
-                      <option>1968</option>
-                      <option>1967</option>
-                      <option>1966</option>
-                      <option>1965</option>
-                      <option>1964</option>
-                      <option>1963</option>
-                      <option>1962</option>
-                      <option>1961</option>
-                      <option>1960</option>
-                      <option>1959</option>
-                      <option>1958</option>
-                      <option>1957</option>
-                      <option>1956</option>
-                      <option>1955</option>
-                      <option>1954</option>
-                      <option>1953</option>
-                      <option>1952</option>
-                      <option>1951</option>
-                      <option>1950</option>
-                      <option>1949</option>
-                      <option>1948</option>
-                      <option>1947</option>
-                      <option>1946</option>
-                      <option>1945</option>
-                      <option>1944</option>
-                      <option>1943</option>
-                      <option>1942</option>
-                      <option>1941</option>
-                      <option>1940</option>
+                  <label for="ano" class="col-sm-4 control-label"value="">Año
+                    <select name="ano" id="ano">
+                      <option value="2001">2001</option><option value="2000">2000</option>
+                      <option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option>
+                      <option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option>
+                      <option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option>
+                      <option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option>
+                      <option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option>
+                      <option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option>
+                      <option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option>
+                      <option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option>
+                      <option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option>
+                      <option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option>
+                      <option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option>
+                      <option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option>
+                      <option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option>
+                      <option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option>
                     </select>
                   </label>
                 </div>
@@ -166,54 +126,54 @@
                 <div class="form-group">
                   <label for="Nombre" class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-10">
-                    <input type="Nombre" class="form-control" id="Nombre" placeholder="Nombre">
+                    <input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre" value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="Apellido" class="col-sm-2 control-label">Apellido</label>
                   <div class="col-sm-10">
-                    <input type="Apellido" class="form-control" id="Apellido" placeholder="Apellido">
+                    <input type="text" name="apellido" class="form-control" id="Apellido" placeholder="Apellido" value="">
                   </div>
                 </div>
                 <label for="Sexo" class="col-sm-2 control-label">Sexo</label>
                 <p>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Mujer
+                  <input type="radio" name="Sexo" id="inlineRadio1" value="Mujer"> Mujer
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Hombre
+                  <input type="radio" name="Sexo" id="inlineRadio2" value="Hombre"> Hombre
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Personalizado
+                  <input type="radio" name="Sexo" id="inlineRadio3" value="Personalizado"> Personalizado
                 </label>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="titulo" style="text-align-last: left;"><h4>Dirección</h4></label></div>
                 <div class="form-group">
                   <label for="direccion" class="col-sm-2 control-label">Calle</label>
                   <div class="col-sm-10">
-                    <input type="Calle" class="form-control" id="Calle" placeholder="Calle">
+                    <input type="text" name="calle" class="form-control" id="Calle" placeholder="Calle" value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="numdireccion" class="col-sm-2 control-label">Número</label>
                   <div class="col-sm-10">
-                    <input type="Numero" class="form-control" id="Numero" placeholder="Número">
+                    <input type="text" name="numdireccion"class="form-control" id="Numero" placeholder="Número"value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="Pisodireccion" class="col-sm-2 control-label">Piso</label>
                   <div class="col-sm-10">
-                    <input type="Piso" class="form-control" id="Piso" placeholder="Piso">
+                    <input type="text" name="Pisodireccion"class="form-control" id="Piso" placeholder="Piso"value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="dia" class="col-sm-offset-2 col-sm-2 control-label">País
-                    <select>
+                    <select name="pais" id="pais">
                       <option>Argentina</option>
                     </select>
                   </label>
                   <label for="Provincia" class="col-sm-offset-2 col-sm-2 control-label">Provincia
-                    <select>
+                    <select name="Provincia" id="Provincia">
                       <option>Buenos Aires</option>
                       <option>CABA</option>
                       <option>Catamarca</option>
@@ -244,30 +204,30 @@
                 <div class="form-group">
                   <label for="Ciudad" class="col-sm-2 control-label">Ciudad</label>
                   <div class="col-sm-10">
-                    <input type="Ciudad" class="form-control" id="Ciudad" placeholder="Ciudad">
+                    <input type="text" name="Ciudad"class="form-control" id="Ciudad" placeholder="Ciudad" value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="Codigo Postal" class="col-sm-2 control-label">Código Postal</label>
                   <div class="col-sm-10">
-                    <input type="Codigo Postal" class="form-control" id="Codigo Postal" placeholder="Código Postal">
+                    <input type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox"> Acepto <a> términos y condiciones </a>
+                        <input type="checkbox" name="acepterms" id="acepterms"> Acepto <a> términos y condiciones </a>
                       </label>
                       <label>
-                        <input type="checkbox"> Deseo recibir actualizaciones
+                        <input type="checkbox" name="actualizaciones"id="actualizaciones"> Deseo recibir actualizaciones
                       </label>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-4 col-sm-8">
-                  <button type="submit" class="btn btn-default" style="width:50%">Crear Cuenta</button>
+                  <button type="submit" class="btn btn-default" name="Submit" value="Enviar" style="width:50%">Crear Cuenta</button>
                 </div>
               </form>
             </div>

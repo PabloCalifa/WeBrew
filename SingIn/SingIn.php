@@ -1,6 +1,21 @@
+<!-- <?php
+require ("../singUp/users.php");
+$users = obtenerUsuario();
+$email = $_GET["inputEmail1"];
+$userSearch = userByEmail($email);
+
+var_dump ($email);
+
+
+if ($userSearch =! null) {
+
+}
+
+?> -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<body>
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
     <title>- - - - - We Brew- - - - - </title>
   </head>
+  <body>
           <?php require "../Nav/nav.php" ?>
           <div class="espacio" style="padding:3vw">
           </div>
