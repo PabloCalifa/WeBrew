@@ -1,19 +1,27 @@
 <?php
-require("users.php");
-require("security.php");
+require_once("users.php");
+require_once("helpers.php");
 
-$users = obtenerUsuario();
+if($_POST){
+ $errores = validar($_POST);
+ if(count($errores)==0){
+  $usuario = buscarPorEmail($_POST["email"]);
+  if($usuario !== null){
+    $errores["email"]="Usuario ya registrado";
+  }else{
+    $registro = armarRegistro($_POST);
+    guardarRegistro($registro);
+   //De no excistir errores en la información tipeada por el usuario entonces lo redirecciono a donde yo desee.
 
-if ($_POST) {
+    header("location:../singIn/singIn.php");
+    exit;
+  }
 
-  $user=crearusuario();
-  $user["id"] = count($users) + 1;
-  $users [] = $user;
-  $json = json_encode($users);
-  file_put_contents("users.json", $json);
+}
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,27 +40,34 @@ if ($_POST) {
           <?php require "../Nav/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
+              <?php if(isset($errores)):?>
+                <ul class="alert alert-danger">
+                  <?php foreach ($errores as $value) :?>
+                      <li><?=$value;?></li>
+                  <?php endforeach;?>
+                </ul>
+              <?php endif;?>
               <form class="form-horizontal" id="singup" action="singUp.php" method="post" >
                 <div class="form-group">
                   <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
+                  <label for="email" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
-                    <input type="email" name="inputEmail1" class="form-control" id="inputEmail3" placeholder="Email" value="">
+                    <input required type="email" name="email" class="form-control" id="email" placeholder="Email" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail2" class="col-sm-2 control-label">Reescríbelo</label>
+                  <label for="password" class="col-sm-2 control-label">Contraseña</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" name="inputEmail2" id="inputEmail2" placeholder="Email" value="">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" value="" >
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+                  <label for="passwordRepeat" class="col-sm-2 control-label">Repetí tú contraseña</label>
                   <div class="col-sm-10">
-                    <input type="password" name="inputPassword" class="form-control" id="inputPassword3" placeholder="Password" value="" >
+                    <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Repetí tú contraseña" value="" >
                   </div>
                 </div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
@@ -61,37 +76,11 @@ if ($_POST) {
                 <div class="form-group">
                   <label for="dia" class="col-sm-4 control-label">Día
                     <select name="dia" id="dia">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                      <option>13</option>
-                      <option>14</option>
-                      <option>15</option>
-                      <option>16</option>
-                      <option>17</option>
-                      <option>18</option>
-                      <option>19</option>
-                      <option>20</option>
-                      <option>21</option>
-                      <option>22</option>
-                      <option>23</option>
-                      <option>24</option>
-                      <option>25</option>
-                      <option>26</option>
-                      <option>27</option>
-                      <option>28</option>
-                      <option>29</option>
-                      <option>30</option>
-                      <option>31</option>
+                      <option>1</option> <option>2</option> <option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+                      <option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option>
+                      <option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
+                      <option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                      <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
                     </select>
                   </label>
                   <label for="mes" class="col-sm-4 control-label" value="">Mes
@@ -138,13 +127,14 @@ if ($_POST) {
                 <label for="Sexo" class="col-sm-2 control-label">Sexo</label>
                 <p>
                 <label class="radio-inline">
-                  <input type="radio" name="Sexo" id="inlineRadio1" value="Mujer"> Mujer
+                  <input type="hidden" name="Sexo" value="0">
+                  <input type="radio" name="Sexo" id="inlineRadio1" value="mujer"> Mujer
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="Sexo" id="inlineRadio2" value="Hombre"> Hombre
+                  <input type="radio" name="Sexo" id="inlineRadio2" value="hombre"> Hombre
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="Sexo" id="inlineRadio3" value="Personalizado"> Personalizado
+                  <input type="radio" name="Sexo" id="inlineRadio3" value="personalizado"> Personalizado
                 </label>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="titulo" style="text-align-last: left;"><h4>Dirección</h4></label></div>
@@ -157,13 +147,13 @@ if ($_POST) {
                 <div class="form-group">
                   <label for="numdireccion" class="col-sm-2 control-label">Número</label>
                   <div class="col-sm-10">
-                    <input type="text" name="numdireccion"class="form-control" id="Numero" placeholder="Número"value="">
+                    <input required type="text" name="numdireccion"class="form-control" id="Numero" placeholder="Número"value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="Pisodireccion" class="col-sm-2 control-label">Piso</label>
                   <div class="col-sm-10">
-                    <input type="text" name="Pisodireccion"class="form-control" id="Piso" placeholder="Piso"value="">
+                    <input required type="text" name="Pisodireccion"class="form-control" id="Piso" placeholder="Piso"value="">
                   </div>
                 </div>
                 <div class="form-group">
@@ -204,23 +194,29 @@ if ($_POST) {
                 <div class="form-group">
                   <label for="Ciudad" class="col-sm-2 control-label">Ciudad</label>
                   <div class="col-sm-10">
-                    <input type="text" name="Ciudad"class="form-control" id="Ciudad" placeholder="Ciudad" value="">
+                    <input required type="text" name="Ciudad"class="form-control" id="Ciudad" placeholder="Ciudad" value="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="Codigo Postal" class="col-sm-2 control-label">Código Postal</label>
                   <div class="col-sm-10">
-                    <input type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
+                    <input required type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                  <div class="col-sm-offset-0 col-sm-12">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="acepterms" id="acepterms"> Acepto <a> términos y condiciones </a>
+                        <input type="hidden" name="acepterms" id="acepterms" value="0">
+                        <input type="checkbox" name="acepterms" id="acepterms" value="1"> Acepto <a> términos y condiciones </a>
                       </label>
                       <label>
-                        <input type="checkbox" name="actualizaciones"id="actualizaciones"> Deseo recibir actualizaciones
+                        <input  type="hidden" name="actualizaciones" id="actualizaciones" value="0">
+                        <input type="checkbox" name="actualizaciones" id="actualizaciones" value="1"> Deseo recibir actualizaciones
+                      </label>
+                      <label>
+                      <input  type="hidden" name="manteinLogued" id="manteinLogued" value="0">
+                      <input type="checkbox" name="manteinLogued" id="manteinLogued" value="1"> Mantenerme Logueado
                       </label>
                     </div>
                   </div>
@@ -237,9 +233,9 @@ if ($_POST) {
             <?php require "../Footer/Footer.php" ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
- <!-- Include all compiled plugins (below), or include individual files as needed -->
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
- <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
   </body>
 </html>
