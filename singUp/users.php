@@ -5,7 +5,6 @@ session_start();
 function armarRegistro($datos){
   $usuario = [
   "email" => $datos ["email"],
-  "emailrep" => $datos ["emailrep"],
   "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
   "dia" => $datos ["dia"],
   "mes" => $datos ["mes"],
@@ -82,11 +81,11 @@ function validar($datos){
 
 function validarLogin($datos){
     $errores=[];
-    $email = trim($usuario['email']);
+    $email = trim($datos['email']);
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
         $errores['email']="Email inválido...";
     }
-    $password = trim($usuario['password']);
+    $password = trim($datos['password']);
     if(empty($password)){
         $errores['password']="El password no puede ser blanco...";
     }elseif (!is_numeric($password)) {
@@ -97,22 +96,43 @@ function validarLogin($datos){
     return $errores;
 }
 
+function validarOlvidePassword($datos){
+    //Este representa mi array donde voy a ir almacenando los errores, que luego muestro en la vista al usuario.|
+    $errores = [];
+    $email = trim($datos['email']);
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $errores['email']="Email inválido...";
+    }
+    $password = trim($datos['password']);
+    if(empty($password)){
+        $errores['password']="El password no puede ser blanco...";
+    }elseif (!is_numeric($password)) {
+        $errores['password']="El password debe ser numérico...";
+    }elseif (strlen($password)<6) {
+        $errores['password']="El password como mínimo debe tener 6 caracteres...";
+    }
+    $passwordRepeat = trim($datos['passwordRepeat']);
+    if($password != $passwordRepeat){
+        $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+    }
+    return $errores;
+}
 
-  function buscarPorEmail($email){
-      $usuarios = abrirBaseDatos();
-      if($usuarios !=null){
-          foreach ($usuarios as  $usuario) {
-              if($email === $usuario['email']){
-                  return $usuario;
-              }
-          }
-      }
-      return null;
-  }
+
+//Función que nos permite buscar por email, a ver si el usuario existe o no en nuestra base de datos, que ahorita es un archivo json.
+function buscarPorEmail($email){
+    $usuarios = abrirBaseDatos();
+          foreach ($usuarios as $usuario) {
+            if($usuario['email'] == $email){
+                return $usuario;
+            }
+        }
+    return null;
+}
 
   function abrirBaseDatos(){
-    if(file_exists('user.json')){
-        $archivoJson = file_get_contents('user.json');
+    if(file_exists('../singUp/user.json')){
+        $archivoJson = file_get_contents('../singUp/user.json');
         //Aquí lo que hago es generar cada array con un salto de linea, para poderlo ver ejecute aquí un dd($archivoJson)
         $archivoJson = explode(PHP_EOL,$archivoJson);
         //Aquí saco el ultimo registro, el cual está en blanco
@@ -121,7 +141,7 @@ function validarLogin($datos){
         //ejecute aquí un ($archivoJson), la idea es para que verifique como se va armando el archivo
 
         //Aquí recorro el array y creo mi array con todos los usuarios
-        foreach ($archivoJson as  $usuarios) {
+        foreach ($archivoJson as $usuarios) {
             $arrayUsuarios[]= json_decode($usuarios,true);
         }
         //Aquí retorno el array de usuarios con todos sus datos
