@@ -1,23 +1,21 @@
 <?php
 require_once("users.php");
 require_once("helpers.php");
-
 if($_POST){
- $errores = validar($_POST);
+ $errores = validar($_POST,$_FILES);
  if(count($errores)==0){
   $usuario = buscarPorEmail($_POST["email"]);
   if($usuario !== null){
     $errores["email"]="Usuario ya registrado";
   }else{
-    $registro = armarRegistro($_POST);
+    $avatar = armarAvatar($_FILES);
+    $registro = armarRegistro($_POST,$avatar);
     guardarRegistro($registro);
    //De no excistir errores en la información tipeada por el usuario entonces lo redirecciono a donde yo desee.
-
     header("location:../singIn/singIn.php");
     exit;
+    }
   }
-
-}
 }
 
 ?>
@@ -202,6 +200,12 @@ if($_POST){
                   <div class="col-sm-10">
                     <input required type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
                   </div>
+                </div>
+                <div class="form-group">
+                <label for="avatar" class="col-sm-2 control-label">Foto de Perfil</label>
+                <div class="col-sm-10">
+                <input required name="avatar" type="file" value= "" class="form-control" id="avatar" >
+                </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-0 col-sm-12">
