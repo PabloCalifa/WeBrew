@@ -1,9 +1,10 @@
 <div class="card" id="card">
-  <img src="../fotosComunes/img.png" alt="..." style="width:100%">
-  <h1>Hola, Homero</h1>
-  <p class="user"><b>Usuario:</b> Homero</p>
-  <p class="mail"><b>E-mail:</b> homer@gmail.com</p>
-  <p class="direccion"><b>Domicilio</b> Calle falsa 123</p>
+
+  <a  href="">  <img src="../fotosComunes/img.png" alt="..." style="width:100%">  </a>
+  <h1>Hola, <?=$_SESSION["Nombre"] ;?></h1>
+  <p class="mail"><b>E-mail:</b> <?= $_SESSION['email'] ;?></p>
+  <p class="direccion"><b>Domicilio</b> <?=$_SESSION['calle'] . " " . $_SESSION['numdireccion'] . " " . $_SESSION['Pisodireccion'] . " " .  $_SESSION['Provincia'] . " " . $_SESSION['Ciudad'] . "  "
+  . $_SESSION['codigopostal']  ;?></p>
   <p><button>Compras</button>
     <br><button>Favoritos</button>
     <br><button>Mis Datos</button>

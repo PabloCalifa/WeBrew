@@ -154,6 +154,16 @@ function buscarPorEmail($email){
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
 function seteoUsuario($usuario,$dato){
     $_SESSION['email']=$usuario['email'];
+    $_SESSION['Nombre']=$usuario['Nombre'];
+    $_SESSION['apellido']=$usuario['apellido'];
+    $_SESSION['calle']=$usuario['calle'];
+    $_SESSION['numdireccion']=$usuario['numdireccion'];
+    $_SESSION['Pisodireccion']=$usuario['Pisodireccion'];
+    $_SESSION['email']=$usuario['email'];
+    $_SESSION['pais']=$usuario['pais'];
+    $_SESSION['Provincia']=$usuario['Provincia'];
+    $_SESSION['Ciudad']=$usuario['Ciudad'];
+    $_SESSION['codigopostal']=$usuario['codigopostal'];
     // $_SESSION['avatar']=$usuario['avatar'];
     if(isset($dato['recordarme'])){
         setcookie('email',$usuario['email'],time()+3600);

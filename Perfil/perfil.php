@@ -1,6 +1,17 @@
+<?php
+require_once("../singUp/users.php");
+require_once("../singUp/helpers.php");
+  //Esto lo incorporé, ya que por medio de esto logro hacer que si un usuario no está logueado en mi sistema y quiere entrar colocando la URL en el browser yo no se lo permito, hago que necesariamente se debe loguear
+  if(!isset($_SESSION["email"])) {
+    header("location:../singIn/singIn.php");
+    exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<body>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../Avatar/avatar.css" />
     <title>- - - - - We Brew- - - - - </title>
   </head>
+  <body>
           <?php require "../Navloged/nav.php" ?>
           <div class="espacio" style="padding-top:3vw"></div>
             <div class="container">
