@@ -1,6 +1,5 @@
 <div class="card" id="card">
-
-  <img src="../singUp/imagenes/<?=$_SESSION['avatar'];?>" alt="..." style="width:100%">
+  <img src="../singUp/imagenes/ <?=$_SESSION['avatar'];?>" alt="..." style="width:100%">
   <p>
   <button  name="avatar" type="file" value= "" class="form-control" id="avatar" > Cambiar Foto </button>
   </p>

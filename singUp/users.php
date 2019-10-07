@@ -17,15 +17,15 @@ function validar($datos,$imagen){
     if($password != $passwordRepeat){
         $errores['passwordRepeat']="Las contraseñas deben ser iguales";
     }
-  //   if(isset($_FILES)){
-  //   $nombre = $imagen['avatar']['name'];
-  //   $ext = pathinfo($nombre,PATHINFO_EXTENSION);
-  //   if($imagen['avatar']['error']!=0){
-  //       $errores['avatar']="Debes subir tu foto...";
-  //   }elseif ($ext != "jpg" && $ext != "png") {
-  //       $errores['avatar']="Formato inválido";
-  //   }
-  // }
+    if(isset($_FILES)){
+    $nombre = $imagen['avatar']['name'];
+    $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+    if($imagen['avatar']['error']!=0){
+        $errores['avatar']="Debes subir tu foto...";
+    }elseif ($ext != "jpg" && $ext != "png") {
+        $errores['avatar']="Formato inválido";
+    }
+  }
 return $errores;
 }
 
@@ -108,7 +108,7 @@ function armarAvatar($imagen){
     $ext = pathinfo($nombre,PATHINFO_EXTENSION);
     $archivoOrigen = $imagen['avatar']['tmp_name'];
     $archivoDestino = dirname(__DIR__);
-    $archivoDestino = $archivoDestino."/imagenes/";
+    $archivoDestino = $archivoDestino."\singUp\imagenes\ ";
     $avatar = uniqid();
     $archivoDestino = $archivoDestino.$avatar.".".$ext;
     //Aquí estoy copiando al servidor nuestro archivo destino creado

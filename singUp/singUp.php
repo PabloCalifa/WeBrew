@@ -45,7 +45,7 @@ if($_POST){
                   <?php endforeach;?>
                 </ul>
               <?php endif;?>
-              <form class="form-horizontal" id="singup" action="singUp.php" method="post" >
+              <form class="form-horizontal" id="singup" action="singUp.php" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
                   <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
                   </div>
