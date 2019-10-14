@@ -14,11 +14,11 @@
             <li role="separator" class="divider"></li>
             <li><a href="../productos/porrones.php">POR MARCA</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">POR ESTILO</a></li>
+            <li><a href="../productos/porrones.php">POR ESTILO</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">POR PAIS</a></li>
+            <li><a href="../productos/porrones.php">POR PAIS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">RECOMENDADOS</a></li>
+            <li><a href="../productos/porrones.php">RECOMENDADOS</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -40,13 +40,13 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
           role="button" aria-haspopup="true" aria-expanded="false">GROWLERS<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="../productos/porrones.php">TODOS</a></li>
+            <li><a href="../productos/growlers.php">TODOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="../productos/porrones.php">POR MARCA</a></li>
+            <li><a href="../productos/growlers.php">POR MARCA</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">POR ESTILO</a></li>
+            <li><a href="../productos/growlers.php">POR ESTILO</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">RECOMENDADOS</a></li>
+            <li><a href="../productos/growlers.php">RECOMENDADOS</a></li>
           </ul>
         </li>
         <li class="dropdown">

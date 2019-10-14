@@ -1,7 +1,35 @@
 #espacionav{
-  padding-top: 60px;
+  padding:0px;
+  padding-top: 52px;
+  margin:0px;
+}
+
+img#fototitulo {
+    width: 100%;
+    padding:0px;
+    margin:0px;
+    margin: 0 auto;
+}
+
+div#botonesbajofoto.row{
+margin: 0px;
+padding: 0px;
 
 }
+
+div#botonesbajofoto.row>div.col-sm{
+  padding:0px;
+  margin:0px;
+}
+
+div#botonesbajofoto.row>div.col-sm>button{
+  border-radius: 0px;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
 
 #botones{
   color: white;

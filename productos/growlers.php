@@ -19,7 +19,7 @@
     <body>
       <?php require "../Nav/nav.php" ?>
       <div class="espacionav"id="espacionav"> </div>
-      <img src="../fotosComunes/porronescut.jpg" alt="..." id="fototitulo">
+      <img src="../fotosComunes/growlerscut.jpg" alt="..." id="fototitulo">
         <div class="row" id="botonesbajofoto">
           <div class="col-sm">
             <button type="button" class="btn" id="botones">TODOS</button>

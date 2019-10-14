@@ -58,7 +58,7 @@
                       </select>
                     </label>
                   </div>
-                  <li class="listadocompra"> <button type="button" class="btn" id="botones">Agregar al Carrito</button></li>
+                  <li class="listadocompra"><button type="button" class="btn" id="botones">Agregar al Carrito</button></li>
                   <li class="listadocompra"><button type="button" class="btn" id="botones"></i> Calcular Envío</button></li>
                 </ul>
                 </div>
