@@ -63,7 +63,6 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">RECOMENDADOS</a></li>
           </ul>
-        <li><a href="../FAQ/faq.php"><i class="fas fa-question-circle"></i></a></li>
         <li><a href="../contacto/contacto.php">CONTACTO</a></li>
         </li>
       </ul>

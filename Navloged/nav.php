@@ -63,9 +63,8 @@
           <li role="separator" class="divider"></li>
           <li><a href="#">RECOMENDADOS</a></li>
         </ul>
-          <li><a href="../FAQ/faq.php"><i class="fas fa-question-circle"></i></a></li>
-          <li><a href="../contacto/contacto.php">CONTACTO</a></li>
-        </li>
+      <li><a href="../contacto/contacto.php">CONTACTO</a></li>
+      </li>
       </ul>
     <form class=" form-inline my-2 my-lg-0" style="">
       <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando? " aria-label="Close">
