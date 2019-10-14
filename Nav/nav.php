@@ -84,5 +84,3 @@
     </ul>
   </div>
 </nav>
-<img src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
-<img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">

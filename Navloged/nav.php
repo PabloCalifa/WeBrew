@@ -6,20 +6,63 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-          role="button" aria-haspopup="true" aria-expanded="false">PRODUCTOS <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../productos/porrones.php">PORRONES</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">BARRILES</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">GROWLERS</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">ARTESANALES</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">ACCESORIOS</a></li>
-          </ul>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+        role="button" aria-haspopup="true" aria-expanded="false">PORRONES <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../productos/porrones.php">TODOS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="../productos/porrones.php">POR MARCA</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">POR ESTILO</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">POR PAIS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">RECOMENDADOS</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+        role="button" aria-haspopup="true" aria-expanded="true">BARRILES <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../productos/porrones.php">TODOS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="../productos/porrones.php">POR MARCA</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">POR ESTILO</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">POR PAIS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">RECOMENDADOS</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+        role="button" aria-haspopup="true" aria-expanded="false">GROWLERS<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../productos/porrones.php">TODOS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="../productos/porrones.php">POR MARCA</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">POR ESTILO</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">RECOMENDADOS</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+        role="button" aria-haspopup="true" aria-expanded="false">ACCESORIOS<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../productos/porrones.php">TODOS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">CONSERVADORAS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">GROWLERS</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">DESTAPADORES</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">RECOMENDADOS</a></li>
+        </ul>
           <li><a href="../FAQ/faq.php"><i class="fas fa-question-circle"></i></a></li>
           <li><a href="../contacto/contacto.php">CONTACTO</a></li>
         </li>
@@ -46,5 +89,3 @@
     </ul>
   </div>
 </nav>
-<img src="../fotosComunes/logoWeBrew.png" class="logoWeBrew" alt="...">
-<img src="../fotosComunes/maderanav.jpg" class="fondonav"alt="...">
