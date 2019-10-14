@@ -75,13 +75,13 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
           <?=$_SESSION["Nombre"]; ?> <span class="caret"></span> </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Compras</a></li>
+            <li><a href="#">COMPRAS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Favoritos</a></li>
+            <li><a href="#">FAVORITOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="../perfil/perfil.php">Mis datos</a></li>
+            <li><a href="../perfil/perfil.php">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Salir</a></li>
+            <li><a href="#">SALIR</a></li>
           </ul>
       </li>
       <li id="market"><a href="../carrito/carrito.php" > <i class="fas fa-shopping-cart"></i></a></li>
