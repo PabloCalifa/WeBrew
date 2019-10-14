@@ -1,8 +1,6 @@
 
 .nav-tabs>li>a {
-background-color: darkgrey;
-
-
+  background-color: darkgrey;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
@@ -17,6 +15,14 @@ background-color: darkgrey;
 
 }
 
+div.row#rowcompras .btn {
+  color: black;
+  background-color: #dddddd;
+  margin-top: 1px;
+  border-radius: 7px;
+}
+
+
 #carrito .nav > li > a:hover{
   background-color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
@@ -26,9 +32,11 @@ background-color: darkgrey;
 .navbar#carrito{
   background-color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
   text-align: end;
-  padding-top: 2%;
-  padding-bottom: 0%;
+  padding-top: 10px;
+  padding-bottom: 6px;
   padding-right: 10px;
 }
 
@@ -43,43 +51,46 @@ background-color: darkgrey;
 }
 
 .form-inline#carrito{
-padding-right: 10px;
+  padding-right: 10px;
 
 }
 
 .row#carritorowproductos{
   background-color: #dddddd;
   margin: 0 auto;
-  padding-top: 0px;
+  padding-top: 10px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
   }
 
-#carritorowproductos div.col-sm-3 {
-padding: 0px;
-text-align: -webkit-center;
+
+
+div.row#rowcompras  {
+  padding: 0px;
+  text-align: -webkit-center;
 
 }
 
 #carritorowproductos h5{
-font-weight: 700;
+  font-weight: 700;
 
 }
 
 div.row#rowcompras{
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-padding: 0px;
-margin: 0 auto;
-border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 0px;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
 div.row#rowcompras .col-sm-3 {
-padding: 0px;
+  padding: 0px;
 
 }
 
 div.row#rowcompras .btn {
-border-radius: 0px;
+  border-radius: 0px;
 
 }
 
@@ -96,6 +107,7 @@ div.row .col-sm-12#formadepago{
   background-color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
   padding: 0px;
+  padding-top: 10px;
   padding-left: 10px;
   margin: 0 auto;
   border-radius: 5px;
@@ -103,14 +115,19 @@ div.row .col-sm-12#formadepago{
 }
 
 div.container#compra{
-    text-align-last: right
+  text-align-last: right
 
 }
 
 div.container#compra .btn#compra.focus, div.container#compra .btn#compra:hover{
   color: white;
   background-color: black;
+}
 
 
-
+.btn#compra{
+  color: black;
+  background-color: #dddddd;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

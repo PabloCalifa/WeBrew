@@ -1,12 +1,11 @@
 
-.nav-tabs>li>a {
-background-color: darkgrey;
-
-
+#perfil.nav>li>a{
+  background-color: rgba(255,255,255,1);
+  color: rgba(0,0,0,0.8);
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
-  background-color: black;
+  background-color: color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
 
 }
@@ -41,6 +40,20 @@ background-color: darkgrey;
 
 }
 
+button#search.btn {
+  background-color: rgba(255,255,255,1);
+  color: rgba(0,0,0,0.8);
+
+}
+
+button#search.btn:hover{
+  background-color: rgba(0,0,0,0.8);
+  color: rgba(255,255,255,1);
+
+}
+
+
+
 .form-inline#perfil{
 padding-right: 10px;
 
@@ -51,7 +64,7 @@ padding-right: 10px;
   margin: 0 auto;
   padding-top: 0px;
   border-radius: 4px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
 #perfilrowproductos div.col-sm-3 {

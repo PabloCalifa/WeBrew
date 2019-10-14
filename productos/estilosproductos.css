@@ -12,24 +12,56 @@
   text-align:left;
 }
 
+ul#listacompraproducto{
+padding: 0px;
+margin: 0px;
+
+}
+
 #rowdetalle{
   background-color:  white;
   color: grey;
   list-style: none;
 }
+
 #listacompraproducto{
   color: black;
   list-style: none;
+}
+
+#rutaproductos {
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+#rowProducto.row{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+#carousel.col-sm-8 {
+  background-color: white;
+  margin: 0 auto;
+  padding: 0px;
 
 }
+#listaproductosybotones.col-sm-4 {
+  background-color:#dddddd  ;
+  margin: 0 auto;
+  padding: 0px;
+
+}
+
 
 .Titulo{
   text-decoration: underline;
   padding-bottom: 10px;
 }
+
 .divfloat{
   float: right;
 }
+
 .productoPrincipal {
   padding: 4px;
   line-height: 1.42857143;

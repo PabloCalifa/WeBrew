@@ -1,6 +1,7 @@
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<body>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,19 +14,14 @@
     <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
     <link rel="stylesheet" type="text/css" href="incss.css" />
     <title>  We Brew</title>
-
-
-    </head>
-      <?php require "../Nav/nav.php" ?>
+  </head>
+  <body>
+  <?php require "../Nav/nav.php" ?>
       <section id="seccion">
-
-
-
-
         <div id="promo" class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12" style="padding-top:10px"><a href="#" target="_blank"><img alt="Financiación" class="img-responsive" src="productos/Financiacion.jpg"></a></div>
-          <div class="col-md-4 col-sm-4 col-xs-12" style="padding-top:10px"><a href="#" target="_blank"><img alt="Video instructivo" class="img-responsive" src="productos/tutorial.jpg"></a></div>
-          <div class="col-md-4 col-sm-4 col-xs-12" style="padding-top:10px"><a href="#" target="_blank"><img alt="Retiro en Tienda o Envío a Domicilio" class="img-responsive" src="productos/Retiro.jpg"></a></div>
+          <div class="col-md-4 col-sm-4 col-xs-12" id="columna" style="padding-top:10px"><a href="#" target="_blank"><img alt="Financiación" class="img-responsive" src="productos/Financiacion.jpg"></a></div>
+          <div class="col-md-4 col-sm-4 col-xs-12" id="columna" style="padding-top:10px"><a href="#" target="_blank"><img alt="Video instructivo" class="img-responsive" src="productos/tutorial.jpg"></a></div>
+          <div class="col-md-4 col-sm-4 col-xs-12" id="columna" style="padding-top:10px"><a href="#" target="_blank"><img alt="Retiro en Tienda o Envío a Domicilio" class="img-responsive" src="productos/Retiro.jpg"></a></div>
         </div>
         <div class="espacio" style="padding:2vw"></div>
           <div  class="container ">

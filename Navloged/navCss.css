@@ -18,13 +18,13 @@ nav#navbar {
 }
 
 .nav>li>a:hover{
-  background-color: rgba(190, 177, 133,0.15);
+  color: rgba(223,220,119,0.5);
   text-decoration: none;
 
 }
 
 .nav>li>a:focus{
-  background-color: rgba(0,0,0,0.5);
+  color: rgba(223,220,119,0.5);
   text-decoration: none;
 
 }
@@ -39,7 +39,7 @@ nav#navbar {
 
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
-  background-color: rgba(0,0,0,0.5);
+  color: rgba(223,220,119,0.5);
   text-decoration: none;
 
 
@@ -52,8 +52,8 @@ nav#navbar {
 }
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-  background-color: rgba(190, 177, 133,0.15);
-  color: ghostwhite;
+  color: rgba(223,220,119,0.5);
+  text-decoration: none;
   font-weight: bold;
 
 }
@@ -76,6 +76,11 @@ li #market {
 .svg-inline--fa {
   color: ghostwhite;
 }
+
+.svg-inline--fa:hover,.svg-inline--fa:focus {
+  color: rgba(223,220,119,0.5);
+}
+
 
 img.miniLogoWeBrew {
   width: 150px;
