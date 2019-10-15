@@ -25,15 +25,15 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
         role="button" aria-haspopup="true" aria-expanded="true">LATAS <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="../productos/barriles.php">TODOS</a></li>
+          <li><a href="../productos/latas.php">TODOS</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR MARCA</a></li>
+          <li><a href="../productos/latas.php">POR MARCA</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR ESTILO</a></li>
+          <li><a href="../productos/latas.php">POR ESTILO</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR PAIS</a></li>
+          <li><a href="../productos/latas.php">POR PAIS</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">RECOMENDADOS</a></li>
+          <li><a href="../productos/latas.php">RECOMENDADOS</a></li>
         </ul>
       </li>
       <li class="dropdown">
