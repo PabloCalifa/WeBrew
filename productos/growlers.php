@@ -31,9 +31,6 @@
           <button type="button" class="btn" id="botones">ESTILO</button>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn" id="botones">PAIS</button>
-          </div>
-          <div class="col-sm">
             <button type="button" class="btn" id="botones">RECOMENDADOS</button>
           </div>
         </div>

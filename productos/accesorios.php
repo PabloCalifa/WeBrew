@@ -25,13 +25,13 @@
             <button type="button" class="btn" id="botones">TODOS</button>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn" id="botones">MARCA</button>
+            <button type="button" class="btn" id="botones">CONSERVADORAS</button>
           </div>
           <div class="col-sm">
-          <button type="button" class="btn" id="botones">ESTILO</button>
+          <button type="button" class="btn" id="botones">GROWLERS</button>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn" id="botones">PAIS</button>
+            <button type="button" class="btn" id="botones">DESTAPADORES</button>
           </div>
           <div class="col-sm">
             <button type="button" class="btn" id="botones">RECOMENDADOS</button>
