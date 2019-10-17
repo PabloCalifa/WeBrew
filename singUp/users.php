@@ -1,39 +1,8 @@
 <?php
 session_start();
 
-
-function armarRegistro($datos){
-  $usuario = [
-  "email" => $datos ["email"],
-  "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
-  "dia" => $datos ["dia"],
-  "mes" => $datos ["mes"],
-  "ano" => $datos ["ano"],
-  "Nombre" => $datos ["Nombre"],
-  "apellido" => $datos ["apellido"],
-  "Sexo" => $datos ["Sexo"],
-  "calle" => $datos ["calle"],
-  "numdireccion" => $datos ["numdireccion"],
-  "Pisodireccion" => $datos ["Pisodireccion"],
-  "pais" => $datos ["pais"],
-  "Provincia" => $datos ["Provincia"],
-  "Ciudad" => $datos ["Ciudad"],
-  "codigopostal" => $datos ["codigopostal"],
-  "acepterms" => $datos ["acepterms"],
-  "actualizaciones"=> $datos ["actualizaciones"],
-  "manteinLogued" => $datos ["manteinLogued"],
-  ];
-  return $usuario;
-}
-
-function guardarRegistro($registro){
-    $archivoJson = json_encode($registro);
-    file_put_contents('user.json',$archivoJson.PHP_EOL,FILE_APPEND);
-}
-
-
 // //Aquí comienzo a programar las funciones generales de mi sistema
-function validar($datos){
+function validar($datos,$imagen){
     //Este representa mi array donde voy a ir almacenando los errores, que luego muestro en la vista al usuario.|
     $errores = [];
     $email = trim($datos['email']);
@@ -41,43 +10,25 @@ function validar($datos){
         $errores['email']="Email inválido...";
     }
     $password = trim($datos['password']);
-    if(empty($password)){
-        $errores['password']="El password no puede ser blanco...";
-    }elseif (!is_numeric($password)) {
-        $errores['password']="El password debe ser numérico...";
-    }elseif (strlen($password)<8) {
+    if(strlen($password)<8) {
         $errores['password']="El password como mínimo debe tener 8 caracteres...";
     }
     $passwordRepeat = trim($datos['passwordRepeat']);
     if($password != $passwordRepeat){
         $errores['passwordRepeat']="Las contraseñas deben ser iguales";
     }
-    $nombre = trim($datos['Nombre']);
-    if(empty($nombre)){
-        $errores['Nombre']="El nombre no puede estar en blanco...";
+    if(isset($_FILES)){
+    $nombre = $imagen['avatar']['name'];
+    $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+    if($imagen['avatar']['error']!=0){
+        $errores['avatar']="Debes subir tu foto...";
+    }elseif ($ext != "jpg" && $ext != "png") {
+        $errores['avatar']="Formato inválido";
     }
-    $apellido = trim($datos['apellido']);
-    if(empty($nombre)){
-        $errores['apellido']="El apellido no puede estar en blanco...";
-    }
-    $calle = trim($datos['calle']);
-    if(empty($nombre)){
-        $errores['calle']="La calle no puede estar en blanco...";
-    }
-    $numdireccion = trim($datos['numdireccion']);
-    if(empty($nombre)){
-        $errores['numdireccion']="La altura de la calle no puede estar en blanco...";
-    }
-    $ciudad = trim($datos['Ciudad']);
-    if(empty($nombre)){
-        $errores['Ciudad']="La ciudad no puede estar en blanco...";
-    }
-    $ciudad = trim($datos['codigopostal']);
-    if(empty($nombre)){
-        $errores['codigopostal']="El código postal no puede estar en blanco...";
-    }
-    return $errores;
+  }
+return $errores;
 }
+
 
 function validarLogin($datos){
     $errores=[];
@@ -88,9 +39,7 @@ function validarLogin($datos){
     $password = trim($datos['password']);
     if(empty($password)){
         $errores['password']="El password no puede ser blanco...";
-    }elseif (!is_numeric($password)) {
-        $errores['password']="El password debe ser numérico...";
-    }elseif (strlen($password)<6) {
+      }elseif (strlen($password)<6) {
         $errores['password']="El password como mínimo debe tener 6 digitos...";
     }
     return $errores;
@@ -119,6 +68,58 @@ function validarOlvidePassword($datos){
 }
 
 
+function armarRegistro($datos,$avatar){
+  $usuario = [
+  "email" => $datos ["email"],
+  "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
+  "dia" => $datos ["dia"],
+  "mes" => $datos ["mes"],
+  "ano" => $datos ["ano"],
+  "Nombre" => $datos ["Nombre"],
+  "apellido" => $datos ["apellido"],
+  "Sexo" => $datos ["Sexo"],
+  "calle" => $datos ["calle"],
+  "numdireccion" => $datos ["numdireccion"],
+  "Pisodireccion" => $datos ["Pisodireccion"],
+  "pais" => $datos ["pais"],
+  "Provincia" => $datos ["Provincia"],
+  "Ciudad" => $datos ["Ciudad"],
+  "codigopostal" => $datos ["codigopostal"],
+  "acepterms" => $datos ["acepterms"],
+  "actualizaciones"=> $datos ["actualizaciones"],
+  "manteinLogued" => $datos ["manteinLogued"],
+  "avatar" => $avatar
+  ];
+  return $usuario;
+}
+
+function guardarRegistro($registro){
+    $archivoJson = json_encode($registro);
+    file_put_contents('user.json',$archivoJson.PHP_EOL,FILE_APPEND);
+}
+
+//Esta función nos permite armar el registro cuando el usuario selecciona el avatar
+
+
+
+
+function armarAvatar($imagen){
+    $nombre = $imagen['avatar']['name'];
+    $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+    $archivoOrigen = $imagen['avatar']['tmp_name'];
+    $archivoDestino = dirname(__DIR__);
+    $archivoDestino = $archivoDestino."\singUp\imagenes\ ";
+    $avatar = uniqid();
+    $archivoDestino = $archivoDestino.$avatar.".".$ext;
+    //Aquí estoy copiando al servidor nuestro archivo destino creado
+    move_uploaded_file($archivoOrigen,$archivoDestino);
+    //Aquí estoy retornando al usuario sólo la imagen, la cual será guardada en el archivo json
+    $avatar = $avatar.".".$ext;
+    return $avatar;
+}
+
+
+
 //Función que nos permite buscar por email, a ver si el usuario existe o no en nuestra base de datos, que ahorita es un archivo json.
 function buscarPorEmail($email){
     $usuarios = abrirBaseDatos();
@@ -130,25 +131,18 @@ function buscarPorEmail($email){
     return null;
 }
 
-  function abrirBaseDatos(){
-    if(file_exists('../singUp/user.json')){
-        $archivoJson = file_get_contents('../singUp/user.json');
-        //Aquí lo que hago es generar cada array con un salto de linea, para poderlo ver ejecute aquí un dd($archivoJson)
-        $archivoJson = explode(PHP_EOL,$archivoJson);
-        //Aquí saco el ultimo registro, el cual está en blanco
-        //ejecute aquí un ($archivoJson), la idea es para que verifique como se va armando el archivo
-        array_pop($archivoJson);
-        //ejecute aquí un ($archivoJson), la idea es para que verifique como se va armando el archivo
-
-        //Aquí recorro el array y creo mi array con todos los usuarios
-        foreach ($archivoJson as $usuarios) {
-            $arrayUsuarios[]= json_decode($usuarios,true);
-        }
-        //Aquí retorno el array de usuarios con todos sus datos
-        return $arrayUsuarios;
-    }else{
-        return null;
-    }
+function abrirBaseDatos(){
+   if(file_exists('../singUp/user.json')){
+       $archivoJson = file_get_contents('../singUp/user.json');
+       $archivoJson = explode(PHP_EOL,$archivoJson);
+       array_pop($archivoJson);
+       foreach ($archivoJson as $usuarios) {
+           $arrayUsuarios[]= json_decode($usuarios,true);
+       }
+       return $arrayUsuarios;
+   }else{
+       return null;
+   }
 }
 
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
@@ -164,7 +158,7 @@ function seteoUsuario($usuario,$dato){
     $_SESSION['Provincia']=$usuario['Provincia'];
     $_SESSION['Ciudad']=$usuario['Ciudad'];
     $_SESSION['codigopostal']=$usuario['codigopostal'];
-    // $_SESSION['avatar']=$usuario['avatar'];
+    $_SESSION['avatar']=$usuario['avatar'];
     if(isset($dato['recordarme'])){
         setcookie('email',$usuario['email'],time()+3600);
         setcookie('password',$dato['password'],time()+3600);

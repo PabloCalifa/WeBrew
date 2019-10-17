@@ -1,23 +1,21 @@
 <?php
 require_once("users.php");
 require_once("helpers.php");
-
 if($_POST){
- $errores = validar($_POST);
+ $errores = validar($_POST,$_FILES);
  if(count($errores)==0){
   $usuario = buscarPorEmail($_POST["email"]);
   if($usuario !== null){
     $errores["email"]="Usuario ya registrado";
   }else{
-    $registro = armarRegistro($_POST);
+    $avatar = armarAvatar($_FILES);
+    $registro = armarRegistro($_POST,$avatar);
     guardarRegistro($registro);
    //De no excistir errores en la información tipeada por el usuario entonces lo redirecciono a donde yo desee.
-
     header("location:../singIn/singIn.php");
     exit;
+    }
   }
-
-}
 }
 
 ?>
@@ -28,13 +26,13 @@ if($_POST){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="singUp.css" />
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
-    <link rel="stylesheet" type="text/css" href="../Nav/nav.css" />
+    <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
     <title>- - - - - We Brew- - - - - </title>
-    <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
+
   </head>
   <body>
           <?php require "../Nav/nav.php" ?>
@@ -47,7 +45,7 @@ if($_POST){
                   <?php endforeach;?>
                 </ul>
               <?php endif;?>
-              <form class="form-horizontal" id="singup" action="singUp.php" method="post" >
+              <form class="form-horizontal" id="singup" action="singUp.php" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
                   <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
                   </div>
@@ -204,6 +202,12 @@ if($_POST){
                   </div>
                 </div>
                 <div class="form-group">
+                <label for="avatar" class="col-sm-2 control-label">Foto de Perfil</label>
+                <div class="col-sm-10">
+                <input required name="avatar" type="file" value= "" class="form-control" id="avatar" >
+                </div>
+                </div>
+                <div class="form-group">
                   <div class="col-sm-offset-0 col-sm-12">
                     <div class="checkbox">
                       <label>
@@ -231,11 +235,12 @@ if($_POST){
             <div class="espacio" style="padding-top:3vw">
             </div>
             <?php require "../Footer/Footer.php" ?>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
-  </body>
-</html>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+    </body>
+  </html>

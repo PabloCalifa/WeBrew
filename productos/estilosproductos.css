@@ -1,3 +1,75 @@
+#espacionav{
+  padding:0px;
+  padding-top: 52px;
+  margin:0px;
+}
+
+img#fototitulo {
+    width: 100%;
+    padding:0px;
+    margin:0px;
+    margin: 0 auto;
+    height: 300px;
+}
+
+div#botonesbajofoto.row{
+margin: 0px;
+padding: 0px;
+
+}
+
+div#botonesbajofoto.row>div.col-sm{
+  padding:0px;
+  margin:0px;
+}
+
+div#botonesbajofoto.row>div.col-sm>button{
+  border-radius: 0px;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+
+#botones{
+  color: white;
+  background-color: black;
+  width: 100%;
+
+}
+
+#botones:hover, #botones:focus  {
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.fa-calculator:hover, .fa-calculator:focus{
+  color: black;
+}
+
+
+
+#producto{
+  padding-bottom: 10px;
+  border-bottom: solid 1.5px grey;
+}
+
+#star{
+  color: gold;
+
+}
+
+ul#detalleproducto>li{
+padding-bottom: 5px;
+padding-top: 5px;
+border-bottom: solid 1px grey;
+
+}
+
+
 #rowProducto{
   background-color:  white;
   color: black;
@@ -12,24 +84,57 @@
   text-align:left;
 }
 
+ul#listacompraproducto{
+  padding: 0px;
+  margin: 0px;
+
+}
+
 #rowdetalle{
   background-color:  white;
   color: grey;
   list-style: none;
 }
+
 #listacompraproducto{
   color: black;
   list-style: none;
+}
+
+#rutaproductos {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#rowProducto.row{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+#fotoproducto {
+  background-color: white;
+  margin: 0 auto;
+  padding: 0px;
+  max-width: 350px;
 
 }
+#listaproductosybotones.col-sm-4 {
+  background-color:#dddddd  ;
+  margin: 0 auto;
+  padding: 0px;
+
+}
+
 
 .Titulo{
   text-decoration: underline;
   padding-bottom: 10px;
 }
+
 .divfloat{
   float: right;
 }
+
 .productoPrincipal {
   padding: 4px;
   line-height: 1.42857143;
@@ -56,9 +161,20 @@ padding-top: 10px;
 }
 
 .section-title span {
-    color: #454545;
-    padding: 5px 15px 5px 0;
-    text-transform: uppercase;
-    width: auto;
+  color: #454545;
+  padding: 5px 15px 5px 0;
+  text-transform: uppercase;
+  width: auto;
 
+  }
+
+  .navproductos>li>a{
+    color: black;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+
+
+  .card-body{
+    background-color: darkgray;
   }

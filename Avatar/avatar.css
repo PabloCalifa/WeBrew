@@ -1,14 +1,37 @@
 .card#card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
+  padding: 0px;
   margin: auto;
   text-align: center;
+  border-radius: 5px;
 }
+
+div.imagen{
+padding-bottom: 10px;
+}
+
 
 .card#card.title {
   color: grey;
   font-size: 18px;
 }
+
+.card#card button#avatar {
+  background: none;
+  opacity: 0.0;
+  color:none;
+  position: absolute;
+  padding-bottom: 90px;
+}
+
+.card#card button#avatar:hover {
+padding-top: 40px;
+background-color: rgba(0, 0, 0, 0.5);
+opacity: 1;
+
+}
+
 
 .card#card button {
   border: none;

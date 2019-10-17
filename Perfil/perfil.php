@@ -18,7 +18,7 @@ require_once("../singUp/helpers.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="perfil.css" />
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
     <link rel="stylesheet" type="text/css" href="../Navloged/navCss.css" />
@@ -48,7 +48,8 @@ require_once("../singUp/helpers.php");
                           <a class="navbar-brand"id="perfil">Tus pedidos</a>
                           <form class="form-inline">
                             <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                            <button class="btn" id="search" type="submit">Buscar</button>
+
                           </form>
                         </nav>
                         <!-- FIN DEL NAV -->
@@ -83,27 +84,27 @@ require_once("../singUp/helpers.php");
                         <br> </br>
                         <!-- INICIO DESCRIPCION DE PRODUCTOS -->
                         <div class="row" id="rowcompras" >
-                          <div class="col-sm-3">
+                          <div class="col">
                             <div class"fotoproducto">
                                 <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
                             </div>
                           </div>
-                          <div class="col-sm-6">
+                          <div class="col">
                             <div class="detalleProducto">
                                 <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
                                 <p><b>Cantidad:</b>12 unidades</p>
                                 <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
                                 <p><b>Valor :</b>$50,00</p>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
+                                <button class="btn" type="submit">Volver a Comprar</button>
                             </div>
                           </div>
-                          <div class="row" id="rowcompras" >
-                            <div class="col-sm-3">
-                              <button class="btn btn-outline-success" style="width:100%" type="submit">Pedir reembolso</button>
-                              <button class="btn btn-outline-success" style="width:100%" type="submit">Problema con el pedido</button>
-                              <button class="btn btn-outline-success" style="width:100%" type="submit">Evaluar compra</button>
-                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ocultar pedido</button>
-                              <button class="btn btn-outline-success" style="width:100%" type="submit">Ver productos simiilares</button>
+                          <div class="row" id="rowbotones" >
+                            <div class="col">
+                              <button class="btn " style="width:100%" type="submit">Pedir reembolso</button>
+                              <button class="btn " style="width:100%" type="submit">Problema con el pedido</button>
+                              <button class="btn " style="width:100%" type="submit">Evaluar compra</button>
+                              <button class="btn " style="width:100%" type="submit">Ocultar pedido</button>
+                              <button class="btn " style="width:100%" type="submit">Ver productos simiilares</button>
                             </div>
                           </div>
                         </div>

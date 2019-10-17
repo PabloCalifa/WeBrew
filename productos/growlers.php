@@ -19,7 +19,7 @@
     <body>
       <?php require "../Nav/nav.php" ?>
       <div class="espacionav"id="espacionav"> </div>
-      <img src="../fotosComunes/porronescut.jpg" alt="..." id="fototitulo">
+      <img src="../fotosComunes/growlerscut.jpg" alt="..." id="fototitulo">
         <div class="row" id="botonesbajofoto">
           <div class="col-sm">
             <button type="button" class="btn" id="botones">TODOS</button>
@@ -31,103 +31,12 @@
           <button type="button" class="btn" id="botones">ESTILO</button>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn" id="botones">PAIS</button>
-          </div>
-          <div class="col-sm">
             <button type="button" class="btn" id="botones">RECOMENDADOS</button>
           </div>
         </div>
       <div class="espacionav"id="espacionav"> </div>
       <section id="seccion">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          MARCAS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-  <div class="card-body">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active navproductos " href="#" >Corona</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navproductos" href="#">Stella Artois</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navproductos" href="#">Patagonia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-              </li>
-            </ul>
-    </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          POR PAIS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active navproductos " href="#" >Corona</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Stella Artois</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Patagonia</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-                  </li>
-                </ul>
-        </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          ESTILOS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active navproductos " href="#" >Corona</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Stella Artois</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Patagonia</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-                  </li>
-                </ul>
-        </div>
-    </div>
-  </div>
-</div>
-
-            </div>
-            <div class="col-sm-9">
+        <div class="container">
           <div id="rowPorron"class="row">
              <div class="col-sm-12 ">
               <div id="rowIndex"class="row">
@@ -153,7 +62,6 @@
               </div>
             </div>
           </div>
-        </div>
         <div class="espacio" style="padding-top:8vw"></div>
     </section>
     <?php require "../Footer/Footer.php" ?>
