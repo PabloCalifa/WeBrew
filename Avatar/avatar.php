@@ -4,7 +4,7 @@
     <img src="../singUp/imagenes/ <?=$_SESSION['avatar'];?>" alt="..." style="width:100%">
   </div>
   <div class="texto">
-    <h1>Hola, <?=$_SESSION["Nombre"] ;?></h1>
+    <h1>Hola, <?=$_SESSION["nombre"] ;?></h1>
     <p class="mail"><b>E-mail:</b> <?= $_SESSION['email'] ;?></p>
     <p class="direccion"><b>Domicilio</b> <?=$_SESSION['calle'] . " " . $_SESSION['numdireccion'] . " " . $_SESSION['Pisodireccion'] . " " .  $_SESSION['Provincia'] . " " . $_SESSION['Ciudad'] . "  "
     . $_SESSION['codigopostal']  ;?></p>

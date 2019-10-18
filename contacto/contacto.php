@@ -16,7 +16,7 @@
     <title>  We Brew</title>
   </head>
   <body>
-    <?php require "../Nav/nav.php" ?>
+    <?php require "../Navloged/nav.php" ?>
     <div class="espacio" style="padding:3vw"></div>
       <section id="seccion">
         <div class="container">

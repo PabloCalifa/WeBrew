@@ -46,7 +46,7 @@ if($_POST){
     <title>- - - - - We Brew- - - - - </title>
   </head>
   <body>
-          <?php require "../Nav/nav.php" ?>
+          <?php require "../Navloged/nav.php" ?>
           <div class="espacio" style="padding:3vw">
           </div>
           <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">

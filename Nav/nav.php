@@ -1,6 +1,6 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark " id="navbar">
-  <a class="navbar-brand" href="../index/index.php"><img src="../fotosComunes/weBrewnav.png" class="miniLogoWeBrew" alt="..."></a>
+  <a class="navbar-brand" href="<?php dirname(__DIR__);?>"><img src="../fotosComunes/weBrewnav.png" class="miniLogoWeBrew" alt="..."></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

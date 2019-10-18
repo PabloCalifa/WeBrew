@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+require_once("../singUp/users.php");
+require_once("../singUp/helpers.php");
+
+?>
 <html lang="en" dir="ltr">
   <head>
     <!-- Required meta tags -->
@@ -14,10 +19,10 @@
     <link rel="stylesheet" type="text/css" href="../contacto/estilocontacto.css"/>
     <link rel="stylesheet" type="text/css" href="estilosproductos.css" />
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
-    <title>  We Brew</title>
+    <title>We Brew</title>
     </head>
     <body>
-      <?php require "../Nav/nav.php" ?>
+      <?php require "../Navloged/nav.php" ?>
       <div class="espacionav"id="espacionav"> </div>
       <img src="../fotosComunes/accesorios.jpg" alt="..." id="fototitulo">
         <div class="row" id="botonesbajofoto">

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+require_once("../singUp/users.php");
+require_once("../singUp/helpers.php");
+
+?>
 <html lang="en" dir="ltr">
   <head>
     <!-- Required meta tags -->
@@ -17,7 +22,7 @@
     <title>  We Brew</title>
   </head>
   <body>
-    <?php require "../Nav/nav.php" ?>
+    <?php require "../Navloged/nav.php" ?>
     <div class="espacionav"id="espacionav"> </div>
     <section id="seccion">
         <div class="container">

@@ -35,7 +35,7 @@ if($_POST){
 
   </head>
   <body>
-          <?php require "../Nav/nav.php" ?>
+          <?php require "../Navloged/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
               <?php if(isset($errores)):?>
@@ -111,9 +111,9 @@ if($_POST){
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="titulo" style="text-align-last: left;"><h4>Datos Personales</h4></label></div>
                 <div class="form-group">
-                  <label for="Nombre" class="col-sm-2 control-label">Nombre</label>
+                  <label for="nombre" class="col-sm-2 control-label">nombre</label>
                   <div class="col-sm-10">
-                    <input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre" value="">
+                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="nombre" value="">
                   </div>
                 </div>
                 <div class="form-group">

@@ -75,7 +75,7 @@ function armarRegistro($datos,$avatar){
   "dia" => $datos ["dia"],
   "mes" => $datos ["mes"],
   "ano" => $datos ["ano"],
-  "Nombre" => $datos ["Nombre"],
+  "nombre" => $datos ["nombre"],
   "apellido" => $datos ["apellido"],
   "Sexo" => $datos ["Sexo"],
   "calle" => $datos ["calle"],
@@ -148,7 +148,7 @@ function abrirBaseDatos(){
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
 function seteoUsuario($usuario,$dato){
     $_SESSION['email']=$usuario['email'];
-    $_SESSION['Nombre']=$usuario['Nombre'];
+    $_SESSION['nombre']=$usuario['nombre'];
     $_SESSION['apellido']=$usuario['apellido'];
     $_SESSION['calle']=$usuario['calle'];
     $_SESSION['numdireccion']=$usuario['numdireccion'];
@@ -175,7 +175,6 @@ function validarUsuario(){
         return false;
     }
 }
-
 
 
 

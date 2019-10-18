@@ -9,6 +9,7 @@ img#fototitulo {
     padding:0px;
     margin:0px;
     margin: 0 auto;
+    height: 300px;
 }
 
 div#botonesbajofoto.row{
@@ -165,4 +166,15 @@ padding-top: 10px;
   text-transform: uppercase;
   width: auto;
 
+  }
+
+  .navproductos>li>a{
+    color: black;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+
+
+  .card-body{
+    background-color: darkgray;
   }

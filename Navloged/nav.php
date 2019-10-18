@@ -87,8 +87,16 @@
     </form>
     <ul class="nav navbar-nav navbar-right" id="Loginreg">
       <li class="dropdown">
+        <?php if(!isset($_SESSION["email"])) : ?>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../SingIn/SingIn.php">LOGIN</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="../singUp/singUp.php">REGISTRO</a></li>
+        </ul>
+        <?php else : ?>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
-          <?=$_SESSION["Nombre"]; ?> <span class="caret"></span> </a>
+          <?=$_SESSION["nombre"]; ?> <span class="caret"></span> </a>
           <ul class="dropdown-menu">
             <li><a href="#">COMPRAS</a></li>
             <li role="separator" class="divider"></li>
@@ -96,8 +104,9 @@
             <li role="separator" class="divider"></li>
             <li><a href="../perfil/perfil.php">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">SALIR</a></li>
+            <li><a href="../singUp/cerrarSesion.php">SALIR</a></li>
           </ul>
+        <?php endif; ?>
       </li>
       <li id="market"><a href="../carrito/carrito.php" > <i class="fas fa-shopping-cart"></i></a></li>
     </ul>
