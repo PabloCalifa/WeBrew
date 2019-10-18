@@ -164,8 +164,15 @@ require_once("../singUp/helpers.php");
   <h1 class="productosMas text-center">Ofertas Especiales </h1>
 </div>
 
+<<<<<<< HEAD
   <div class="container">
     <div class="row">
+=======
+<div class="container">
+<div class="row">
+
+
+>>>>>>> 5ad09702cf60cc2835e3701349aadfee1450f0f5
         <div class=" card border-light card mb-3" style="max-width: 50%;">
           <div class="row no-gutters">
             <div class="col-md-4">
