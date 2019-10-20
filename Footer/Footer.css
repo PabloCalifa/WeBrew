@@ -9,10 +9,12 @@
 }
 
 .row#rowfooter h5{
-  color:lightgrey;
+  font-size: 1.7vw;
+  padding-top: 10px;
+  color:white;
   text-align: -webkit-center;
   list-style-type: none;
-
+  font-variant-caps: small-caps;
 }
 
 .row#rowfooter ul#ulfooter {
@@ -35,5 +37,6 @@
 
   padding: 0px;
   margin: 0 auto;
-  background-color: rgba(255,253,200,0.15);
+  color: rgba(255, 193, 0,0.8);
+  text-decoration: none;
 }

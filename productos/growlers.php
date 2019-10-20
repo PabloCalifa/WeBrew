@@ -11,12 +11,8 @@ require_once("../singUp/helpers.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../SingIn/SingIn.css" />
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
     <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
-    <link rel="stylesheet" type="text/css" href="../index/incss.css" />
-    <link rel="stylesheet" type="text/css" href="../FAQ/estilosfaq.css" />
-    <link rel="stylesheet" type="text/css" href="../contacto/estilocontacto.css"/>
     <link rel="stylesheet" type="text/css" href="estilosproductos.css" />
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
     <title>  We Brew</title>
@@ -45,11 +41,26 @@ require_once("../singUp/helpers.php");
           <div id="rowPorron"class="row">
              <div class="col-sm-12 ">
               <div id="rowIndex"class="row">
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-
+                <div class="col-sm-3 div-img">
+                  <img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona">
+                  <div class="">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona">
+                  <div class="">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
+                  <div class="">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona">
+                  <div class="">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
               </div>
               <div class="espacio" style="padding:2vw"></div>
               <div id="rowIndex"class="row">

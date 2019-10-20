@@ -9,7 +9,7 @@ img#fototitulo {
     padding:0px;
     margin:0px;
     margin: 0 auto;
-    height: 300px;
+
 }
 
 div#botonesbajofoto.row{
@@ -25,9 +25,11 @@ div#botonesbajofoto.row>div.col-sm{
 
 div#botonesbajofoto.row>div.col-sm>button{
   border-radius: 0px;
+  font-size: 25px;
+  font-weight: bold;
   padding: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 
 }
 

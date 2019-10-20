@@ -17,7 +17,6 @@ if($_POST){
     }
   }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +36,7 @@ if($_POST){
   <body>
           <?php require "../Navloged/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
+            <!-- <img src="../fotosComunes/woodsfondo.jpg" alt="..." id="fotofondosingin"> -->
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
               <?php if(isset($errores)):?>
                 <ul class="alert alert-danger">
@@ -45,35 +45,49 @@ if($_POST){
                   <?php endforeach;?>
                 </ul>
               <?php endif;?>
+              <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <form class="form-horizontal" id="singup" action="singUp.php" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
-                  <div class="titulo" style="text-align-last: center;"><h2>Crea tu Cuenta, es fácil y rápido</h2></label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="email" class="col-sm-2 control-label">Email</label>
-                  <div class="col-sm-10">
-                    <input required type="email" name="email" class="form-control" id="email" placeholder="Email" value="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="password" class="col-sm-2 control-label">Contraseña</label>
-                  <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" value="" >
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="passwordRepeat" class="col-sm-2 control-label">Repetí tú contraseña</label>
-                  <div class="col-sm-10">
-                    <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Repetí tú contraseña" value="" >
+                  <div class="titulo" style="text-align-last: center;"><h2>CREA TU CUENTA, ES FÁCIL Y RÁPIDO</h2></label>
                   </div>
                 </div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-                <div class="titulo" style="text-align-last: left;"><h4>Fecha de nacimiento</h4></label>
+                <div class="form-group">
+                  <div class="row">
+                  <div class="col">
+                    <label for="email" class="col control-label">Email</label>
+                  </div>
+                  <div class="col">
+                    <input required type="email" name="email" class="form-control" id="email" placeholder="Email" value="">
+                  </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="dia" class="col-sm-4 control-label">Día
-                    <select name="dia" id="dia">
+                <div class="row">
+                  <div class="col">
+                    <label for="password" class="col control-label">Contraseña</label>
+                  </div>
+                  <div class="col">
+                      <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" value="" >
+                  </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col">
+                      <label for="passwordRepeat" class="col control-label">Repetí tú contraseña</label>
+                    </div>
+                    <div class="col">
+                      <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Repetí tú contraseña" value="" >
+                    </div>
+                  </div>
+                </div>
+                <div style="display:none" class= "espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+                <div style="display:none" class="titulo" style="text-align-last: left;"><h4>Fecha de nacimiento</h4></label>
+                </div>
+                <div class="form-group">
+                  <label style="display:none" for="dia" class="col-sm-4 control-label">Día
+                    <select style="display:none" name="dia" id="dia">
                       <option>1</option> <option>2</option> <option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
                       <option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option>
                       <option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
@@ -81,15 +95,15 @@ if($_POST){
                       <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
                     </select>
                   </label>
-                  <label for="mes" class="col-sm-4 control-label" value="">Mes
-                    <select name="mes" id="mes">
+                  <label style="display:none" for="mes" class="col-sm-4 control-label" value="">Mes
+                    <select style="display:none" name="mes" id="mes">
                       <option value="1">ene</option> <option value="2">feb</option> <option value="3">mar</option> <option value="4">abr</option>
                       <option value="5">may</option> <option value="6">jun</option> <option value="7">jul</option> <option value="8">ago</option>
                       <option value="9">sep</option> <option value="10">oct</option> <option value="11">nov</option> <option value="12">dic</option>
                     </select>
                   </label>
-                  <label for="ano" class="col-sm-4 control-label"value="">Año
-                    <select name="ano" id="ano">
+                  <label style="display:none" for="ano" class="col-sm-4 control-label"value="">Año
+                    <select style="display:none" name="ano" id="ano">
                       <option value="2001">2001</option><option value="2000">2000</option>
                       <option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option>
                       <option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option>
@@ -110,58 +124,62 @@ if($_POST){
                 </div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="titulo" style="text-align-last: left;"><h4>Datos Personales</h4></label></div>
+                <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="form-group">
-                  <label for="nombre" class="col-sm-2 control-label">nombre</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="nombre" value="">
+                  <div class="row">
+                    <div class="col">
+                      <label for="nombre" class="col control-label">Nombre</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" name="nombre" class="form-control" id="nombre" placeholder="nombre" value="">
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="Apellido" class="col-sm-2 control-label">Apellido</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="apellido" class="form-control" id="Apellido" placeholder="Apellido" value="">
+                  <div class="row">
+                    <div class="col">
+                      <label for="Apellido" class="col control-label">Apellido</label>
+                    </div>
+                    <div class="col">
+                      <input type="text" name="apellido" class="form-control" id="Apellido" placeholder="Apellido" value="">
+                    </div>
                   </div>
                 </div>
-                <label for="Sexo" class="col-sm-2 control-label">Sexo</label>
-                <p>
-                <label class="radio-inline">
-                  <input type="hidden" name="Sexo" value="0">
+                <label style="display:none"for="Sexo" class="col-sm-2 control-label">Sexo</label>
+                <label style="display:none" class="radio-inline">
+                  <input type="hidden" name="Sexo" value="personalizado">
                   <input type="radio" name="Sexo" id="inlineRadio1" value="mujer"> Mujer
-                </label>
-                <label class="radio-inline">
                   <input type="radio" name="Sexo" id="inlineRadio2" value="hombre"> Hombre
-                </label>
-                <label class="radio-inline">
                   <input type="radio" name="Sexo" id="inlineRadio3" value="personalizado"> Personalizado
                 </label>
-                <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-                <div class="titulo" style="text-align-last: left;"><h4>Dirección</h4></label></div>
+                <div class="espacio" style="display:none" style="padding-top: 20px; padding-bottom: 10px"></div>
+                <div class="titulo"  style="display:none; text-align-last: left;"><h4>Dirección</h4></label></div>
                 <div class="form-group">
-                  <label for="direccion" class="col-sm-2 control-label">Calle</label>
+                  <label for="direccion" style="display:none" class="col-sm-2 control-label">Calle</label>
                   <div class="col-sm-10">
-                    <input type="text" name="calle" class="form-control" id="Calle" placeholder="Calle" value="">
+                    <input type="text" name="calle" style="display:none" class="form-control" id="Calle" placeholder="Calle" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="numdireccion" class="col-sm-2 control-label">Número</label>
+                  <label style="display:none" for="numdireccion" class="col-sm-2 control-label">Número</label>
                   <div class="col-sm-10">
-                    <input required type="text" name="numdireccion"class="form-control" id="Numero" placeholder="Número"value="">
+                    <input style="display:none" type="text" name="numdireccion"class="form-control" id="Numero" placeholder="Número"value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="Pisodireccion" class="col-sm-2 control-label">Piso</label>
+                  <label for="Pisodireccion" style="display:none" class="col-sm-2 control-label">Piso</label>
                   <div class="col-sm-10">
-                    <input required type="text" name="Pisodireccion"class="form-control" id="Piso" placeholder="Piso"value="">
+                    <input style="display:none"type="text" name="Pisodireccion"class="form-control" id="Piso" placeholder="Piso"value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="dia" class="col-sm-offset-2 col-sm-2 control-label">País
-                    <select name="pais" id="pais">
+                  <label for="dia" style="display:none" class="col-sm-offset-2 col-sm-2 control-label">País
+                    <select style="display:none" name="pais" id="pais">
                       <option>Argentina</option>
                     </select>
                   </label>
-                  <label for="Provincia" class="col-sm-offset-2 col-sm-2 control-label">Provincia
-                    <select name="Provincia" id="Provincia">
+                  <label style="display:none" for="Provincia" class="col-sm-offset-2 col-sm-2 control-label">Provincia
+                    <select style="display:none" name="Provincia" id="Provincia">
                       <option>Buenos Aires</option>
                       <option>CABA</option>
                       <option>Catamarca</option>
@@ -190,44 +208,58 @@ if($_POST){
                   </label>
                 </div>
                 <div class="form-group">
-                  <label for="Ciudad" class="col-sm-2 control-label">Ciudad</label>
+                  <label style="display:none" for="Ciudad" class="col-sm-2 control-label">Ciudad</label>
                   <div class="col-sm-10">
-                    <input required type="text" name="Ciudad"class="form-control" id="Ciudad" placeholder="Ciudad" value="">
+                    <input style="display:none" type="text" name="Ciudad"class="form-control" id="Ciudad" placeholder="Ciudad" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="Codigo Postal" class="col-sm-2 control-label">Código Postal</label>
+                  <label style="display:none" for="Codigo Postal" class="col-sm-2 control-label">Código Postal</label>
                   <div class="col-sm-10">
-                    <input required type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
+                    <input style="display:none" type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
                   </div>
                 </div>
                 <div class="form-group">
-                <label for="avatar" class="col-sm-2 control-label">Foto de Perfil</label>
-                <div class="col-sm-10">
-                <input required name="avatar" type="file" value= "" class="form-control" id="avatar" >
+                  <div class="row">
+                    <div class="col">
+                      <label for="avatar" class="col control-label">Foto de Perfil</label>
+                    </div>
+                    <div class="col">
+                      <input required name="avatar" type="file" value= "" class="form-control" id="avatar" >
+                    </div>
+                  </div>
                 </div>
-                </div>
+                <div class="espacio" style="padding-top:3vw"></div>
                 <div class="form-group">
                   <div class="col-sm-offset-0 col-sm-12">
                     <div class="checkbox">
                       <label>
-                        <input type="hidden" name="acepterms" id="acepterms" value="0">
-                        <input type="checkbox" name="acepterms" id="acepterms" value="1"> Acepto <a> términos y condiciones </a>
-                      </label>
-                      <label>
-                        <input  type="hidden" name="actualizaciones" id="actualizaciones" value="0">
-                        <input type="checkbox" name="actualizaciones" id="actualizaciones" value="1"> Deseo recibir actualizaciones
-                      </label>
-                      <label>
-                      <input  type="hidden" name="manteinLogued" id="manteinLogued" value="0">
-                      <input type="checkbox" name="manteinLogued" id="manteinLogued" value="1"> Mantenerme Logueado
-                      </label>
+                        <div class="row">
+                          <div class="col">
+                            <input type="hidden" name="acepterms" id="acepterms" value="0">
+                            <input type="checkbox" name="acepterms" id="acepterms" value="1"> Acepto <a> términos y condiciones </a>
+                          </div>
+                        </label>
+                        <label>
+                          <div class="col">
+                            <input  type="hidden" name="actualizaciones" id="actualizaciones" value="0">
+                            <input type="checkbox" name="actualizaciones" id="actualizaciones" value="1"> Deseo recibir actualizaciones
+                          </div>
+                        </label>
+                        <label>
+                          <div class="col">
+                            <input  type="hidden" name="manteinLogued" id="manteinLogued" value="0">
+                            <input type="checkbox" name="manteinLogued" id="manteinLogued" value="1"> Mantenerme Logueado
+                          </div>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="espacio" style="padding-top:3vw"></div>
                 <div class="form-group">
-                  <div class="col-sm-offset-4 col-sm-8">
-                  <button type="submit" class="btn btn-default" name="Submit" value="Enviar" style="width:50%">Crear Cuenta</button>
+                  <div class="col">
+                  <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Crear Cuenta</button>
                 </div>
               </form>
             </div>

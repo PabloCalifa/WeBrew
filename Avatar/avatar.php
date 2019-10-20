@@ -10,7 +10,7 @@
     . $_SESSION['codigopostal']  ;?></p>
     <p><button>Compras</button>
     <br><button>Favoritos</button>
-    <br><button>Mis Datos</button>
+    <br><a href="../perfil/misDatos.php"><button> Mis Datos</button></a>
     <br><button>Salir</button>
     </p>
   </div>

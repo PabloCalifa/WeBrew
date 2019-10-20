@@ -13,9 +13,8 @@ require_once("../singUp/helpers.php");
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
-    <link rel="stylesheet" type="text/css" href="../SingIn/SingIn.css" />
     <link rel="stylesheet" type="text/css" href="../Footer/Footer.css" />
-    <link rel="stylesheet" type="text/css" href="../Nav/navCss.css" />
+    <link rel="stylesheet" type="text/css" href="../Navloged/navCss.css" />
     <link rel="stylesheet" type="text/css" href="incss.css" />
 
     <title>We Brew</title>
@@ -60,7 +59,7 @@ require_once("../singUp/helpers.php");
                   <div class="card" style="width: 20%;">
                     <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerbeza Corona</h5>
+                      <h5 class="card-title">Cerveza Corona</h5>
                       <p class="card-text">Descripsion del producto.</p>
                       <a href="#"><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                     </div>
@@ -68,7 +67,7 @@ require_once("../singUp/helpers.php");
                   <div class="card" style="width: 20%;">
                     <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerbeza Corona</h5>
+                      <h5 class="card-title">Cerveza Corona</h5>
                       <p class="card-text">Descripsion del producto.</p>
                       <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                     </div>
@@ -76,7 +75,7 @@ require_once("../singUp/helpers.php");
                   <div class="card" style="width: 20%;">
                     <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerbeza Corona</h5>
+                      <h5 class="card-title">Cerveza Corona</h5>
                       <p class="card-text">Descripsion del producto.</p>
                       <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                     </div>
@@ -84,7 +83,7 @@ require_once("../singUp/helpers.php");
                   <div class="card" style="width: 20%;">
                     <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerbeza Corona</h5>
+                      <h5 class="card-title">Cerveza Corona</h5>
                       <p class="card-text">Descripsion del producto.</p>
                       <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                     </div>
@@ -92,7 +91,7 @@ require_once("../singUp/helpers.php");
                   <div class="card" style="width: 20%;">
                     <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerbeza Corona</h5>
+                      <h5 class="card-title">Cerveza Corona</h5>
                       <p class="card-text">Descripsion del producto.</p>
                       <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                     </div>
@@ -106,7 +105,7 @@ require_once("../singUp/helpers.php");
               <div class="card" style="width: 20%;">
                 <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Cerbeza Corona</h5>
+                  <h5 class="card-title">Cerveza Corona</h5>
                   <p class="card-text">Descripsion del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
@@ -114,7 +113,7 @@ require_once("../singUp/helpers.php");
               <div class="card" style="width: 20%;">
                 <img src="productos/porrones/porron4.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Cerbeza Corona</h5>
+                  <h5 class="card-title">Cerveza Corona</h5>
                   <p class="card-text">Descripsion del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
@@ -122,7 +121,7 @@ require_once("../singUp/helpers.php");
               <div class="card" style="width: 20%;">
                 <img src="productos/porrones/porron2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Cerbeza Corona</h5>
+                  <h5 class="card-title">Cerveza Corona</h5>
                   <p class="card-text">Descripsion del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
@@ -130,7 +129,7 @@ require_once("../singUp/helpers.php");
               <div class="card" style="width: 20%;">
                 <img src="productos/porrones/porron3.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Cerbeza Corona</h5>
+                  <h5 class="card-title">Cerveza Corona</h5>
                   <p class="card-text">Descripsion del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
@@ -138,7 +137,7 @@ require_once("../singUp/helpers.php");
               <div class="card" style="width: 20%;">
                 <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Cerbeza Corona</h5>
+                  <h5 class="card-title">Cerveza Corona</h5>
                   <p class="card-text">Descripsion del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
@@ -164,15 +163,12 @@ require_once("../singUp/helpers.php");
   <h1 class="productosMas text-center">Ofertas Especiales </h1>
 </div>
 
-<<<<<<< HEAD
+
   <div class="container">
     <div class="row">
-=======
+
 <div class="container">
 <div class="row">
-
-
->>>>>>> 5ad09702cf60cc2835e3701349aadfee1450f0f5
         <div class=" card border-light card mb-3" style="max-width: 50%;">
           <div class="row no-gutters">
             <div class="col-md-4">

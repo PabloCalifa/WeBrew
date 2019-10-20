@@ -57,23 +57,35 @@ if($_POST){
                 <?php endforeach;?>
               </ul>
             <?php endif;?>
+            <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
             <form id="formulario"  class="form-horizontal" name="formLogin"    novalidate action=""  method="POST" enctype="multipart/form-data" >
               <div class="form-group">
-                <div class="titulo" style="text-align-last: center" ><h2>Inicio de sesión</h2></label>
+                <div class="titulo" style="text-align-last: center" >
+                  <h2>INICIO DE SESIÓN</h2>
+                </div>
+              </div>
+              <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="email" class="col control-label">Email</label>
+                  </div>
+                  <div class="col">
+                    <input required name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingrese su correo" value= "<?=isset($errores['email'])? "":old('email') ;?>">
+                  </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input required name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingrese su correo" value= "<?=isset($errores['email'])? "":old('email') ;?>">
+                <div class="row">
+                  <div class="col">
+                    <label for="password" class="col control-label">Contraseña</label>
+                  </div>
+                  <div class="col">
+                    <input required name="password" type="password" value= "" class="form-control" id="password" placeholder="Contraseña">
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="password" class="col-sm-2 control-label">Contraseña</label>
-                <div class="col-sm-10">
-                  <input required name="password" type="password" value= "" class="form-control" id="password" placeholder="Contraseña">
-                </div>
-              </div>
+              <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <div class="checkbox">
@@ -83,18 +95,29 @@ if($_POST){
                   </div>
                 </div>
               </div>
+              <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Sign in</button>
-                  <a  class="btn btn-default" href="#" >Olvidé mi contraseña</a>
-                  <a  class="btn btn-default" href="../singUp/singUp.php">Crear Cuenta</a>
+                <div class="row">
+                  <div class="col">
+                    <button type="submit" class="btn" id="botones">Sign in</button>
+                  </div>
+                  <div class="col">
+                    <a  class="btn" href="#" id="botones" >Olvidé mi contraseña</a>
+                  </div>
+                  <div class="col">
+                    <a  class="btn" href="../singUp/singUp.php" id="botones">Crear Cuenta</a>
+                  </div>
                 </div>
               </div>
+            </div>
             </form>
           </div>
           </div>
           <div class="espacio" style="padding-top:3vw">
+          <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+
           </div>
+
           <?php require "../Footer/Footer.php" ?>
 
   <!-- Optional JavaScript -->

@@ -1,0 +1,15 @@
+.vermas  {
+  font-size: 20px;
+}
+
+form.form-horizontal {
+    border: solid lightgrey 1px;
+    padding: 3vw;
+    padding-top:2vw ;
+    max-width: 800px;
+  }
+
+.titulo h2 {
+    font-size: 30px;
+    padding-left: 8px;
+}

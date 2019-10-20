@@ -19,56 +19,56 @@
     <?php require "../Navloged/nav.php" ?>
     <div class="espacio" style="padding:3vw"></div>
       <section id="seccion">
-        <div class="container">
+        <div class="container" id="containerprincipal">
         <div id="rowContacto" class="row">
-          <div class="col-md-12">
-            <div class="well well-sm">
+          <div class="col" id="colprincipal">
               <form class="form-horizontal" method="post">
-                <fieldset>
-                  <legend class="text-center header">Contactenos</legend>
+                <fieldset id="formulario">
+                  <legend class="text-center header">CONTACTENOS</legend>
+                  <div class="espacio" style="padding:10px"></div>
                   <div class="form-group">
                       <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                      <div class="col-md-8">
+                      <div class="col">
                           <input id="fname" name="name" type="text" placeholder="Nombre completo" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                      <div class="col-md-8">
+                      <div class="col">
                           <input id="lname" name="name" type="text" placeholder="Apellido" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <span class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-envelope-open-text bigicon"></i></span>
-                      <div class="col-md-8">
+                      <div class="col">
                           <input id="email" name="email" type="text" placeholder="Correo Electronico" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                      <div class="col-md-8">
+                      <div class="col">
                           <input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <span class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-pencil-alt bigicon"></i></span>
-                      <div class="col-md-8">
+                      <div class="col">
                           <textarea class="form-control" id="message" name="message" placeholder="Escriba su mensaje aqui" rows="7"></textarea>
                       </div>
                   </div>
                   <div class="form-group">
                       <div class="col-md-12 text-center">
-                          <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                          <div class="espacio" style="padding:20px"></div>
+                          <button type="submit" class="btn" id="botones" >Enviar</button>
                       </div>
                   </div>
               </fieldset>
             </form>
           </div>
-        </div>
       </div>
     </div>
   </section>
-  <div class="espacio" style="padding:3vw"></div>
+  <div class="espacio" style="padding-bottom:90px;"></div>
   <?php require "../Footer/Footer.php" ?>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

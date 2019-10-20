@@ -151,6 +151,10 @@ function seteoUsuario($usuario,$dato){
     $_SESSION['nombre']=$usuario['nombre'];
     $_SESSION['apellido']=$usuario['apellido'];
     $_SESSION['calle']=$usuario['calle'];
+    $_SESSION["dia"] = $usuario ["dia"];
+    $_SESSION["mes"] = $usuario ["mes"];
+    $_SESSION["ano"] = $usuario ["ano"];
+    $_SESSION["Sexo"] = $usuario ["Sexo"];
     $_SESSION['numdireccion']=$usuario['numdireccion'];
     $_SESSION['Pisodireccion']=$usuario['Pisodireccion'];
     $_SESSION['email']=$usuario['email'];
@@ -176,6 +180,19 @@ function validarUsuario(){
     }
 }
 
+function cambiarFoto(){
+  if(isset($_FILES)){
+  $nombre = $imagen['avatar']['name'];
+  $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+  if($imagen['avatar']['error']!=0){
+      $errores['avatar']="Debes subir tu foto...";
+  }elseif ($ext != "jpg" && $ext != "png") {
+      $errores['avatar']="Formato inválido";
+  }
+}
+
+
+}
 
 
 ?>
