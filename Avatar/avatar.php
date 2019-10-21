@@ -5,13 +5,9 @@
   </div>
   <div class="texto">
     <h1>Hola, <?=$_SESSION["nombre"] ;?></h1>
-    <p class="mail"><b>E-mail:</b> <?= $_SESSION['email'] ;?></p>
-    <p class="direccion"><b>Domicilio</b> <?=$_SESSION['calle'] . " " . $_SESSION['numdireccion'] . " " . $_SESSION['Pisodireccion'] . " " .  $_SESSION['Provincia'] . " " . $_SESSION['Ciudad'] . "  "
-    . $_SESSION['codigopostal']  ;?></p>
-    <p><button>Compras</button>
-    <br><button>Favoritos</button>
-    <br><a href="../perfil/misDatos.php"><button> Mis Datos</button></a>
-    <br><button>Salir</button>
-    </p>
+    <br><button id="avatarboton">Compras</button>
+    <br><button id="avatarboton">Favoritos</button>
+    <br><a href="../perfil/misDatos.php"><button id="avatarboton"> Mis Datos</button></a>
+    <br><button id="avatarboton">Salir</button>
   </div>
 </div>

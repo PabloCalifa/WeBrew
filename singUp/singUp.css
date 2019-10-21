@@ -23,7 +23,8 @@ h4 {
 }
 
 body{
-  background-image: url("../fotosComunes/webrewwallsigup.jpg")
+  background-image: url("../fotosComunes/webrewwallsigup.jpg");
+  width: 100%;
 }
 
 #botones{

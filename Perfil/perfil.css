@@ -1,16 +1,26 @@
-
-#perfil.nav>li>a{
-  background-color: rgba(255,255,255,1);
-  color: rgba(0,0,0,0.8);
+body{
+  background-image: url("../fotosComunes/woodsfondo.jpg");
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
-  background-color: color: rgba(0,0,0,0.8);
-  color: rgba(255,255,255,1);
+#botonesperfil.btn {
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+
+#perfil.nav-tabs{
+  border-bottom: 2px solid gold;
 
 }
 
-.nav-tabs>li>a:focus{
+#botonesperfil.btn:active, #botonesperfil.btn:hover  {
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#botonesperfil.btn:focus{
   background-color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
 
@@ -26,7 +36,7 @@
   background-color: rgba(0,0,0,0.8);
   color: rgba(255,255,255,1);
   text-align: end;
-  padding-top: 3%;
+  padding-top: 10px;
   padding-right: 10px;
 }
 
@@ -47,12 +57,11 @@ button#search.btn {
 }
 
 button#search.btn:hover{
-  background-color: rgba(0,0,0,0.8);
-  color: rgba(255,255,255,1);
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-
-
 
 .form-inline#perfil{
 padding-right: 10px;
@@ -81,9 +90,26 @@ font-weight: 700;
 div.row#rowcompras{
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 padding: 0px;
+padding-top: 5px;
 margin: 0 auto;
 border-radius: 5px;
+background-color: white
 }
+
+#detalleproducto>a>h4{
+  color:black;
+}
+
+#detalleproducto>a:focus{
+text-decoration: none;
+
+}
+
+#detalleproducto>a>h4:focus, #detalleproducto>a>h4:hover {
+  color:rgba(255, 193, 0,1);
+  text-decoration:none;
+}
+
 
 div.row#rowcompras .col-sm-3 {
 padding: 0px;
@@ -95,9 +121,15 @@ border-radius: 0px;
 
 }
 
-div.row#rowcompras .btn.focus,
+div.row#rowcompras .btn{
+  color: white;
+  background-color: black;
+
+}
+
 div.row#rowcompras .btn:focus,
 div.row#rowcompras .btn:hover{
-  background-color: black;
-  color: white;
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
