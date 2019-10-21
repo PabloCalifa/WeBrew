@@ -27,11 +27,22 @@
           <ul>
         </div>
         <div class="col">
+          <?php if(!isset($_SESSION["email"])) : ?>
           <h5 id="titulofooter">Mi cuenta</h5>
-          <ul id="ulfooter">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Registro</a></li>
-          <ul>
+            <ul id="ulfooter">
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Registro</a></li>
+            <ul>
+          <?php else : ?>
+            <h5 id="titulofooter"><?=$_SESSION["nombre"]; ?></h5>
+            <ul id="ulfooter">
+              <li><a href="#">Compras</a></li>
+              <li><a href="#">Favoritos</a></li>
+              <li><a href="../perfil/perfil.php">Mis datos</a></li>
+              <li><a href="../singUp/cerrarSesion.php">Salir</a></li>
+            </ul>
+          <?php endif; ?>
+
         </div>
       </div>
     </footer>

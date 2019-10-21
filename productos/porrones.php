@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-
 <?php
 require_once("../singUp/users.php");
 require_once("../singUp/helpers.php");
-if($_POST){
-        seteoUsuario($usuario,$_POST);
-          if(validarUsuario()){
-            header('location:../productos/porrones.php');
-            exit;
-          }else{
-            header('location:singIn.php');
-            exit;
-          }
-        }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +16,7 @@ if($_POST){
     <link rel="stylesheet" type="text/css" href="../Navloged/navCss.css" />
     <link rel="stylesheet" type="text/css" href="estilosproductos.css" />
     <link rel="icon" type="image/png" href="../fotosComunes/webrewhead.png">
-    <title>  We Brew</title>
+    <title>We Brew</title>
     </head>
     <body>
       <?php require "../Navloged/nav.php" ?>
@@ -54,7 +43,7 @@ if($_POST){
       <section id="seccion">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
