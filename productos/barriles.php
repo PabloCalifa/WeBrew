@@ -44,25 +44,73 @@ require_once("../singUp/helpers.php");
           <div id="rowPorron"class="row">
              <div class="col-sm-12 ">
               <div id="rowIndex"class="row">
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
               </div>
               <div class="espacio" style="padding:2vw"></div>
               <div id="rowIndex"class="row">
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
+                <div class="col-sm-3 div-img">
+                  <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona">
+                  <div id="productotexto"class="text">$58.00</div>
+                  <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                </div>
               </div>
               <div class="espacio" style="padding:2vw"></div>
                 <div id="rowIndex"class="row">
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>                </div>
+                  <div class="col-sm-3 div-img">
+                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona">
+                    <div id="productotexto"class="text">$58.00</div>
+                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                  </div>
+                  <div class="col-sm-3 div-img">
+                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona">
+                    <div id="productotexto"class="text">$58.00</div>
+                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                  </div>
+                  <div class="col-sm-3 div-img">
+                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
+                    <div id="productotexto"class="text">$58.00</div>
+                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                  </div>
+                  <div class="col-sm-3 div-img">
+                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona">
+                    <div id="productotexto"class="text">$58.00</div>
+                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

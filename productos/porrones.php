@@ -45,115 +45,114 @@ require_once("../singUp/helpers.php");
           <div class="row">
             <div class="col-3">
               <div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          MARCAS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-  <div class="card-body">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active navproductos " href="#" >Corona</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navproductos" href="#">Stella Artois</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navproductos" href="#">Patagonia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-              </li>
-            </ul>
-    </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          POR PAIS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active navproductos " href="#" >Corona</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Stella Artois</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Patagonia</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-                  </li>
-                </ul>
-        </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          ESTILOS
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active navproductos " href="#" >Corona</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Stella Artois</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navproductos" href="#">Patagonia</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
-                  </li>
-                </ul>
-        </div>
-    </div>
-  </div>
-</div>
-
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        MARCAS
+                      </button>
+                    </h2>
+                  </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                                <ul class="nav flex-column">
+                                  <li class="nav-item">
+                                    <a class="nav-link active navproductos " href="#" >Corona</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link navproductos" href="#">Stella Artois</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link navproductos" href="#">Patagonia</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
+                                  </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        POR PAIS
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                              <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a class="nav-link active navproductos " href="#" >Corona</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link navproductos" href="#">Stella Artois</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link navproductos" href="#">Patagonia</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
+                                </li>
+                              </ul>
+                      </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        ESTILOS
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                              <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a class="nav-link active navproductos " href="#" >Corona</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link navproductos" href="#">Stella Artois</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link navproductos" href="#">Patagonia</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link  navproductos" href="#" tabindex="-1" aria-disabled="true">Todas las marcas</a>
+                                </li>
+                              </ul>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-sm-9">
-          <div id="rowPorron"class="row">
-             <div class="col-sm-12 ">
-              <div id="rowIndex"class="row">
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-
+              <div id="rowPorron"class="row">
+                 <div class="col-sm-12 ">
+                  <div id="rowIndex"class="row">
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron4.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                  </div>
+                  <div class="espacio" style="padding:2vw"></div>
+                  <div id="rowIndex"class="row">
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                  </div>
+                  <div class="espacio" style="padding:2vw"></div>
+                  <div id="rowIndex"class="row">
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00n</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                    <div class="col-sm-3 div-img"><img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div id="productotexto"class="text">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
+                  </div>
+                </div>
               </div>
-              <div class="espacio" style="padding:2vw"></div>
-              <div id="rowIndex"class="row">
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-              </div>
-              <div class="espacio" style="padding:2vw"></div>
-                <div id="rowIndex"class="row">
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron5.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron6.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron7.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>
-                  <div class="col-sm-3 div-img"><img  class="img"  class="productoBuscado" src="../index/productos/porrones/porron8.png" alt="Helaera Corona"><div class="">$58.00</div> <button type="button" class="btn" id="botones">Agregar al Carrito </button></div>                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="espacio" style="padding-top:8vw"></div>
