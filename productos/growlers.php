@@ -2,7 +2,7 @@
 <?php
 require_once("../singUp/users.php");
 require_once("../singUp/helpers.php");
-
+// branchpato
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -87,26 +87,7 @@ require_once("../singUp/helpers.php");
               </div>
               <div class="espacio" style="padding:2vw"></div>
                 <div id="rowIndex"class="row">
-                  <div class="col-sm-3 div-img">
-                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron1.png" alt="Helaera Corona">
-                    <div id="productotexto"class="text">$58.00</div>
-                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
-                  </div>
-                  <div class="col-sm-3 div-img">
-                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron2.png" alt="Helaera Corona">
-                    <div id="productotexto"class="text">$58.00</div>
-                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
-                  </div>
-                  <div class="col-sm-3 div-img">
-                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
-                    <div id="productotexto"class="text">$58.00</div>
-                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
-                  </div>
-                  <div class="col-sm-3 div-img">
-                    <img id="productoventa"  class="img"  class="productoBuscado" src="../index/productos/porrones/porron3.png" alt="Helaera Corona">
-                    <div id="productotexto"class="text">$58.00</div>
-                    <button type="button" class="btn" id="botones">Agregar al Carrito </button>
-                  </div>
+
                 </div>
               </div>
             </div>
