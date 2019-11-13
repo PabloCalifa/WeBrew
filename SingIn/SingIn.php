@@ -8,13 +8,15 @@ if($_POST){
       if($usuario==null){
         $errores['email']="Usuario no encontrado...";
       }else{
+
+// var_dump($usuario);exit;
         //Desde aquí incio mi revisión a ver que ocurre con los contenidos de las variables y tratar de ver que ocurre
         //Aquí ví que el dato viene bien, es decir el password hasheado
         //dd($usuario['password']);
         //Ahora veo que trae esta variable  y noto que trae el dato correctamente
         //dd($_POST['password']);
         //Aquí estaba el error a la función password_verify, se le debe psar primero el dato no hasheado y luego el hasheado, ese fue mi error, lo habia pasado al contrario
-        if(password_verify($_POST['password'],$usuario['password'])===false){
+        if(password_verify($_POST['password'],$usuario['pass'])===false){
           $errores['password']="Datos inválidos...";
         }else{
           seteoUsuario($usuario,$_POST);
@@ -46,7 +48,7 @@ if($_POST){
     <title>- - - - - We Brew- - - - - </title>
   </head>
   <body>
-          <?php require "../Navloged/nav.php" ?>
+          <!-- <?php require "../Navloged/nav.php" ?> -->
           <div class="espacio" style="padding:3vw">
           </div>
           <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">

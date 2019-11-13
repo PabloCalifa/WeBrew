@@ -1,4 +1,5 @@
 <?php
+require("../singUp/pdo.php");
 session_start();
 
 // //Aquí comienzo a programar las funciones generales de mi sistema
@@ -31,6 +32,8 @@ return $errores;
 
 
 function validarLogin($datos){
+  require("../singUp/pdo.php");
+
     $errores=[];
     $email = trim($datos['email']);
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -69,7 +72,7 @@ function validarOlvidePassword($datos){
 
 
 function armarRegistro($datos,$avatar){
-  $usuario = [
+    $usuario = [
   "email" => $datos ["email"],
   "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
   "dia" => $datos ["dia"],
@@ -77,26 +80,31 @@ function armarRegistro($datos,$avatar){
   "ano" => $datos ["ano"],
   "nombre" => $datos ["nombre"],
   "apellido" => $datos ["apellido"],
-  "Sexo" => $datos ["Sexo"],
+  "sexo" => $datos ["sexo"],
   "calle" => $datos ["calle"],
   "numdireccion" => $datos ["numdireccion"],
-  "Pisodireccion" => $datos ["Pisodireccion"],
+  "pisodireccion" => $datos ["pisodireccion"],
   "pais" => $datos ["pais"],
-  "Provincia" => $datos ["Provincia"],
-  "Ciudad" => $datos ["Ciudad"],
+  "provincia" => $datos ["provincia"],
+  "ciudad" => $datos ["ciudad"],
   "codigopostal" => $datos ["codigopostal"],
-  "acepterms" => $datos ["acepterms"],
-  "actualizaciones"=> $datos ["actualizaciones"],
-  "manteinLogued" => $datos ["manteinLogued"],
   "avatar" => $avatar
   ];
   return $usuario;
 }
 
 function guardarRegistro($registro){
-    $archivoJson = json_encode($registro);
-    file_put_contents('user.json',$archivoJson.PHP_EOL,FILE_APPEND);
+require("../singUp/pdo.php");
+  try {
+$query = $baseDeDatos->prepare ("INSERT INTO users
+  VALUES (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
+    '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
+    ,'$registro[codigopostal]','$registro[avatar]', 'default')");
+  // var_dump($query); exit;
+   $query-> execute();
+   } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
 }
+
 
 //Esta función nos permite armar el registro cuando el usuario selecciona el avatar
 
@@ -132,18 +140,29 @@ function buscarPorEmail($email){
 }
 
 function abrirBaseDatos(){
-   if(file_exists('../singUp/user.json')){
-       $archivoJson = file_get_contents('../singUp/user.json');
-       $archivoJson = explode(PHP_EOL,$archivoJson);
-       array_pop($archivoJson);
-       foreach ($archivoJson as $usuarios) {
-           $arrayUsuarios[]= json_decode($usuarios,true);
-       }
-       return $arrayUsuarios;
-   }else{
-       return null;
-   }
-}
+  require("../singUp/pdo.php");
+
+  try {
+    $query = $baseDeDatos->prepare("SELECT * FROM users ORDER BY id;");
+      // var_dump($query); exit;
+      $usuarios = [];
+       $query->execute();
+       $usuarios = $query->fetchAll();
+       return $usuarios;
+       // var_dump($usuarios); exit;
+       } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
+  // }
+  //  if(file_exists('../singUp/user.json')){
+  //      $archivoJson = file_get_contents('../singUp/user.json');
+  //      $archivoJson = explode(PHP_EOL,$archivoJson);
+  //      array_pop($archivoJson);
+  //      foreach ($archivoJson as $usuarios) {
+  //          $arrayUsuarios[]= json_decode($usuarios,true);
+  //      }
+//    }else{
+//        return null;
+//    }
+};
 
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
 function seteoUsuario($usuario,$dato){
@@ -151,16 +170,14 @@ function seteoUsuario($usuario,$dato){
     $_SESSION['nombre']=$usuario['nombre'];
     $_SESSION['apellido']=$usuario['apellido'];
     $_SESSION['calle']=$usuario['calle'];
-    $_SESSION["dia"] = $usuario ["dia"];
-    $_SESSION["mes"] = $usuario ["mes"];
-    $_SESSION["ano"] = $usuario ["ano"];
-    $_SESSION["Sexo"] = $usuario ["Sexo"];
+    $_SESSION['born_date'] = $usuario ['born_date'];
+    $_SESSION['sex'] = $usuario ['sex'];
     $_SESSION['numdireccion']=$usuario['numdireccion'];
-    $_SESSION['Pisodireccion']=$usuario['Pisodireccion'];
+    $_SESSION['pisodireccion']=$usuario['pisodireccion'];
     $_SESSION['email']=$usuario['email'];
     $_SESSION['pais']=$usuario['pais'];
-    $_SESSION['Provincia']=$usuario['Provincia'];
-    $_SESSION['Ciudad']=$usuario['Ciudad'];
+    $_SESSION['provincia']=$usuario['provincia'];
+    $_SESSION['ciudad']=$usuario['ciudad'];
     $_SESSION['codigopostal']=$usuario['codigopostal'];
     $_SESSION['avatar']=$usuario['avatar'];
     if(isset($dato['recordarme'])){
