@@ -127,7 +127,8 @@ if($_POST){
           <div class="espacio" style="padding-top: 20px; padding-bottom: 50px"></div>
           <form class="form-horizontal" id="amb" action="amb.php" method="get" enctype="multipart/form-data">
             <div class="titulo" style="text-align-last: center;"><h2>PRODUCTOS CARGADOS</h2></label>
-              <table class="table table-sm table-dark conteiner-fluid" >
+              <table class="table">
+                <table class="table table-sm table-dark " style="width:100%" >
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -141,24 +142,24 @@ if($_POST){
                     <th scope="col">ORIGEN</th>
                     <th scope="col">DETALLE</th>
                     <th scope="col">FOTO</th>
-                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">MODIFY</th>
                     <th scope="col">BORRAR</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php  foreach ($productos as $producto):?>
                     <tr>
-                      <th scope="row"><?=$producto['prod_id'];?></th>
-                      <td><?=$producto["cat_name"];?></td>
-                      <td><?=$producto['prods_name'];?></td>
-                      <td><?=$producto['stock'];?></td>
-                      <td><?=$producto['ibu'];?></td>
-                      <td><?=$producto['alc'];?></td>
-                      <td><?=$producto['capacity_cm3'];?></td>
-                      <td><?=$producto['brand_name'];?></td>
-                      <td><?=$producto['country_origin'];?></td>
-                      <td><?=$producto['detail'];?></td>
-                      <td><?=$producto['picture'];?></td>
+                      <th scope="row"><?=substr($producto['prod_id'],-10);?></th>
+                      <td><?=substr($producto["cat_name"],-10);?></td>
+                      <td><?=substr($producto['prods_name'],-10);?></td>
+                      <td><?=substr($producto['stock'],-10);?></td>
+                      <td><?=substr($producto['ibu'],-10);?></td>
+                      <td><?=substr($producto['alc'],-10);?></td>
+                      <td><?=substr($producto['capacity_cm3'],-10);?></td>
+                      <td><?=substr($producto['brand_name'],-10);?></td>
+                      <td><?=substr($producto['country_origin'],-10);?></td>
+                      <td><?=substr($producto['detail'],-10);?></td>
+                      <td><?=substr($producto['picture'],-10);?></td>
                       <td><a href="../AMB/modify.php?prod_id=<?= $producto["prod_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
                       <td><a href="../AMB/delete.php?prod_id=<?= $producto["prod_id"] ?>"> <i class="fas fa-trash"></i></a></td>
                     </tr>

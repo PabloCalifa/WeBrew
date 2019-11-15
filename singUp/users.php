@@ -31,6 +31,26 @@ return $errores;
 }
 
 
+function validarMod($datos){
+    //Este representa mi array donde voy a ir almacenando los errores, que luego muestro en la vista al usuario.|
+    $errores = [];
+    $email = trim($datos['email']);
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $errores['email']="Email inválido...";
+    }
+    $password = trim($datos['password']);
+    if(strlen($password)<8) {
+        $errores['password']="El password como mínimo debe tener 8 caracteres...";
+    }
+    $passwordRepeat = trim($datos['passwordRepeat']);
+    if($password != $passwordRepeat){
+        $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+    }
+
+return $errores;
+}
+
+
 function validarLogin($datos){
   require("../singUp/pdo.php");
 
@@ -105,6 +125,57 @@ $query = $baseDeDatos->prepare ("INSERT INTO users
    } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
 }
 
+function armarModRegistro($datos,$avatar){
+    $usuario = [
+
+  "email" => $datos ["email"],
+  "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
+  "nombre" => $datos ["nombre"],
+  "apellido" => $datos ["apellido"],
+  "calle" => $datos ["calle"],
+  "numdireccion" => $datos ["numdireccion"],
+  "pisodireccion" => $datos ["pisodireccion"],
+  "pais" => $datos ["pais"],
+  "provincia" => $datos ["provincia"],
+  "ciudad" => $datos ["ciudad"],
+  "codigopostal" => $datos ["codigopostal"],
+  ];
+  return $usuario;
+}
+
+
+function modificarRegistro($registro){
+require("../singUp/pdo.php");
+  try {
+$query = $baseDeDatos->prepare ("UPDATE users
+  SET
+email = '$registro[email]',
+pass = '$registro[password]',
+nombre = '$registro[nombre]',
+apellido = '$registro[apellido]',
+calle = '$registro[calle]',
+numdireccion = '$registro[numdireccion]',
+pisodireccion = '$registro[pisodireccion]',
+pais = '$registro[pais]',
+provincia = '$registro[provincia]',
+ciudad = '$registro[ciudad]',
+codigopostal = '$registro[codigopostal]',
+avatar = '$registro[avatar]'
+
+WHERE id =  '$_SESSION[id]';");
+
+  // -- (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
+  // --   '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
+  // --   ,'$registro[codigopostal]','$registro[avatar]', 'default')
+
+  // var_dump($query); exit;
+   $query-> execute();
+   } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
+}
+
+
+
+
 
 //Esta función nos permite armar el registro cuando el usuario selecciona el avatar
 
@@ -166,6 +237,8 @@ function abrirBaseDatos(){
 
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
 function seteoUsuario($usuario,$dato){
+
+    $_SESSION['id']=$usuario['id'];
     $_SESSION['email']=$usuario['email'];
     $_SESSION['nombre']=$usuario['nombre'];
     $_SESSION['apellido']=$usuario['apellido'];
@@ -181,10 +254,29 @@ function seteoUsuario($usuario,$dato){
     $_SESSION['codigopostal']=$usuario['codigopostal'];
     $_SESSION['avatar']=$usuario['avatar'];
     if(isset($dato['recordarme'])){
-        setcookie('email',$usuario['email'],time()+3600);
-        setcookie('password',$dato['password'],time()+3600);
+        setcookie('id',$usuario['id'],time()+60);
+        setcookie('email',$usuario['email'],time()+60);
+        setcookie('password',$dato['password'],time()+60);
     }
+};
+
+function actualizarSesion(){
+
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['nombre']=$_POST['nombre'];
+    $_SESSION['apellido']=$_POST['apellido'];
+    $_SESSION['calle']=$_POST['calle'];
+    $_SESSION['numdireccion']=$_POST['numdireccion'];
+    $_SESSION['pisodireccion']=$_POST['pisodireccion'];
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['pais']=$_POST['pais'];
+    $_SESSION['provincia']=$_POST['provincia'];
+    $_SESSION['ciudad']=$_POST['ciudad'];
+    $_SESSION['codigopostal']=$_POST['codigopostal'];
+    $_SESSION['avatar']=$_POST['avatar'];
+
 }
+
 //Con esta función controlo si el usuario se logueo o ya tenemos las cookie en la máquina
 function validarUsuario(){
     if(isset($_SESSION['email'])){

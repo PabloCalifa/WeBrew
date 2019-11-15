@@ -41,11 +41,14 @@ if($_POST){
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
               <?php if(isset($errores)):?>
                 <ul class="alert alert-danger">
+                  <br>
+                  <br>
                   <?php foreach ($errores as $value) :?>
                       <li><?=$value;?></li>
                   <?php endforeach;?>
                 </ul>
               <?php endif;?>
+                <br>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <form class="form-horizontal" id="singup" action="singUp.php" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
@@ -83,26 +86,26 @@ if($_POST){
                     </div>
                   </div>
                 </div>
-                <div style="display:none" class= "espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-                <div style="display:none" class="titulo" style="text-align-last: left;"><h4>Fecha de nacimiento</h4></label>
+                <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+                <div style="" class="titulo" style="text-align-last: left;"><h4>Fecha de nacimiento</h4></label>
                 </div>
                 <div class="form-group">
-                  <label style="display:none" for="dia" class="col-sm-4 control-label">Día
-                    <select style="display:none" name="dia" id="dia">
+                  <label style="" for="dia" class="col-sm-4 control-label">Día
+                    <select style="" name="dia" id="dia">
                       <?php for ($i=01; $i < 31; $i++) { ?>
                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
                     </select>
                   </label>
-                  <label style="display:none" for="mes" class="col-sm-4 control-label" value="">Mes
-                    <select style="display:none" name="mes" id="mes">
+                  <label style="" for="mes" class="col-sm-4 control-label" value="">Mes
+                    <select style="" name="mes" id="mes">
                       <option value="1">ene</option> <option value="2">feb</option> <option value="3">mar</option> <option value="4">abr</option>
                       <option value="5">may</option> <option value="6">jun</option> <option value="7">jul</option> <option value="8">ago</option>
                       <option value="9">sep</option> <option value="10">oct</option> <option value="11">nov</option> <option value="12">dic</option>
                     </select>
                   </label>
-                  <label style="display:none" for="ano" class="col-sm-4 control-label"value="">Año
-                    <select style="display:" name="ano" id="ano">
+                  <label style="" for="ano" class="col-sm-4 control-label"value="">Año
+                    <select style="" name="ano" id="ano">
                       <?php for ($i=2001; $i > 1905; $i--) { ?>
                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
@@ -132,8 +135,9 @@ if($_POST){
                     </div>
                   </div>
                 </div>
-                <label style="display:none"for="sexo" class="col-sm-2 control-label">sexo</label>
-                <label style="display:none" class="radio-inline">
+                <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+                <label style=""for="sexo" class="col-sm-2 control-label">Sexo</label>
+                <label style="" class="radio-inline">
                   <input type="hidden" name="sexo" value="personalizado">
                   <input type="radio" name="sexo" id="inlineRadio1" value="mujer"> Mujer
                   <input type="radio" name="sexo" id="inlineRadio2" value="hombre"> Hombre
@@ -206,6 +210,7 @@ if($_POST){
                     <input style="display:none" type="text" name="codigopostal" class="form-control" id="Codigo Postal" placeholder="Código Postal" value="">
                   </div>
                 </div>
+                <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="form-group">
                   <div class="row">
                     <div class="col">

@@ -175,7 +175,7 @@ if($_POST){
                     </tr>
                   </tbody>
                 </table>
-                <table class="table table-sm table-dark" style="width: 80%">
+                <table class="table-sm table-dark">
                   <thead>
                     <tr>
                       <th scope="col">ID</th>
@@ -194,34 +194,34 @@ if($_POST){
                   <tbody>
                     <tr>
                       <th scope="row" > <?= $prods['prod_id'] ?></th>
-                      <td scope="col-sm">
+                      <td>
                         <select name="cat" id="origin" value="">
                           <?php foreach ($categories as $category): ?>
                         <option value="<?=$category["cat_id"]?>"><?=$category["cat_name"]?></option>
                       <?php endforeach; ?>
                         </select></td>
-                      <td scope="col-sm"><input type="text" name="name" ></td>
-                      <td scope="col-sm"><select name="stock" id="stock" value="">
+                      <td ><input type="text" name="name" ></td>
+                      <td ><select name="stock" id="stock" value="">
                         <?php for ($i=01; $i < 50; $i++) { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php } ?></select></td>
-                      <td scope="col-sm"><select name="ibu" id="ibu" value="">
+                      <td ><select name="ibu" id="ibu" value="">
                         <?php for ($i=01; $i < 30; $i++) { ?>
                       <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                       <?php } ?></select></td>
-                      <td scope="col-sm"><select name="alc" id="alc" value="">
+                      <td ><select name="alc" id="alc" value="">
                         <?php for ($i=1; $i < 19; $i=$i+0.1) { ?>
                       <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                       <?php } ?></select></td>
-                      <td scope="col-sm"><input type="text" name="capacity"></td>
-                      <td scope="col-sm">
+                      <td><input type="text" name="capacity"></td>
+                      <td>
                         <select name="brand" id="brand" value="">
                           <?php foreach ($brandes as $brande): ?>
                         <option value="<?=$brande["brand_id"]?>"><?=$brande["brand_name"]?></option>
                       <?php endforeach; ?>
                         </select>
                       </td>
-                      <td scope="col-sm">
+                      <td>
                           <select name="origin" id="origin" value="">
                             <?php foreach ($countryes as $country): ?>
                           <option value="<?=$country["country_id"]?>"><?=$country["country_origin"]?></option>
@@ -229,8 +229,8 @@ if($_POST){
                           </select>
                         <!-- <input type="text" name="origin" > -->
                       </td>
-                      <td scope="col-sm"><input type="text" name="detail" ></td>
-                      <td scope="col-sm"><input type="file" name="picture" id="picture" style="text-align: -webkit-center" ></td>
+                      <td><input type="text" name="detail" ></td>
+                      <td><input type="file" name="picture" id="picture" style="text-align: -webkit-center" ></td>
                     </tr>
                   </tbody>
                       <input style="display:none" name="prod_id" id="prod_id" value="<?= $prods['prod_id'] ?>" >
@@ -238,7 +238,7 @@ if($_POST){
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Modificar Producto</button>
                 <br>
               </form>
-               <button  class="btn" id="botones"  style="width:50%"><a style="none" href="../AMB/amb.php"> Menu Productos</a> </button>
+               <a  class="btn" id="botones"  style="width:50%" href="../AMB/amb.php"> Menu Productos</a>
             </div>
           <div class="espacio" style="padding-top:3vw"> </div>
           </form>

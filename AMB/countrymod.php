@@ -13,7 +13,7 @@ if($_POST){
           WHERE `country_id` = '$id';
         ");
       // var_dump($query); exit;
-       $query-> execute();
+       $query-> execute(); 
        } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
     }//cierre ifpost//;
 
@@ -93,7 +93,7 @@ if($_POST){
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Modificar Pais</button>
               </form>
               <br>
-              <button  class="btn" id="botones"  style="width:50%"><a style="none" href="../AMB/countryes.php"> Menu Pais</a> </button>
+              <a  class="btn" id="botones"  style="width:50%" href="../AMB/countryes.php"> Menu Pais </a>
             </div>
           <div class="espacio" style="padding-top:3vw"> </div>
           </div>

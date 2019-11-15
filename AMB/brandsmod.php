@@ -92,7 +92,7 @@ if($_POST){
                 </table>
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Modificar Marca</button>
               </form>
-              <button  class="btn" id="botones"  style="width:50%"><a style="" href="../AMB/brands.php"> Menu Marcas</a> </button>
+              <a  class="btn" id="botones"  style="width:50%" href="../AMB/brands.php"> Menu Marcas </a>
               <br>
         </div>
           <div class="espacio" style="padding-top:3vw"> </div>
