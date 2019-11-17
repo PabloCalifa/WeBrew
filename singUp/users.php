@@ -34,21 +34,27 @@ return $errores;
 function validarMod($datos){
     //Este representa mi array donde voy a ir almacenando los errores, que luego muestro en la vista al usuario.|
     $errores = [];
-    $email = trim($datos['email']);
-    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $errores['email']="Email inválido...";
-    }
-    $password = trim($datos['password']);
-    if(strlen($password)<8) {
-        $errores['password']="El password como mínimo debe tener 8 caracteres...";
-    }
-    $passwordRepeat = trim($datos['passwordRepeat']);
-    if($password != $passwordRepeat){
-        $errores['passwordRepeat']="Las contraseñas deben ser iguales";
-    }
+    if(!empty($datos['email'])){
+              $email = trim($datos['email']);
+              if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                  $errores['email']="Email inválido...";
+              }
+            }
+      if(!empty($datos['password'])){
+                       $password = trim($datos['password']);
+                       if(strlen($password)<8) {
+                           $errores['password']="La contraseña como mínimo debe tener 8 caracteres";
+                       }
+                     }
+      if(!empty($datos['password'])){
+          $passwordRepeat = trim($datos['passwordRepeat']);
+        if($password != $passwordRepeat){
+            $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+          }
+        }
 
-return $errores;
-}
+    return $errores;
+      }
 
 
 function validarLogin($datos){
@@ -120,16 +126,45 @@ $query = $baseDeDatos->prepare ("INSERT INTO users
   VALUES (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
     '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
     ,'$registro[codigopostal]','$registro[avatar]', 'default')");
-  // var_dump($query); exit;
    $query-> execute();
+   // var_dump($query); exit;
    } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
 }
 
-function armarModRegistro($datos,$avatar){
-    $usuario = [
+
+function consultarpass($email){
+
+  require("../singUp/pdo.php");
+
+  try {
+    $query = $baseDeDatos->prepare("SELECT pass FROM users WHERE email = '$email'");
+      // var_dump($query); exit;
+       $query->execute();
+       $password = $query->fetch(PDO::FETCH_ASSOC);
+     } catch (\PDOException  $e) {echo "no se pudo subir tu peli"; };
+      // var_dump($e);exit;
+       return $password;
+       // var_dump($usuarios); exit;
+       // var_dump($e); exit;
+
+
+}
+
+
+function armarModRegistro($datos){
+  if(!empty($datos['password'])){
+  password_hash($datos['password'],PASSWORD_DEFAULT);
+}else{
+  $password=0;
+  $password = consultarpass($datos ["email"]);
+  $password = $password['pass'];
+  // var_dump($password);exit;
+}
+// var_dump($password);exit;
+  $usuario = [
 
   "email" => $datos ["email"],
-  "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
+  "password" => $password,
   "nombre" => $datos ["nombre"],
   "apellido" => $datos ["apellido"],
   "calle" => $datos ["calle"],
@@ -159,10 +194,9 @@ pisodireccion = '$registro[pisodireccion]',
 pais = '$registro[pais]',
 provincia = '$registro[provincia]',
 ciudad = '$registro[ciudad]',
-codigopostal = '$registro[codigopostal]',
-avatar = '$registro[avatar]'
+codigopostal = '$registro[codigopostal]'
 
-WHERE id =  '$_SESSION[id]';");
+WHERE id =  $_SESSION[id];");
 
   // -- (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
   // --   '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
@@ -170,7 +204,9 @@ WHERE id =  '$_SESSION[id]';");
 
   // var_dump($query); exit;
    $query-> execute();
-   } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
+   // var_dump($query);exit;
+ } catch (\PDOException $e) {echo "no se pudo subir tu peli";
+};
 }
 
 
@@ -222,17 +258,7 @@ function abrirBaseDatos(){
        return $usuarios;
        // var_dump($usuarios); exit;
        } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
-  // }
-  //  if(file_exists('../singUp/user.json')){
-  //      $archivoJson = file_get_contents('../singUp/user.json');
-  //      $archivoJson = explode(PHP_EOL,$archivoJson);
-  //      array_pop($archivoJson);
-  //      foreach ($archivoJson as $usuarios) {
-  //          $arrayUsuarios[]= json_decode($usuarios,true);
-  //      }
-//    }else{
-//        return null;
-//    }
+
 };
 
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
@@ -302,6 +328,8 @@ function cambiarFoto(){
 
 
 }
+
+
 
 
 ?>

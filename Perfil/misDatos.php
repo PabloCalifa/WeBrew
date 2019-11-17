@@ -9,8 +9,7 @@ if($_POST){
  $errores = validarMod($_POST);
  if(count($errores)==0){
   $usuario = buscarPorEmail($_POST["email"]);
-  if($usuario !== null){
-  }else{
+  if(!empty($usuario)){
     $registro = armarModRegistro($_POST);
     modificarRegistro($registro);
     actualizarSesion($_POST);
@@ -20,6 +19,21 @@ if($_POST){
     }
   }
 }
+
+try {
+$baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$query = $baseDeDatos->prepare("SELECT *
+                      from provincia
+                      ORDER BY provincia_id;");
+$provincias = [];
+// var_dump($query); exit;
+$query->execute();
+$provincias = $query->fetchAll();
+// var_dump($provincias); exit;
+}   catch (\Exception $e) {
+};
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +53,10 @@ if($_POST){
   <body>
           <?php require "../Navloged/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
-
+            <br>
             <!-- <img src="../fotosComunes/woodsfondo.jpg" alt="..." id="fotofondosingin"> -->
             <div class="container" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto">
               <?php if(isset($errores)):?>
-                <br>
-                <br>
 
                 <ul class="alert alert-danger">
                   <?php foreach ($errores as $value) :?>
@@ -91,8 +103,6 @@ if($_POST){
                   </div>
                 </div>
                 <div style="" class= "espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-                <div style="" class="titulo" style="text-align-last: left;"><h4>Fecha de nacimiento</h4></label>
-                </div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <div class="titulo" style="text-align-last: left;"><h4>Datos Personales</h4></label></div>
                 <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
@@ -144,31 +154,10 @@ if($_POST){
                     </select>
                   </label>
                   <label style="" for="provincia" class="col-sm-4 control-label">Provincia
-                    <select style="" name="provincia" id="provincia" value="<?=$_SESSION["provincia"]?>">
-                      <option>Buenos Aires</option>
-                      <option>CABA</option>
-                      <option>Catamarca</option>
-                      <option>Chaco</option>
-                      <option>Chubut</option>
-                      <option>Córdoba</option>
-                      <option>Corrientes</option>
-                      <option>Entre Ríos</option>
-                      <option>Formosa</option>
-                      <option>Jujuy</option>
-                      <option>La Pampa</option>
-                      <option>La Rioja</option>
-                      <option>Mendoza</option>
-                      <option >Misiones</option>
-                      <option>Neuquén</option>
-                      <option>Río Negro</option>
-                      <option>Salta</option>
-                      <option>San Juan</option>
-                      <option>San Luis</option>
-                      <option>Santa Cruz</option>
-                      <option>Santa Fe</option>
-                      <option>Santiago del Estero</option>
-                      <option>Tierra del Fuego</option>
-                      <option>Tucumán</option>
+                    <select style="" name="provincia" id="provincia" value="">
+                        <?php foreach ($provincias as $provincia): ?>
+                      <option value="<?=$provincia["provincia_id"]?>"><?=$provincia["provincia_name"]?></option>
+                    <?php endforeach; ?>
                     </select>
                   </label>
                 </div>

@@ -2,7 +2,12 @@
   font-size: 20px;
 }
 
-form.form-horizontal {
+table {
+background-color: black;
+
+}
+
+div.cuadro {
   border-radius: 20px;
   color:white;
   background-color: black;
@@ -10,7 +15,6 @@ form.form-horizontal {
   text-align: -webkit-center;
   margin-left: 10%;
   padding-bottom:2vw;
-  padding-left: 1%  ;
   width: 80%;
   box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 25px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -21,6 +25,35 @@ form.form-horizontal {
     color:rgba(255, 193, 0,1);
 }
 
+div#colcarga{
+  border-radius: 20px;
+  background-color: rgba(100, 100, 100, 0.19);
+  color:white;
+  text-align: -webkit-center;
+  width: 80%;
+  box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 25px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+select#alc, select#origin,select#stock, select#ibu, select#brand, select#ishigh  {
+  border-radius: 20px;
+  background-color: rgba(0,0,0, 0.19);
+  color:white;
+  text-align-last: center;
+  width: 80%;
+  box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 25px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input, .inputfile {
+  border-radius: 20px;
+  background-color: rgba(0,0,0, 0.19);
+  color:white;
+  text-align-last: center;
+  width: 80%;
+  box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 25px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
 h4 {
   color:rgba(255, 193, 0,1);
 }
@@ -30,17 +63,9 @@ body{
   width: 100%;
 }
 
-table {
-max-width: 800px;
-
-}
 
 
 
-#picture {
-max-width:30px;
-
-}
 
 #botones{
   color: black;

@@ -17,7 +17,7 @@ if($_POST){
     $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = $baseDeDatos->prepare("SELECT *
                           from origin
-                          ORDER BY country_origin;");
+                          ORDER BY country_id;");
     $paises = [];
     // var_dump($query); exit;
     $query->execute();
@@ -44,12 +44,25 @@ if($_POST){
 
   </head>
   <body>
-          <?php require "../Navloged/nav.php" ?>
-          <button class="btn" id="botones" onclick="window.location.href='../AMB/brands.php'">MARCAS</button>
-          <button class="btn" id="botones"onclick="window.location.href='../AMB/amb.php'">PRODUCTOS</button>
-          <button class="btn" id="botones" onclick="window.location.href='../AMB/countryes.php'">PAISES</button>
+          <?php require "../NavlAdmin/nav.php" ?>
+          <br>
+          <div class="cuadro">
+              <div class="titulo" style="text-align-last: center;"><h2>TABLAS</h2></div>
+            <div class="row" id="tablas" style="padding-left:2%; padding-right:2%;">
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/brands.php'">MARCAS</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn" id="botones"onclick="window.location.href='../AMB/amb.php'">PRODUCTOS</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/countryes.php'">PAISES</button>
+              </div>
+            </div>
+          </div>
           <div class="espacio" style="padding-top: 20px; padding-bottom: 50px"></div>
           <form class="form-horizontal" id="marcas" >
+            <div class="cuadro">
             <div class="titulo" style="text-align-last: center;"><h2>PAISES CARGADOS</h2></label>
               <table class="table table-sm table-dark conteiner-fluid" >
                 <thead>
@@ -71,27 +84,26 @@ if($_POST){
               </table>
             </form>
           </div>
+          </div>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <form class="form-horizontal" id="amb" action="../AMB/countryes.php" method="post" enctype="multipart/form-data">
+                <div class="cuadro">
+
               <div class="titulo" style="text-align-last: center;"><h2>CARGA DE PAIS</h2></label>
-                <table class="table table-sm table-dark table-hover" style="width: 80%">
-                  <thead>
-                    <tr>
-                      <th scope=".col-sm">ID</th>
-                      <th scope=".col-sm">NOMBRE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td scope="col-sm"><input type="text" name="name" ></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Pais</button>
+                <div class="row" id="rowcarga" >
+                <div class="col-sm" id="colcarga">
+                  NOMBRE
+                </div>
+                <div class="col-sm" id="colcarga">
+                  <input type="text" name="name" >
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Pais</button>
               </form>
+            </div>
             </div>
           <div class="espacio" style="padding-top:3vw"> </div>
           <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>

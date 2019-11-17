@@ -170,8 +170,8 @@ if($_POST){
                     </select>
                   </label>
                   <label style="display:none" for="provincia" class="col-sm-offset-2 col-sm-2 control-label">provincia
-                    <select style="display:none" name="provincia" id="provincia">
-                      <option>Buenos Aires</option>
+                    <select style="display:none" name="provincia" id="provincia" value="">
+                      <option value="1">Buenos Aires</option>
                       <option>CABA</option>
                       <option>Catamarca</option>
                       <option>Chaco</option>

@@ -64,20 +64,18 @@
           <li><a href="../productos/growlers.php">RECOMENDADOS</a></li>
         </ul>
       </li>
-      <!-- <li class="dropdown">
+      <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-        role="button" aria-haspopup="true" aria-expanded="false">ACCESORIOS<span class="caret"></span></a>
+        role="button" aria-haspopup="true" aria-expanded="false">TABLAS DE CARGA<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="../productos/accesorios.php">TODOS</a></li>
+          <li><a href="#">GENERAL</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/accesorios.php">CONSERVADORAS</a></li>
+          <li><a href="../AMB/amb.php">PRODUCTOS</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/accesorios.php">GROWLERS</a></li>
+          <li><a href="../AMB/brands.php">MARCAS</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../productos/accesorios.php">DESTAPADORES</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/accesorios.php">RECOMENDADOS</a></li>
-        </ul> -->
+          <li><a href="../AMB/countryes.php">PAISES</a></li>
+        </ul>
       <li><a href="../contacto/contacto.php">CONTACTO</a></li>
       </li>
     </ul>

@@ -55,8 +55,9 @@ if($_POST){
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-              <form class="form-horizontal" id="amb" action="../AMB/delete.php?prod_id=<?=$_GET["prod_id"]?>" method="post" enctype="multipart/form-data">
-              <div class="titulo" style="text-align-last: center;"><h2>PRODUCTO A ELIMINAR</h2></label>
+              <div class"cuadro">
+              <form class="" id="amb" action="../AMB/delete.php?prod_id=<?=$_GET["prod_id"]?>" method="post" enctype="multipart/form-data">
+              <div class="titulo" style="text-align-last: center;"><h2>PRODUCTO A ELIMINAR</h2></div>
                 <table class="table table-sm table-dark conteiner-fluid" >
                   <thead>
                     <tr>
@@ -93,11 +94,13 @@ if($_POST){
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Eliminar Producto</button>
                 <br>
               </form>
-               <button  class="btn" id="botones"  style="width:50%"><a style="none" href="../AMB/amb.php"> Menu Productos</a> </button>
-            </div>
+              <button  class="btn" id="botones"  style="width:50%" onclick="window.location.href='../AMB/amb.php'"> Menu Productos </button>
+              </div>
+              <br>
+
+            <button class="btn" id="botones" onclick="window.location.href='../AMB/brands.php'">MARCAS</button>
           <div class="espacio" style="padding-top:3vw"> </div>
 
-            </form>
           </div>
 
 

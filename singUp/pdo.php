@@ -8,3 +8,5 @@ try {
 $baseDeDatos = new PDO ($dsn, $user, $pass);
 } catch (PDOException $e) {
  echo "hubo una PDO exception"; }
+
+ 

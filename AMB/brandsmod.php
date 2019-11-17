@@ -55,12 +55,15 @@ if($_POST){
 
   </head>
   <body>
-          <?php require "../Navloged/nav.php" ?>
+          <?php require "../NavlAdmin/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
                 <form class="form-horizontal" id="amb" action="../AMB/brandsmod.php?brand_id=<?=$_GET["brand_id"]?>" method="post" enctype="multipart/form-data">
+                  <div class="cuadro">
                   <div class="titulo" style="text-align-last: center;"><h2>MARCA A MODIFICAR</h2></label>
+                    <br>
+
                 <table class="table table-sm table-dark" >
                   <thead>
                     <tr>
@@ -75,25 +78,24 @@ if($_POST){
                       </tr>
                   </tbody>
                 </table>
-                <table class="table table-sm table-dark" style="width: 80%">
-                  <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">NOMBRE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td scope="col-sm"><input type="text" name="name"></td>
-                    </tr>
-                  </tbody>
-                      <input style="display:none" name="brand_id" id="brand_id" value="<?= $marcas['brand_id'] ?>" >
-                </table>
+                <br>
+              </div>
+              <div class="row" id="rowcarga" >
+              <div class="col-sm" id="colcarga">
+                NOMBRE
+              </div>
+              <div class="col-sm" id="colcarga">
+                <input type="text" name="name" >
+              </div>
+              </div>
+                <input style="display:none" name="brand_id" id="brand_id" value="<?= $marcas['brand_id'] ?>" >
+                <br>
+                <br>
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Modificar Marca</button>
               </form>
+                <br>
+                <br>
               <a  class="btn" id="botones"  style="width:50%" href="../AMB/brands.php"> Menu Marcas </a>
-              <br>
         </div>
           <div class="espacio" style="padding-top:3vw"> </div>
           </div>

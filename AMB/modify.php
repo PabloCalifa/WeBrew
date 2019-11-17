@@ -137,111 +137,164 @@ if($_POST){
 
   </head>
   <body>
-          <?php require "../Navloged/nav.php" ?>
+          <?php require "../NavlAdmin/nav.php" ?>
             <div class="espacio" style="padding-top:3vw"></div>
             <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <form class="form-horizontal" id="amb" action="../AMB/modify.php?prod_id=<?=$_GET["prod_id"]?>" method="post" enctype="multipart/form-data">
+                <div class="cuadro">
               <div class="titulo" style="text-align-last: center;"><h2>PRODUCTO A MODIFICAR</h2></label>
                 <table class="table table-sm table-dark" >
                   <thead>
                     <tr>
                       <th scope="col">ID</th>
-                      <th scope="col">CATEGORIA</th>
+                      <th scope="col">CAT</th>
                       <th scope="col">NOMBRE</th>
                       <th scope="col">STOCK</th>
                       <th scope="col">IBU</th>
-                      <th scope="col">ALCOHOL</th>
-                      <th scope="col">CAPACIDAD</th>
+                      <th scope="col">%ALC</th>
+                      <th scope="col">CM3</th>
                       <th scope="col">MARCA</th>
                       <th scope="col">ORIGEN</th>
                       <th scope="col">DETALLE</th>
                       <th scope="col">FOTO</th>
+                      <th scope="col">OFERTA</th>
+
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row"><?= $prods['prod_id'] ?></th>
-                      <td><?= $prods['cat_name'] ?></td>
-                      <td><?= $prods['prods_name'] ?></td>
-                      <td><?= $prods['stock'] ?></td>
-                      <td><?= $prods['ibu'] ?></td>
-                      <td><?= $prods['alc'] ?></td>
-                      <td><?= $prods['capacity_cm3'] ?></td>
-                      <td><?= $prods['brand_name'] ?></td>
-                      <td><?= $prods['country_origin'] ?></td>
-                      <td><?= $prods['detail'] ?></td>
-                      <td><?= $prods['picture'] ?></td>
+                      <th scope="row"><?=substr($prods['prod_id'],-10);?></th>
+                      <td><?=substr($prods["cat_name"],-10);?></td>
+                      <td><?=substr($prods['prods_name'],-10);?></td>
+                      <td><?=substr($prods['stock'],-10);?></td>
+                      <td><?=substr($prods['ibu'],-10);?></td>
+                      <td><?=substr($prods['alc'],-10);?></td>
+                      <td><?=substr($prods['capacity_cm3'],-10);?></td>
+                      <td><?=substr($prods['brand_name'],-10);?></td>
+                      <td><?=substr($prods['country_origin'],-10);?></td>
+                      <td><?=substr($prods['detail'],-10);?></td>
+                      <td><?=substr($prods['picture'],-10);?></td>
+                      <td><?=substr($prods['ishigh'],-10);?></td>
                     </tr>
                   </tbody>
                 </table>
-                <table class="table-sm table-dark">
-                  <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">CATEGORIA</th>
-                      <th scope="col">NOMBRE</th>
-                      <th scope="col">STOCK</th>
-                      <th scope="col">IBU</th>
-                      <th scope="col">ALCOHOL</th>
-                      <th scope="col">CAPACIDAD</th>
-                      <th scope="col">MARCA</th>
-                      <th scope="col">ORIGEN</th>
-                      <th scope="col">DETALLE</th>
-                      <th scope="col">FOTO</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" > <?= $prods['prod_id'] ?></th>
-                      <td>
-                        <select name="cat" id="origin" value="">
-                          <?php foreach ($categories as $category): ?>
-                        <option value="<?=$category["cat_id"]?>"><?=$category["cat_name"]?></option>
+                <br>
+                </div>
+                <div class="container">
+                <div class="row" id="rowcarga" >
+                  <div class="col-sm" id="colcarga">
+                    CATEGORIA
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="cat" id="origin" value="">
+                      <?php foreach ($categories as $category): ?>
+                      <option value="<?=$category["cat_id"]?>"><?=$category["cat_name"]?></option>
                       <?php endforeach; ?>
-                        </select></td>
-                      <td ><input type="text" name="name" ></td>
-                      <td ><select name="stock" id="stock" value="">
+                    </select>
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    NOMBRE
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <input type="text" name="name" >
+                  </div>
+                </div>
+                <br>
+                <div class="row" id="rowcarga" >
+                  <div class="col-sm" id="colcarga">
+                    STOCK
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                  <select name="stock" id="stock" value="">
                         <?php for ($i=01; $i < 50; $i++) { ?>
+          					       <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+              				  <?php } ?></select>
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    IBU
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="ibu" id="ibu" value="">
+                      <?php for ($i=01; $i < 30; $i++) { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php } ?></select></td>
-                      <td ><select name="ibu" id="ibu" value="">
-                        <?php for ($i=01; $i < 30; $i++) { ?>
-                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                      <?php } ?></select></td>
-                      <td ><select name="alc" id="alc" value="">
-                        <?php for ($i=1; $i < 19; $i=$i+0.1) { ?>
-                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                      <?php } ?></select></td>
-                      <td><input type="text" name="capacity"></td>
-                      <td>
-                        <select name="brand" id="brand" value="">
-                          <?php foreach ($brandes as $brande): ?>
+                      <?php } ?></select>
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    ALCOHOL
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="alc" id="alc" value="">
+                      <?php for ($i=1; $i < 19; $i=$i+0.1) { ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                      <?php } ?></select>
+                  </div>
+                </div>
+                <br>
+                <div class="row" id="rowcarga" >
+                  <div class="col-sm" id="colcarga">
+                    CAPACIDAD
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <input type="text" name="capacity">
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    MARCA
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="brand" id="brand" value="">
+                      <?php foreach ($brandes as $brande): ?>
                         <option value="<?=$brande["brand_id"]?>"><?=$brande["brand_name"]?></option>
                       <?php endforeach; ?>
-                        </select>
-                      </td>
-                      <td>
-                          <select name="origin" id="origin" value="">
-                            <?php foreach ($countryes as $country): ?>
-                          <option value="<?=$country["country_id"]?>"><?=$country["country_origin"]?></option>
-                        <?php endforeach; ?>
-                          </select>
-                        <!-- <input type="text" name="origin" > -->
-                      </td>
-                      <td><input type="text" name="detail" ></td>
-                      <td><input type="file" name="picture" id="picture" style="text-align: -webkit-center" ></td>
-                    </tr>
-                  </tbody>
-                      <input style="display:none" name="prod_id" id="prod_id" value="<?= $prods['prod_id'] ?>" >
-                </table>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row" id="rowcarga" >
+                  <div class="col-sm" id="colcarga">
+                    ORIGEN
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="origin" id="origin" value="">
+                      <?php foreach ($countryes as $country): ?>
+                        <option value="<?=$country["country_id"]?>"><?=$country["country_origin"]?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    DETALLE
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <input type="text" name="detail">
+                  </div>
+                </div>
+                <br>
+                <div class="row" id="rowcarga">
+                    <div class="col-sm" id="colcarga">
+                      FOTO
+                    </div>
+                    <div class="col-sm" id="colcarga">
+                        <input type="file" name="picture" id="picture" class="inputfile" >
+                    </div>
+                    <div class="col-sm" id="colcarga">
+                      DESTACADO
+                    </div>
+                    <div class="col-sm" id="colcarga">
+                      <select name="ishigh" id="ishigh" value="">
+                        <option value="0">NO</option>
+                        <option value="1">SI</option>
+                    </select>
+                </div>
+              </div>
+              <br>
+              <br>
+
                 <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Modificar Producto</button>
                 <br>
               </form>
+              <br>
                <a  class="btn" id="botones"  style="width:50%" href="../AMB/amb.php"> Menu Productos</a>
             </div>
-          <div class="espacio" style="padding-top:3vw"> </div>
-          </form>
           </div>
           <?php require "../Footer/Footer.php" ?>
 
