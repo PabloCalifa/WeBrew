@@ -64,7 +64,7 @@
           <li><a href="../productos/growlers.php">RECOMENDADOS</a></li>
         </ul>
       </li>
-      <li class="dropdown">
+      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
         role="button" aria-haspopup="true" aria-expanded="false">ACCESORIOS<span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -77,7 +77,7 @@
           <li><a href="../productos/accesorios.php">DESTAPADORES</a></li>
           <li role="separator" class="divider"></li>
           <li><a href="../productos/accesorios.php">RECOMENDADOS</a></li>
-        </ul>
+        </ul> -->
       <li><a href="../contacto/contacto.php">CONTACTO</a></li>
       </li>
     </ul>

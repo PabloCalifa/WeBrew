@@ -1,4 +1,5 @@
 <?php
+require("../singUp/pdo.php");
 session_start();
 
 // //Aquí comienzo a programar las funciones generales de mi sistema
@@ -30,7 +31,35 @@ return $errores;
 }
 
 
+function validarMod($datos){
+    //Este representa mi array donde voy a ir almacenando los errores, que luego muestro en la vista al usuario.|
+    $errores = [];
+    if(!empty($datos['email'])){
+              $email = trim($datos['email']);
+              if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                  $errores['email']="Email inválido...";
+              }
+            }
+      if(!empty($datos['password'])){
+                       $password = trim($datos['password']);
+                       if(strlen($password)<8) {
+                           $errores['password']="La contraseña como mínimo debe tener 8 caracteres";
+                       }
+                     }
+      if(!empty($datos['password'])){
+          $passwordRepeat = trim($datos['passwordRepeat']);
+        if($password != $passwordRepeat){
+            $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+          }
+        }
+
+    return $errores;
+      }
+
+
 function validarLogin($datos){
+  require("../singUp/pdo.php");
+
     $errores=[];
     $email = trim($datos['email']);
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -69,7 +98,7 @@ function validarOlvidePassword($datos){
 
 
 function armarRegistro($datos,$avatar){
-  $usuario = [
+    $usuario = [
   "email" => $datos ["email"],
   "password" => password_hash($datos['password'],PASSWORD_DEFAULT),
   "dia" => $datos ["dia"],
@@ -77,26 +106,112 @@ function armarRegistro($datos,$avatar){
   "ano" => $datos ["ano"],
   "nombre" => $datos ["nombre"],
   "apellido" => $datos ["apellido"],
-  "Sexo" => $datos ["Sexo"],
+  "sexo" => $datos ["sexo"],
   "calle" => $datos ["calle"],
   "numdireccion" => $datos ["numdireccion"],
-  "Pisodireccion" => $datos ["Pisodireccion"],
+  "pisodireccion" => $datos ["pisodireccion"],
   "pais" => $datos ["pais"],
-  "Provincia" => $datos ["Provincia"],
-  "Ciudad" => $datos ["Ciudad"],
+  "provincia" => $datos ["provincia"],
+  "ciudad" => $datos ["ciudad"],
   "codigopostal" => $datos ["codigopostal"],
-  "acepterms" => $datos ["acepterms"],
-  "actualizaciones"=> $datos ["actualizaciones"],
-  "manteinLogued" => $datos ["manteinLogued"],
   "avatar" => $avatar
   ];
   return $usuario;
 }
 
 function guardarRegistro($registro){
-    $archivoJson = json_encode($registro);
-    file_put_contents('user.json',$archivoJson.PHP_EOL,FILE_APPEND);
+require("../singUp/pdo.php");
+  try {
+$query = $baseDeDatos->prepare ("INSERT INTO users
+  VALUES (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
+    '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
+    ,'$registro[codigopostal]','$registro[avatar]', 'default')");
+   $query-> execute();
+   // var_dump($query); exit;
+   } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
 }
+
+
+function consultarpass($email){
+
+  require("../singUp/pdo.php");
+
+  try {
+    $query = $baseDeDatos->prepare("SELECT pass FROM users WHERE email = '$email'");
+      // var_dump($query); exit;
+       $query->execute();
+       $password = $query->fetch(PDO::FETCH_ASSOC);
+     } catch (\PDOException  $e) {echo "no se pudo subir tu peli"; };
+      // var_dump($e);exit;
+       return $password;
+       // var_dump($usuarios); exit;
+       // var_dump($e); exit;
+
+
+}
+
+
+function armarModRegistro($datos){
+  if(!empty($datos['password'])){
+  password_hash($datos['password'],PASSWORD_DEFAULT);
+}else{
+  $password=0;
+  $password = consultarpass($datos ["email"]);
+  $password = $password['pass'];
+  // var_dump($password);exit;
+}
+// var_dump($password);exit;
+  $usuario = [
+
+  "email" => $datos ["email"],
+  "password" => $password,
+  "nombre" => $datos ["nombre"],
+  "apellido" => $datos ["apellido"],
+  "calle" => $datos ["calle"],
+  "numdireccion" => $datos ["numdireccion"],
+  "pisodireccion" => $datos ["pisodireccion"],
+  "pais" => $datos ["pais"],
+  "provincia" => $datos ["provincia"],
+  "ciudad" => $datos ["ciudad"],
+  "codigopostal" => $datos ["codigopostal"],
+  ];
+  return $usuario;
+}
+
+
+function modificarRegistro($registro){
+require("../singUp/pdo.php");
+  try {
+$query = $baseDeDatos->prepare ("UPDATE users
+  SET
+email = '$registro[email]',
+pass = '$registro[password]',
+nombre = '$registro[nombre]',
+apellido = '$registro[apellido]',
+calle = '$registro[calle]',
+numdireccion = '$registro[numdireccion]',
+pisodireccion = '$registro[pisodireccion]',
+pais = '$registro[pais]',
+provincia = '$registro[provincia]',
+ciudad = '$registro[ciudad]',
+codigopostal = '$registro[codigopostal]'
+
+WHERE id =  $_SESSION[id];");
+
+  // -- (default,'$registro[email]','$registro[password]','$registro[ano]-$registro[mes]-$registro[dia]','$registro[nombre]','$registro[apellido]','$registro[sexo]',
+  // --   '$registro[calle]','$registro[numdireccion]','$registro[pisodireccion]','$registro[pais]','$registro[provincia]','$registro[ciudad]'
+  // --   ,'$registro[codigopostal]','$registro[avatar]', 'default')
+
+  // var_dump($query); exit;
+   $query-> execute();
+   // var_dump($query);exit;
+ } catch (\PDOException $e) {echo "no se pudo subir tu peli";
+};
+}
+
+
+
+
 
 //Esta función nos permite armar el registro cuando el usuario selecciona el avatar
 
@@ -132,42 +247,62 @@ function buscarPorEmail($email){
 }
 
 function abrirBaseDatos(){
-   if(file_exists('../singUp/user.json')){
-       $archivoJson = file_get_contents('../singUp/user.json');
-       $archivoJson = explode(PHP_EOL,$archivoJson);
-       array_pop($archivoJson);
-       foreach ($archivoJson as $usuarios) {
-           $arrayUsuarios[]= json_decode($usuarios,true);
-       }
-       return $arrayUsuarios;
-   }else{
-       return null;
-   }
-}
+  require("../singUp/pdo.php");
+
+  try {
+    $query = $baseDeDatos->prepare("SELECT * FROM users ORDER BY id;");
+      // var_dump($query); exit;
+      $usuarios = [];
+       $query->execute();
+       $usuarios = $query->fetchAll();
+       return $usuarios;
+       // var_dump($usuarios); exit;
+       } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
+
+};
 
 //Aqui creo los las variables de session y de cookie de mi usuario que se está loguendo
 function seteoUsuario($usuario,$dato){
+
+    $_SESSION['id']=$usuario['id'];
     $_SESSION['email']=$usuario['email'];
     $_SESSION['nombre']=$usuario['nombre'];
     $_SESSION['apellido']=$usuario['apellido'];
     $_SESSION['calle']=$usuario['calle'];
-    $_SESSION["dia"] = $usuario ["dia"];
-    $_SESSION["mes"] = $usuario ["mes"];
-    $_SESSION["ano"] = $usuario ["ano"];
-    $_SESSION["Sexo"] = $usuario ["Sexo"];
+    $_SESSION['born_date'] = $usuario ['born_date'];
+    $_SESSION['sex'] = $usuario ['sex'];
     $_SESSION['numdireccion']=$usuario['numdireccion'];
-    $_SESSION['Pisodireccion']=$usuario['Pisodireccion'];
+    $_SESSION['pisodireccion']=$usuario['pisodireccion'];
     $_SESSION['email']=$usuario['email'];
     $_SESSION['pais']=$usuario['pais'];
-    $_SESSION['Provincia']=$usuario['Provincia'];
-    $_SESSION['Ciudad']=$usuario['Ciudad'];
+    $_SESSION['provincia']=$usuario['provincia'];
+    $_SESSION['ciudad']=$usuario['ciudad'];
     $_SESSION['codigopostal']=$usuario['codigopostal'];
     $_SESSION['avatar']=$usuario['avatar'];
     if(isset($dato['recordarme'])){
-        setcookie('email',$usuario['email'],time()+3600);
-        setcookie('password',$dato['password'],time()+3600);
+        setcookie('id',$usuario['id'],time()+60);
+        setcookie('email',$usuario['email'],time()+60);
+        setcookie('password',$dato['password'],time()+60);
     }
+};
+
+function actualizarSesion(){
+
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['nombre']=$_POST['nombre'];
+    $_SESSION['apellido']=$_POST['apellido'];
+    $_SESSION['calle']=$_POST['calle'];
+    $_SESSION['numdireccion']=$_POST['numdireccion'];
+    $_SESSION['pisodireccion']=$_POST['pisodireccion'];
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['pais']=$_POST['pais'];
+    $_SESSION['provincia']=$_POST['provincia'];
+    $_SESSION['ciudad']=$_POST['ciudad'];
+    $_SESSION['codigopostal']=$_POST['codigopostal'];
+    $_SESSION['avatar']=$_POST['avatar'];
+
 }
+
 //Con esta función controlo si el usuario se logueo o ya tenemos las cookie en la máquina
 function validarUsuario(){
     if(isset($_SESSION['email'])){
@@ -193,6 +328,8 @@ function cambiarFoto(){
 
 
 }
+
+
 
 
 ?>

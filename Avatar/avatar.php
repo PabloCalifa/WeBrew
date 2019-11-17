@@ -7,7 +7,7 @@
     <h1>Hola, <?=$_SESSION["nombre"] ;?></h1>
     <br><button id="avatarboton">Compras</button>
     <br><button id="avatarboton">Favoritos</button>
-    <br><a href="../perfil/misDatos.php"><button id="avatarboton"> Mis Datos</button></a>
-    <br><button id="avatarboton">Salir</button>
+    <br><button id="avatarboton" onclick="window.location.href='../perfil/misDatos.php'"> Modificar Mis Datos</button>
+    <br><button id="avatarboton" onclick="window.location.href='../singUp/cerrarSesion.php'">Salir</button>
   </div>
 </div>

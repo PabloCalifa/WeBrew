@@ -50,34 +50,7 @@ require_once("../singUp/helpers.php");
                         </nav>
                         <!-- FIN DEL NAV -->
                         <!-- INICI DEL ROW -->
-                        <!-- <div class="row" id="perfilrowproductos" >
-                          <div class="col-sm-3">
-                            <div class"pedidoRealizado">
-                                <h5>PEDIDOS REALIZADOS</h5>
-                                <p>22 de julio de 2019</p>
-                            </div>
-                          </div>
-                          <div class="col-sm-3">
-                            <div class"Total">
-                                <h5>TOTAL</h5>
-                                <p>$50,00</p>
-                            </div>
-                          </div>
-                          <div class="col-sm-3">
-                            <div class"direccion">
-                                <h5>DIRECCIÓN</h5>
-                                <p>Calle falsa 123</p>
-                            </div>
-                          </div>
-                          <div class="col-sm-3">
-                            <div class"codigoPedido">
-                                <h5>CÓDIGO DE PEDIDO</h5>
-                                <p>A0123456789</p>
-                            </div>
-                          </div>
-                        </div> -->
-                        <!-- FIN DEL ROW  -->
-                        <br> </br>
+                          <br> </br>
                         <!-- INICIO DESCRIPCION DE PRODUCTOS -->
                         <div class="row" id="rowcompras" >
                           <div class="col">
