@@ -34,7 +34,7 @@ div#colcarga{
   box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 25px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-select#alc, select#origin,select#stock, select#ibu, select#brand, select#ishigh  {
+select#alc, select#origin,select#stock,select#style,select#segment, select#ibu, select#brand, select#ishigh  {
   border-radius: 20px;
   background-color: rgba(0,0,0, 0.19);
   color:white;

@@ -2,6 +2,10 @@
 require("../singUp/pdo.php");
 require_once("users.php");
 require_once("helpers.php");
+
+
+
+
 if($_POST){
  $errores = validar($_POST,$_FILES);
  if(count($errores)==0){
@@ -229,7 +233,7 @@ if($_POST){
                         <div class="row">
                           <div class="col">
                             <input type="hidden" name="acepterms" id="acepterms" value="0">
-                            <input type="checkbox" name="acepterms" id="acepterms" value="1"> Acepto <a> términos y condiciones </a>
+                            <input required type="checkbox" name="acepterms" id="acepterms" value="1"> Acepto <a> términos y condiciones </a>
                           </div>
                         </label>
                         <label>
@@ -238,12 +242,7 @@ if($_POST){
                             <input type="checkbox" name="actualizaciones" id="actualizaciones" value="1"> Deseo recibir actualizaciones
                           </div>
                         </label>
-                        <label>
-                          <div class="col">
-                            <input  type="hidden" name="manteinLogued" id="manteinLogued" value="0">
-                            <input type="checkbox" name="manteinLogued" id="manteinLogued" value="1"> Mantenerme Logueado
-                          </div>
-                        </label>
+
                       </div>
                     </div>
                   </div>

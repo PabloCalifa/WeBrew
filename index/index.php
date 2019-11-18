@@ -2,6 +2,43 @@
 <?php
 require_once("../singUp/users.php");
 require_once("../singUp/helpers.php");
+try {
+$baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$query = $baseDeDatos->prepare("SELECT *
+        from prods
+        INNER JOIN origin ON fk_origin = origin.country_id
+        INNER JOIN brand ON fk_brand = brand.brand_id
+        INNER JOIN style ON style = style.style_id
+        INNER JOIN cat ON fk_cat = cat.cat_id
+        WHERE ishigh = 1
+        ORDER BY prod_id
+        Limit 5;");
+$productosdestacados1 = [];
+// var_dump($query); exit;
+$query->execute();
+$productosdestacados1 = $query->fetchAll();
+// var_dump($productos); exit;
+ }   catch (\Exception $e) {
+ }
+ try {
+ $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ $query = $baseDeDatos->prepare("SELECT *
+         from prods
+         INNER JOIN origin ON fk_origin = origin.country_id
+         INNER JOIN brand ON fk_brand = brand.brand_id
+         INNER JOIN style ON style = style.style_id
+         INNER JOIN cat ON fk_cat = cat.cat_id
+         WHERE ishigh = 1
+         ORDER BY prod_id
+         Limit 5
+         offset 5;");
+ $productosdestacados2 = [];
+ // var_dump($query); exit;
+ $query->execute();
+ $productosdestacados2 = $query->fetchAll();
+ // var_dump($productos); exit;
+  }   catch (\Exception $e) {
+  }
 
 ?>
 <!DOCTYPE html>
@@ -44,73 +81,47 @@ require_once("../singUp/helpers.php");
           </div>
         </div>
         <div class="espacio" style="padding:30px;"></div>
-
 <!-- CAROUSEL DE DESTACADOS -->
           <div class="container" id="destacadoscarrouselback">
             <img id="destacadoscarrousel" alt="Nuestros destacados"  src="../fotosComunes/destacados.jpg">
           </div>
-
             <!-- <h1 class="productosMas text-center">Nuestros destacados</h1> -->
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="container mt-3 text-center">
                   <div class="row text-center">
+                    <?php  foreach ($productosdestacados1 as $proddestacado):?>
                   <div class="card" id="cardDestacados">
-                    <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Cerveza Corona</h5>
-                      <p class="card-text">Descripción del producto.</p>
-                      <a href="#"><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
+                      <h5 class="card-title"><?=$proddestacado['prods_name'];?></h5>
+                    </div>
+                    <img src="../AMB/imagenes/ <?=$proddestacado['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                    <div class="card-body">
+                      <h4 class="card-text">$<?=$proddestacado['price'];?></H4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
                     </div>
                   </div>
-                  <div class="card" id="cardDestacados">
-                    <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cerveza Corona</h5>
-                      <p class="card-text">Descripción del producto.</p>
-                      <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                    </div>
-                  </div>
-                  <div class="card" id="cardDestacados">
-                    <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cerveza Corona</h5>
-                      <p class="card-text">Descripción del producto.</p>
-                      <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                    </div>
-                  </div>
-                  <div class="card" id="cardDestacados">
-                    <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cerveza Corona</h5>
-                      <p class="card-text">Descripción del producto.</p>
-                      <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                    </div>
-                  </div>
-                  <div class="card" id="cardDestacados">
-                    <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cerveza Corona</h5>
-                      <p class="card-text">Descripción del producto.</p>
-                      <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                    </div>
-                  </div>
-                </div>
+                <?php endforeach ?>
               </div>
             </div>
+          </div>
             <div class="carousel-item">
               <div class="container mt-3 text-center">
               <div class="row text-center">
-              <div class="card" id="cardDestacados">
-                <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
+                <?php  foreach ($productosdestacados2 as $proddestacado2):?>
+              <div class="card" id="cardDestacados" style="">
                 <div class="card-body">
-                  <h5 class="card-title">Cerveza Corona</h5>
-                  <p class="card-text">Descripción del producto.</p>
-                  <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
+                  <h5 class="card-title"><?=$proddestacado2['prods_name'];?></h5>
+                </div>
+                <img src="../AMB/imagenes/ <?=$proddestacado2['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                <div class="card-body">
+                  <h4 class="card-text">$<?=$proddestacado2['price'];?>,00</h4>
+                  <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
                 </div>
               </div>
-              <div class="card" id="cardDestacados">
+            <?php endforeach ?>
+              <!-- <div class="card" id="cardDestacados">
                 <img src="productos/porrones/porron4.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Cerveza Corona</h5>
@@ -141,10 +152,11 @@ require_once("../singUp/helpers.php");
                   <p class="card-text">Descripción del producto.</p>
                   <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
+
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -154,6 +166,7 @@ require_once("../singUp/helpers.php");
               <span class="sr-only">Next</span>
             </a>
         </div>
+      </div>
 
 
 <!-- FIN DE CAROUSEL DE DESTACADOS -->
@@ -208,10 +221,8 @@ require_once("../singUp/helpers.php");
 <!-- FIN DE OFERTAS -->
       </section>
       <div class="espacio" style="padding-top:8vw"></div>
-<<<<<<< HEAD
       <div class="" style="border-bottom: solid rgba(255,193,0,0.2); width:100%"></div>
-=======
->>>>>>> master
+
 
     <?php require "../Footer/Footer.php" ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

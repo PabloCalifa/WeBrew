@@ -45,7 +45,6 @@ if($_POST){
   </head>
   <body>
           <?php require "../NavlAdmin/nav.php" ?>
-
           <br>
           <div class="cuadro">
               <div class="titulo" style="text-align-last: center;"><h2>TABLAS</h2></div>
@@ -58,6 +57,12 @@ if($_POST){
               </div>
               <div class="col-sm">
                 <button class="btn" id="botones" onclick="window.location.href='../AMB/countryes.php'">PAISES</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/styles.php'">ESTILOS</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/segments.php'">SEGMENTOS</button>
               </div>
             </div>
           </div>

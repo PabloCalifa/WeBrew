@@ -1,3 +1,14 @@
+body{
+  background-image: url("../fotosComunes/woodsfondo.jpg");
+
+  width: 100%;
+}
+
+div#stylefoto{
+background-color: rgba(255, 255, 255, 0.9);
+padding
+}
+
 #espacionav{
   padding:0px;
   padding-top: 52px;
@@ -23,7 +34,12 @@ div#botonesbajofoto.row>div.col-sm{
   margin:0px;
 }
 
-div#botonesbajofoto.row>div.col-sm>button{
+.accordion>.card .card-header {
+padding: 0px;
+
+}
+
+div#botonesbajofoto.row>div.col-sm>button, button#botones.btn {
   border-radius: 0px;
   font-size: 25px;
   font-weight: bold;
@@ -33,6 +49,23 @@ div#botonesbajofoto.row>div.col-sm>button{
 
 }
 
+
+#botonesagregar{
+  color: white;
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  text-transform: uppercase;:
+
+}
+
+#botonesagregar:hover, #botonesagregar:focus  {
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-transform: uppercase;:
+
+}
 
 #botones{
   color: white;
@@ -114,7 +147,7 @@ ul#listacompraproducto{
 }
 
 #fotoproducto {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
   margin: 0 auto;
   padding: 0px;
   max-width: 350px;
@@ -213,6 +246,8 @@ width: 100%;
 }
 
 #productotexto {
+
+  text-transform: uppercase;
   font-family: 'Open Sans';
   z-index: 1;
   position: relative;
@@ -281,4 +316,15 @@ width: 100%;
   content: '<';
   font-size: 20px;
   color: gray;
+}
+
+#linkproductos{
+  text-decoration: none;
+  color: black;
+}
+#prodcontext:hover, #prodcontext:focus {
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8), 0 6px 20px 0 rgba(0,0,0,0.8);
+
+
 }

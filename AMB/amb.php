@@ -5,6 +5,8 @@ require_once('../singUp/pdo.php');
 if($_POST){
   $cat = $_POST['cat'];
   $name = $_POST['name'];
+  $segment = $_POST['segment'];
+  $style = $_POST['style'];
   $stock = $_POST['stock'];
   $ibu = $_POST['ibu'];
   $alc = $_POST['alc'];
@@ -13,6 +15,7 @@ if($_POST){
   $origin = $_POST['origin'];
   $detail = $_POST['detail'];
   $ishigh = $_POST['ishigh'];
+  $price = $_POST['price'];
   if (isset($_FILES)){
       if ($_FILES['picture']['error'] != 0){
       }else{
@@ -37,8 +40,8 @@ if($_POST){
     }
     try {
       $query = $baseDeDatos->prepare ("INSERT INTO prods
-        VALUES (default,'$cat','$name','$stock','$ibu','$alc','$capacity',
-          '$brand','$origin','$detail','$imgprod', '$ishigh')");
+        VALUES (default,'$cat','$style','$segment','$name','$stock','$ibu','$alc','$capacity',
+          '$brand','$origin','$detail','$imgprod', '$ishigh', '$price' )");
         // var_dump($query); exit;
          $query-> execute();
          } catch (\Exception $e) {echo "no se pudo subir tu peli"; };
@@ -50,6 +53,8 @@ if($_POST){
           from prods
           INNER JOIN origin ON fk_origin = origin.country_id
           INNER JOIN brand ON fk_brand = brand.brand_id
+          INNER JOIN style ON style = style.style_id
+          INNER JOIN segment ON segment = segment.segment_id
           INNER JOIN cat ON fk_cat = cat.cat_id
           ORDER BY prod_id;");
   $productos = [];
@@ -98,7 +103,30 @@ if($_POST){
     // var_dump($productos); exit;
     }   catch (\Exception $e) {
     } //fin buscarmarcas//
-
+    try {
+   $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $query = $baseDeDatos->prepare("SELECT *
+                          from style
+                          ORDER BY style_id;");
+   $styles = [];
+   // var_dump($query); exit;
+   $query->execute();
+   $styles = $query->fetchAll();
+   // var_dump($productos); exit;
+    }   catch (\Exception $e) {
+    } //fin estilos//
+    try {
+   $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $query = $baseDeDatos->prepare("SELECT *
+                          from segment
+                          ORDER BY segment_id;");
+   $segments = [];
+   // var_dump($query); exit;
+   $query->execute();
+   $segments = $query->fetchAll();
+   // var_dump($productos); exit;
+    }   catch (\Exception $e) {
+    } //fin segmetos//
 
 
 ?>
@@ -133,6 +161,12 @@ if($_POST){
               <div class="col-sm">
                 <button class="btn" id="botones" onclick="window.location.href='../AMB/countryes.php'">PAISES</button>
               </div>
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/styles.php'">ESTILOS</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn" id="botones" onclick="window.location.href='../AMB/segments.php'">SEGMENTOS</button>
+              </div>
             </div>
           </div>
           <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
@@ -145,6 +179,8 @@ if($_POST){
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">CAT</th>
+                    <th scope="col">SEGMENTO</th>
+                    <th scope="col">ESTILO</th>
                     <th scope="col">NOMBRE</th>
                     <th scope="col">STOCK</th>
                     <th scope="col">IBU</th>
@@ -155,6 +191,7 @@ if($_POST){
                     <th scope="col">DETALLE</th>
                     <th scope="col">FOTO</th>
                     <th scope="col">OFERTA</th>
+                    <th scope="col">$</th>
                     <th scope="col">MODIFY</th>
                     <th scope="col">BORRAR</th>
                   </tr>
@@ -164,6 +201,8 @@ if($_POST){
                     <tr>
                       <th scope="row"><?=substr($producto['prod_id'],-10);?></th>
                       <td><?=substr($producto["cat_name"],-10);?></td>
+                      <td><?=substr($producto["segment_name"],-10);?></td>
+                      <td><?=substr($producto["style_name"],-10);?></td>
                       <td><?=substr($producto['prods_name'],-10);?></td>
                       <td><?=substr($producto['stock'],-10);?></td>
                       <td><?=substr($producto['ibu'],-10);?></td>
@@ -174,6 +213,7 @@ if($_POST){
                       <td><?=substr($producto['detail'],-10);?></td>
                       <td><?=substr($producto['picture'],-10);?></td>
                       <td><?=substr($producto['ishigh'],-10);?></td>
+                      <td><?=substr($producto['price'],-10);?></td>
                       <td><a href="../AMB/modify.php?prod_id=<?= $producto["prod_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
                       <td><a href="../AMB/delete.php?prod_id=<?= $producto["prod_id"] ?>"> <i class="fas fa-trash"></i></a></td>
                     </tr>
@@ -193,6 +233,12 @@ if($_POST){
               <div class="container">
                 <div class="row" id="rowcarga" >
                   <div class="col-sm" id="colcarga">
+                    NOMBRE
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <input type="text" name="name" >
+                  </div>
+                  <div class="col-sm" id="colcarga">
                     CATEGORIA
                   </div>
                   <div class="col-sm" id="colcarga">
@@ -202,11 +248,28 @@ if($_POST){
                       <?php endforeach; ?>
                     </select>
                   </div>
+                </div>
+                <br>
+                <div class="row" id="rowcarga" >
                   <div class="col-sm" id="colcarga">
-                    NOMBRE
+                    SEGMENTO
                   </div>
                   <div class="col-sm" id="colcarga">
-                    <input type="text" name="name" >
+                    <select name="segment" id="segment" value="">
+                      <?php foreach ($segments as $segment): ?>
+                      <option value="<?=$segment["segment_id"]?>"><?=$segment["segment_name"]?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    ESTILO
+                  </div>
+                  <div class="col-sm" id="colcarga">
+                    <select name="style" id="style" value="">
+                      <?php foreach ($styles as $style): ?>
+                      <option value="<?=$style["style_id"]?>"><?=$style["style_name"]?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
                 <br>
@@ -293,6 +356,12 @@ if($_POST){
                         <option value="0">NO</option>
                         <option value="1">SI</option>
                     </select>
+                </div>
+                <div class="col-sm" id="colcarga">
+                  PRECIO
+                </div>
+                <div class="col-sm" id="colcarga">
+                  <input type="text" name="price">
                 </div>
               </div>
               <br>

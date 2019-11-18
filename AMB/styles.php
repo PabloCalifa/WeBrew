@@ -5,10 +5,10 @@ require_once('../singUp/pdo.php');
 if($_POST){
   $name = $_POST['name'];
     try {
-      $query = $baseDeDatos->prepare ("INSERT INTO origin
+      $query = $baseDeDatos->prepare ("INSERT INTO style
         VALUES (default,'$name')");
-        // var_dump($query); exit;
          $query-> execute();
+         // var_dump($query); exit;
        } catch (\Exception $e) {echo "no se pudo subir marca"; };
     }//cierre ifpost//
      ;
@@ -16,16 +16,16 @@ if($_POST){
     try {
     $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = $baseDeDatos->prepare("SELECT *
-                          from origin
-                          ORDER BY country_id;");
-    $paises = [];
+                          from style
+                          ORDER BY style_id;");
+    $styles = [];
     // var_dump($query); exit;
     $query->execute();
-    $paises = $query->fetchAll();
+    $styles = $query->fetchAll();
     // var_dump($productos); exit;
     }   catch (\Exception $e) {
     } //fin buscarmarcas//
-    ;
+;
 
 ?>
 
@@ -69,7 +69,7 @@ if($_POST){
           <div class="espacio" style="padding-top: 20px; padding-bottom: 50px"></div>
           <form class="form-horizontal" id="marcas" >
             <div class="cuadro">
-            <div class="titulo" style="text-align-last: center;"><h2>PAISES CARGADOS</h2></label>
+            <div class="titulo" style="text-align-last: center;"><h2>ESTILOS CARGADOS</h2></label>
               <table class="table table-sm table-dark conteiner-fluid" >
                 <thead>
                   <tr>
@@ -79,25 +79,24 @@ if($_POST){
                   </tr>
                 </thead>
                 <tbody>
-                  <?php  foreach ($paises as $pais):?>
+                  <?php  foreach ($styles as $style):?>
                     <tr>
-                      <th scope="row"><?=$pais['country_id'];?></th>
-                      <td><?=$pais['country_origin'];?></td>
-                      <td><a href="../AMB/countrymod.php?country_id=<?= $pais['country_id']; ?>"> <i class="fas fa-file-alt"></i></a></td>
+                      <th scope="row"><?=$style['style_id'];?></th>
+                      <td><?=$style['style_name'];?></td>
+                      <td><a href="../AMB/stylesmod.php?style_id=<?= $style["style_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
                     </tr>
                   <?php endforeach ?>
                 </tbody>
               </table>
+            </div>
             </form>
           </div>
-          </div>
-            <div class="espacio" style="padding-top:3vw"></div>
-            <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
-              <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-              <form class="form-horizontal" id="amb" action="../AMB/countryes.php" method="post" enctype="multipart/form-data">
-                <div class="cuadro">
-
-              <div class="titulo" style="text-align-last: center;"><h2>CARGA DE PAIS</h2></label>
+          <div class="espacio" style="padding-top:3vw"></div>
+          <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
+          <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+          <form class="form-horizontal" id="amb" action="../AMB/styles.php" method="post" enctype="multipart/form-data">
+            <div class="cuadro">
+              <div class="titulo" style="text-align-last: center;"><h2>CARGA DE ESTILO</h2></label>
                 <div class="row" id="rowcarga" >
                 <div class="col-sm" id="colcarga">
                   NOMBRE
@@ -107,10 +106,11 @@ if($_POST){
                 </div>
               </div>
               <br>
-              <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Pais</button>
+              <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Estilo</button>
               </form>
             </div>
-            </div>
+          </div>
+
           <div class="espacio" style="padding-top:3vw"> </div>
           <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
           <?php require "../Footer/Footer.php" ?>

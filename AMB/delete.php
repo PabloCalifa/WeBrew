@@ -56,52 +56,56 @@ if($_POST){
             <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
               <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
               <div class"cuadro">
+                <div class="cuadro">
               <form class="" id="amb" action="../AMB/delete.php?prod_id=<?=$_GET["prod_id"]?>" method="post" enctype="multipart/form-data">
-              <div class="titulo" style="text-align-last: center;"><h2>PRODUCTO A ELIMINAR</h2></div>
-                <table class="table table-sm table-dark conteiner-fluid" >
-                  <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">CATEGORIA</th>
-                      <th scope="col">NOMBRE</th>
-                      <th scope="col">STOCK</th>
-                      <th scope="col">IBU</th>
-                      <th scope="col">ALCOHOL</th>
-                      <th scope="col">CAPACIDAD</th>
-                      <th scope="col">MARCA</th>
-                      <th scope="col">ORIGEN</th>
-                      <th scope="col">DETALLE</th>
-                      <th scope="col">FOTO</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"><?= $prods['prod_id'] ?></th>
-                      <td><?= $prods['cat_name'] ?></td>
-                      <td><?= $prods['prods_name'] ?></td>
-                      <td><?= $prods['stock'] ?></td>
-                      <td><?= $prods['ibu'] ?></td>
-                      <td><?= $prods['alc'] ?></td>
-                      <td><?= $prods['capacity_cm3'] ?></td>
-                      <td><?= $prods['brand_name'] ?></td>
-                      <td><?= $prods['country_origin'] ?></td>
-                      <td><?= $prods['detail'] ?></td>
-                      <td><?= $prods['picture'] ?></td>
-                    </tr>
-                    <input style="display:none" name="prod_id" id="prod_id" value="<?= $prods['prod_id'] ?>" >
-                  </tbody>
-                </table>
-                <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Eliminar Producto</button>
+                <div class="titulo" style="text-align-last: center;"><h2>PRODUCTO A ELIMINAR</h2></div>
+                  <table class="table table-sm table-dark conteiner-fluid" >
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">CAT</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">STOCK</th>
+                        <th scope="col">IBU</th>
+                        <th scope="col">%ALC</th>
+                        <th scope="col">CM3</th>
+                        <th scope="col">MARCA</th>
+                        <th scope="col">ORIGEN</th>
+                        <th scope="col">DETALLE</th>
+                        <th scope="col">FOTO</th>
+                        <th scope="col">OFERTA</th>
+                        <th scope="col">$</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><?=substr($prods['prod_id'],-10);?></th>
+                        <td><?=substr($prods["cat_name"],-10);?></td>
+                        <td><?=substr($prods['prods_name'],-10);?></td>
+                        <td><?=substr($prods['stock'],-10);?></td>
+                        <td><?=substr($prods['ibu'],-10);?></td>
+                        <td><?=substr($prods['alc'],-10);?></td>
+                        <td><?=substr($prods['capacity_cm3'],-10);?></td>
+                        <td><?=substr($prods['brand_name'],-10);?></td>
+                        <td><?=substr($prods['country_origin'],-10);?></td>
+                        <td><?=substr($prods['detail'],-10);?></td>
+                        <td><?=substr($prods['picture'],-10);?></td>
+                        <td><?=substr($prods['ishigh'],-10);?></td>
+                        <td><?=substr($prods['price'],-10);?></td>
+                      </tr>
+                      <input style="display:none" name="prod_id" id="prod_id" value="<?= $prods['prod_id'] ?>" >
+                    </tbody>
+                  </table>
+                  <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Eliminar Producto</button>
+                  <br>
+                </form>
                 <br>
-              </form>
-              <button  class="btn" id="botones"  style="width:50%" onclick="window.location.href='../AMB/amb.php'"> Menu Productos </button>
+                <button  class="btn" id="botones"  style="width:50%" onclick="window.location.href='../AMB/amb.php'"> Menu Productos </button>
+                </div>
               </div>
               <br>
-
-            <button class="btn" id="botones" onclick="window.location.href='../AMB/brands.php'">MARCAS</button>
-          <div class="espacio" style="padding-top:3vw"> </div>
-
-          </div>
+              <div class="espacio" style="padding-top:3vw"> </div>
+            </div>
 
 
 
