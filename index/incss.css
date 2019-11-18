@@ -21,8 +21,12 @@ body{
   font-size: 20px;
 }
 
-#seccion{
+#linkproductos{
+  text-decoration: none;
+  color: black;
+}
 
+#seccion{
 }
 #rowIndex {
   background-color: white;

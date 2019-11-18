@@ -288,7 +288,7 @@ if($_POST){
                   </div>
                   <div class="col-sm" id="colcarga">
                     <select name="ibu" id="ibu" value="">
-                      <?php for ($i=01; $i < 30; $i++) { ?>
+                      <?php for ($i=01; $i < 100; $i++) { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                       <?php } ?></select>
                   </div>

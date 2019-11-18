@@ -39,6 +39,45 @@ $productosdestacados1 = $query->fetchAll();
  // var_dump($productos); exit;
   }   catch (\Exception $e) {
   }
+  try {
+  $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $query = $baseDeDatos->prepare("SELECT *
+          from prods
+          INNER JOIN origin ON fk_origin = origin.country_id
+          INNER JOIN brand ON fk_brand = brand.brand_id
+          INNER JOIN style ON style = style.style_id
+          INNER JOIN cat ON fk_cat = cat.cat_id
+          WHERE ishigh = 1
+          ORDER BY prod_id
+          Limit 5
+          offset 10;");
+  $productosdestacados3 = [];
+  // var_dump($query); exit;
+  $query->execute();
+  $productosdestacados3 = $query->fetchAll();
+  // var_dump($productos); exit;
+   }   catch (\Exception $e) {
+   }
+   try {
+   $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $query = $baseDeDatos->prepare("SELECT *
+           from prods
+           INNER JOIN origin ON fk_origin = origin.country_id
+           INNER JOIN brand ON fk_brand = brand.brand_id
+           INNER JOIN style ON style = style.style_id
+           INNER JOIN cat ON fk_cat = cat.cat_id
+           WHERE ishigh = 1
+           ORDER BY prod_id
+           Limit 5
+           offset 15;");
+   $productosdestacados4 = [];
+   // var_dump($query); exit;
+   $query->execute();
+   $productosdestacados4 = $query->fetchAll();
+   // var_dump($productos); exit;
+    }   catch (\Exception $e) {
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -94,9 +133,13 @@ $productosdestacados1 = $query->fetchAll();
                     <?php  foreach ($productosdestacados1 as $proddestacado):?>
                   <div class="card" id="cardDestacados">
                     <div class="card-body">
-                      <h5 class="card-title"><?=$proddestacado['prods_name'];?></h5>
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado["prod_id"] ?>" id="linkproductos" >
+                        <h5 class="card-title"><?=$proddestacado['prods_name'];?></h5>
+                      </a>
                     </div>
-                    <img src="../AMB/imagenes/ <?=$proddestacado['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado["prod_id"] ?>" id="linkproductos" >
+                        <img src="../AMB/imagenes/ <?=$proddestacado['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      </a>
                     <div class="card-body">
                       <h4 class="card-text">$<?=$proddestacado['price'];?></H4>
                       <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
@@ -108,55 +151,71 @@ $productosdestacados1 = $query->fetchAll();
           </div>
             <div class="carousel-item">
               <div class="container mt-3 text-center">
-              <div class="row text-center">
-                <?php  foreach ($productosdestacados2 as $proddestacado2):?>
-              <div class="card" id="cardDestacados" style="">
-                <div class="card-body">
-                  <h5 class="card-title"><?=$proddestacado2['prods_name'];?></h5>
-                </div>
-                <img src="../AMB/imagenes/ <?=$proddestacado2['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
-                <div class="card-body">
-                  <h4 class="card-text">$<?=$proddestacado2['price'];?>,00</h4>
-                  <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
-                </div>
-              </div>
-            <?php endforeach ?>
-              <!-- <div class="card" id="cardDestacados">
-                <img src="productos/porrones/porron4.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Cerveza Corona</h5>
-                  <p class="card-text">Descripción del producto.</p>
-                  <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
+                <div class="row text-center">
+                    <?php  foreach ($productosdestacados2 as $proddestacado2):?>
+                  <div class="card" id="cardDestacados" style="">
+                    <div class="card-body">
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado2["prod_id"] ?>" id="linkproductos" >
+                        <h5 class="card-title"><?=$proddestacado2['prods_name'];?></h5>
+                      </a>
+                    </div>
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado2["prod_id"] ?>" id="linkproductos" >
+                        <img src="../AMB/imagenes/ <?=$proddestacado2['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      </a>
+                    <div class="card-body">
+                      <h4 class="card-text">$<?=$proddestacado2['price'];?>,00</h4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                    </div>
+                  </div>
+                    <?php endforeach ?>
                 </div>
               </div>
-              <div class="card" id="cardDestacados">
-                <img src="productos/porrones/porron2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Cerveza Corona</h5>
-                  <p class="card-text">Descripción del producto.</p>
-                  <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                </div>
-              </div>
-              <div class="card" id="cardDestacados">
-                <img src="productos/porrones/porron3.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Cerveza Corona</h5>
-                  <p class="card-text">Descripción del producto.</p>
-                  <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                </div>
-              </div>
-              <div class="card" id="cardDestacados">
-                <img src="productos/porrones/porron1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Cerveza Corona</h5>
-                  <p class="card-text">Descripción del producto.</p>
-                  <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
-                </div>
-              </div> -->
             </div>
-          </div>
-        </div>
-
+            <div class="carousel-item">
+              <div class="container mt-3 text-center">
+                <div class="row text-center">
+                    <?php  foreach ($productosdestacados3 as $proddestacado3):?>
+                  <div class="card" id="cardDestacados" style="">
+                    <div class="card-body">
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado3["prod_id"] ?>" id="linkproductos" >
+                        <h5 class="card-title"><?=$proddestacado3['prods_name'];?></h5>
+                      </a>
+                    </div>
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado3["prod_id"] ?>" id="linkproductos" >
+                        <img src="../AMB/imagenes/ <?=$proddestacado3['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      </a>
+                    <div class="card-body">
+                      <h4 class="card-text">$<?=$proddestacado3['price'];?>,00</h4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                    </div>
+                  </div>
+                    <?php endforeach ?>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container mt-3 text-center">
+                <div class="row text-center">
+                    <?php  foreach ($productosdestacados4 as $proddestacado4):?>
+                  <div class="card" id="cardDestacados" style="">
+                    <div class="card-body">
+                      <a href="../productos/productos.php?prod_id=<?= $proddestacado4["prod_id"] ?>" id="linkproductos" >
+                        <h5 class="card-title"><?=$proddestacado4['prods_name'];?></h5>
+                      </a>
+                    </div>
+                    <a href="../productos/productos.php?prod_id=<?= $proddestacado4["prod_id"] ?>" id="linkproductos" >
+                      <img src="../AMB/imagenes/ <?=$proddestacado4['picture'];?>" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                    </a>
+                    <div class="card-body">
+                      <h4 class="card-text">$<?=$proddestacado4['price'];?>,00</h4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                    </div>
+                  </div>
+                    <?php endforeach ?>
+                </div>
+              </div>
+            </div>
+            <!-- cierre item carrousel -->
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>

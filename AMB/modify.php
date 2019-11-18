@@ -227,7 +227,7 @@ if($_POST){
                       NOMBRE
                     </div>
                     <div class="col-sm" id="colcarga">
-                      <input type="text" name="name" >
+                      <input type="text" name="name" value="<?=$prods['prods_name'];?>" >
                     </div>
                     <div class="col-sm" id="colcarga">
                       CATEGORIA
@@ -246,9 +246,9 @@ if($_POST){
                       SEGMENTO
                     </div>
                     <div class="col-sm" id="colcarga">
-                      <select name="segment" id="segment" value="">
+                      <select name="segment" id="segment" value="<?=$prods['segment_id'];?>">
                         <?php foreach ($segments as $segment): ?>
-                        <option value="<?=$segment["segment_id"]?>"><?=$segment["segment_name"]?></option>
+                        <option value="<?=$segment["segment_id"]?>" > <?=$segment["segment_name"]?></option>
                         <?php endforeach; ?>
                       </select>
                     </div>
@@ -256,9 +256,9 @@ if($_POST){
                       ESTILO
                     </div>
                     <div class="col-sm" id="colcarga">
-                      <select name="style" id="style" value="">
+                      <select name="style" id="style" >
                         <?php foreach ($styles as $style): ?>
-                        <option value="<?=$style["style_id"]?>"><?=$style["style_name"]?></option>
+                        <option value="<?=$style["style_id"]?>" > <?=$style["style_name"]?></option>
                         <?php endforeach; ?>
                       </select>
                     </div>
@@ -279,7 +279,7 @@ if($_POST){
                     </div>
                     <div class="col-sm" id="colcarga">
                       <select name="ibu" id="ibu" value="">
-                        <?php for ($i=01; $i < 30; $i++) { ?>
+                        <?php for ($i=01; $i < 100; $i++) { ?>
                           <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php } ?></select>
                     </div>
@@ -299,7 +299,7 @@ if($_POST){
                       CAPACIDAD
                     </div>
                     <div class="col-sm" id="colcarga">
-                      <input type="text" name="capacity">
+                      <input type="text" name="capacity"value="<?=$prods['capacity_cm3'];?>">
                     </div>
                     <div class="col-sm" id="colcarga">
                       MARCA
@@ -328,7 +328,7 @@ if($_POST){
                       DETALLE
                     </div>
                     <div class="col-sm" id="colcarga">
-                      <input type="text" name="detail">
+                      <input type="text" name="detail" value="<?=$prods['detail'];?>" >
                     </div>
                   </div>
                   <br>
@@ -352,7 +352,7 @@ if($_POST){
                     PRECIO
                   </div>
                   <div class="col-sm" id="colcarga">
-                    <input type="text" name="price">
+                    <input type="text" name="price" value="<?=$prods['price'];?>">
                   </div>
                 </div>
                 <input style="display:none" name="prod_id" id="prod_id" value="<?=$prods['prod_id'];?>" >
