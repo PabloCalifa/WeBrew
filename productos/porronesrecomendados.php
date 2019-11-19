@@ -1,6 +1,7 @@
 <?php
 require_once("../singUp/users.php");
 require_once("../singUp/helpers.php");
+
 try {
 $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $query = $baseDeDatos->prepare("SELECT *
@@ -9,7 +10,7 @@ $query = $baseDeDatos->prepare("SELECT *
         INNER JOIN brand ON fk_brand = brand.brand_id
         INNER JOIN style ON style = style.style_id
         INNER JOIN cat ON fk_cat = cat.cat_id
-        WHERE fk_cat = 1
+        WHERE fk_cat = 1 AND ishigh = 1
         ORDER BY prod_id;");
 $productos = [];
 // var_dump($query); exit;
@@ -175,20 +176,22 @@ $productos = $query->fetchAll();
       </div>
     </div>
     <!-- FIN hack necesario para que funcione el desplegable en productos -->
-
         <section id="seccion">
           <div class="container">
+            <!-- <h1>
+              <?= $prods["brand_name"]  ?>
+            </h1> -->
             <div id="rowPorron"class="row">
                <div class="col-sm-12 ">
                 <div id="rowIndex"class="row">
-                  <?php  foreach ($productos as $producto):?>
+                  <?php  foreach ($productos as $product):?>
                  <div class="col-sm-3 div-img"style="margin-bottom:1vw"  >
                    <div id="prodcontext">
                     <div id="stylefoto">
-                     <a href="../productos/productos.php?prod_id=<?= $producto["prod_id"] ?>" id="linkproductos" >
-                     <img id="productoventa"  class="img"  class="productoBuscado" src="../AMB/imagenes/ <?=$producto['picture'];?>" alt="Helaera Corona" style="max-width:120px;">
-                    <div id="productotexto"class="text"><b> <?=$producto['prods_name'];?></b></div>
-                    <div id="productotexto"class="text"> $ <?=substr($producto['price'],-10);?>,00</div>
+                     <a href="../productos/productos.php?prod_id=<?=$product['prod_id'];?>" id="linkproductos" >
+                     <img id="productoventa"  class="img"  class="productoBuscado" src="../AMB/imagenes/ <?=$product['picture'];?>" alt="Helaera Corona" style="max-width:120px;">
+                    <div id="productotexto"class="text"><b> <?=$product['prods_name'];?></b></div>
+                    <div id="productotexto"class="text"> $ <?=substr($product['price'],-10);?>,00</div>
                     </a>
                   </div>
                     <button type="button" class="btn" id="botonesagregar" >Agregar al Carrito </button>

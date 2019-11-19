@@ -65,6 +65,31 @@ $productos = $query->fetchAll();
    // var_dump($paisesproductos); exit;
     }   catch (\Exception $e) {
     }
+   if($_GET){
+   $country_id= $_GET["country_id"];
+
+   // var_dump($_GET); exit;
+
+   try {
+   $baseDeDatos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $query = $baseDeDatos->prepare("SELECT *
+                   FROM prods
+                   INNER JOIN origin ON fk_origin = origin.country_id
+                   INNER JOIN brand ON fk_brand = brand.brand_id
+                   INNER JOIN style ON style = style.style_id
+                   INNER JOIN cat ON fk_cat = cat.cat_id
+                   WHERE fk_cat = 1 AND :id = origin.country_id; ")
+   ;
+   $prods = [];
+   $query->bindValue(":id", $country_id);
+   $query->execute();
+   $prods = $query->fetchAll();
+   // var_dump($prods); exit;
+
+    }   catch (\Exception $e) {
+    }
+}
+
 
 ?>
 
@@ -89,46 +114,26 @@ $productos = $query->fetchAll();
         <div class="row" id="botonesbajofoto">
           <div class="col-sm">
           <a href='../productos/porrones.php'>
-              <button type="button" class="btn" id="botones">TODOS</button>
-          </a>
-          </div>
-          <div class="col-sm" >
-            <div class="accordion" id="accordionboton" >
-              <div class="card"style="border: solid 0px;">
-                <div class="card-header" id="headingOne">
-                  <h2 class="mb-0">
-                    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="botones">
-                      MARCAS
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
-                  <div class="card-body" id="cardbotonesbajoimagen" >
-                    <form class="form-horizontal" id="amb" action="../productos/porrones.php" method="ger" enctype="multipart/form-data">
-                    <?php foreach ($marcasproductos as $marcaproducto): ?>
-                        <a href='../productos/porronesbrand.php?brand_id=<?= $marcaproducto["brand_id"];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$marcaproducto['brand_name']?></button> </a>
-                    <?php endforeach; ?>
-                  </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
+            <button type="button" class="btn" id="botones">TODOS</button>
+        </a>
+        </div>
+        <div class="col-sm" >
           <div class="accordion" id="accordionboton" >
             <div class="card"style="border: solid 0px;">
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseTWO" aria-expanded="false" aria-controls="collapseTWO" id="botones">
-                    ESTILO
+                  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="botones">
+                    MARCAS
                   </button>
                 </h2>
               </div>
-              <div id="collapseTWO" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body"id="cardbotonesbajoimagen" >
-                  <?php foreach ($estilosproductos as $estiloproducto): ?>
-                        <a href='../productos/porronesstyle.php?style_id=<?= $estiloproducto["style_id"];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$estiloproducto['style_name']?></button> </a>
+              <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body" id="cardbotonesbajoimagen" >
+                  <form class="form-horizontal" id="amb" action="../productos/porrones.php" method="ger" enctype="multipart/form-data">
+                  <?php foreach ($marcasproductos as $marcaproducto): ?>
+                      <a href='../productos/porronesbrand.php?brand_id=<?= $marcaproducto["brand_id"];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$marcaproducto['brand_name']?></button> </a>
                   <?php endforeach; ?>
+                </form>
                 </div>
               </div>
             </div>
@@ -139,25 +144,46 @@ $productos = $query->fetchAll();
           <div class="card"style="border: solid 0px;">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
-                <button class="btn" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" id="botones">
-                  PAIS
+                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseTWO" aria-expanded="false" aria-controls="collapseTWO" id="botones">
+                  ESTILO
                 </button>
               </h2>
             </div>
-            <div id="collapse3" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body" id="cardbotonesbajoimagen" >
-                <?php foreach ($paisesproductos as $paisproducto): ?>
-                      <a href='../productos/porronescountry.php?country_id=<?= $paisproducto['country_id'];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$paisproducto['country_origin']?></button> </a>
+            <div id="collapseTWO" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body"id="cardbotonesbajoimagen" >
+                <?php foreach ($estilosproductos as $estiloproducto): ?>
+                      <a href='../productos/porronesstyle.php?style_id=<?= $estiloproducto["style_id"];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$estiloproducto['style_name']?></button> </a>
                 <?php endforeach; ?>
               </div>
             </div>
           </div>
         </div>
       </div>
-          <div class="col-sm">
-            <a href='../productos/porronesrecomendados.php'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
+      <div class="col-sm">
+      <div class="accordion" id="accordionboton" >
+        <div class="card"style="border: solid 0px;">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" id="botones">
+                PAIS
+              </button>
+            </h2>
+          </div>
+          <div id="collapse3" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body" id="cardbotonesbajoimagen" >
+              <?php foreach ($paisesproductos as $paisproducto): ?>
+                    <a href='../productos/porronescountry.php?country_id=<?= $paisproducto['country_id'];?>'>  <button type="button" class="btn" id="botonesdesplegables"  ><?=$paisproducto['country_origin']?></button> </a>
+              <?php endforeach; ?>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+        <div class="col-sm">
+          <a href='../productos/porronesrecomendados.php'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
+
+        </div>
+      </div>
         <div class="espacionav"id="espacionav"> </div>
         <!-- hack necesario para que funcione el desplegable en productos -->
         <div style="display:none"class="accordion" id="accordionExample">
@@ -175,20 +201,22 @@ $productos = $query->fetchAll();
       </div>
     </div>
     <!-- FIN hack necesario para que funcione el desplegable en productos -->
-
         <section id="seccion">
           <div class="container">
+            <!-- <h1>
+              <?= $prods["brand_name"]  ?>
+            </h1> -->
             <div id="rowPorron"class="row">
                <div class="col-sm-12 ">
                 <div id="rowIndex"class="row">
-                  <?php  foreach ($productos as $producto):?>
+                  <?php  foreach ($prods as $product):?>
                  <div class="col-sm-3 div-img"style="margin-bottom:1vw"  >
                    <div id="prodcontext">
                     <div id="stylefoto">
-                     <a href="../productos/productos.php?prod_id=<?= $producto["prod_id"] ?>" id="linkproductos" >
-                     <img id="productoventa"  class="img"  class="productoBuscado" src="../AMB/imagenes/ <?=$producto['picture'];?>" alt="Helaera Corona" style="max-width:120px;">
-                    <div id="productotexto"class="text"><b> <?=$producto['prods_name'];?></b></div>
-                    <div id="productotexto"class="text"> $ <?=substr($producto['price'],-10);?>,00</div>
+                     <a href="../productos/productos.php?prod_id=<?=$product['prod_id'];?>" id="linkproductos" >
+                     <img id="productoventa"  class="img"  class="productoBuscado" src="../AMB/imagenes/ <?=$product['picture'];?>" alt="Helaera Corona" style="max-width:120px;">
+                    <div id="productotexto"class="text"><b> <?=$product['prods_name'];?></b></div>
+                    <div id="productotexto"class="text"> $ <?=substr($product['price'],-10);?>,00</div>
                     </a>
                   </div>
                     <button type="button" class="btn" id="botonesagregar" >Agregar al Carrito </button>
