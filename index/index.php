@@ -218,16 +218,14 @@ $productosdestacados1 = $query->fetchAll();
             <!-- cierre item carrousel -->
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
+              <span class="sr-only"></span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
+              <span class="sr-only"></span>
             </a>
         </div>
       </div>
-
-
 <!-- FIN DE CAROUSEL DE DESTACADOS -->
 
 <!-- OFERTAS -->
@@ -280,7 +278,8 @@ $productosdestacados1 = $query->fetchAll();
 <!-- FIN DE OFERTAS -->
       </section>
       <div class="espacio" style="padding-top:8vw"></div>
-      <div class="" style="border-bottom: solid rgba(255,193,0,0.2); width:100%"></div>
+      <div class="" style="border-bottom: solid 0.5px rgba(255,193,0,0.8); width:100%"></div>
+
 
 
     <?php require "../Footer/Footer.php" ?>
