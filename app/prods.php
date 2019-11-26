@@ -22,7 +22,7 @@ class prods extends Model
     return $this->belongsTo("App\origin","fk_origin");
     }
     public function segment(){
-      return $this->belongsTo("App\segment","segment");
+      return $this->belongsTo("App\segment","fk_segment");
     }
     public function style(){
       return $this->belongsTo("App\style","fk_style");

@@ -24,14 +24,13 @@ Route::get('/porrones/porrones', function () {
 });
 
 Route::get('/porrones/porrones', 'productosController@listadoPorronesAll');
-// Route::get('/porrones/porrones', 'productosController@listadoPorronesMarcasAll');
+Route::get('/porrones/porrones/$primaryKey/', 'productosController@listadoPorronesMarcas');
 
 
 
-Route::get('/porrones/porronesbrand', function () {
-    return view('/porrones/porronesbrand');
-});
-Route::get('/porrones/porronesbrand/{$id}/', 'productosController@listadoPorronesMarcas');
+// Route::get('/porrones/porronesbrand', function () {
+//     return view('/porrones/porronesbrand');
+// Route::get('/porrones/porronesbrand/{$id}/', 'productosController@listadoPorronesMarcas');
 
 Auth::routes();
 

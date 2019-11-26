@@ -2,28 +2,6 @@
 // require_once("../singUp/users.php");
 // require_once("../singUp/helpers.php");
 
-// $marcasproductos = DB::table('prods')
-//     ->join('cat', 'fk_cat', '=', 'cat.cat_id')
-//     ->join('brand', 'fk_brand', '=', 'brand.brand_id')
-//     ->where('fk_cat','1')
-//     ->groupBy('fk_brand')
-//     ->get();
-
-// $estilosproductos = DB::table('prods')
-//      ->select('*')
-//      ->join('cat', 'fk_cat', '=', 'cat.cat_id')
-//      ->join('style', 'style', '=', 'style.style_id')
-//      ->where('fk_cat','1')
-//      ->groupBy('style_id')
-//      ->get();
-
-$paisesproductos = DB::table('prods')
-    ->select('*')
-    ->join('cat', 'fk_cat', '=', 'cat.cat_id')
-    ->join('origin', 'fk_origin', '=', 'origin.country_id')
-    ->where('fk_cat','1')
-    ->groupBy('country_origin')
-    ->get();
 
 ?>
 
@@ -67,7 +45,7 @@ $paisesproductos = DB::table('prods')
                     <form class="form-horizontal" id="amb" action="../productos/porrones" method="get" enctype="multipart/form-data">
 
                     @foreach ($brands as $marcaproducto)
-                        <a href='../porrones/porronesbrand/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
+                        <a href='../porrones/porrones/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
                     @endforeach
                   </form>
                   </div>
@@ -107,7 +85,7 @@ $paisesproductos = DB::table('prods')
             </div>
             <div id="collapse3" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body" id="cardbotonesbajoimagen" >
-                @foreach ($paisesproductos as $paisproducto)
+                @foreach ($origins as $paisproducto)
                       <a href='../productos/porronescountry.php?country_id={{$paisproducto->country_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$paisproducto->country_origin}} </button> </a>
                 @endforeach
               </div>

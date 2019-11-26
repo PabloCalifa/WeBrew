@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class origin extends Model
 {
   public $table = "origin";
-  public $id = "country_id";
+  public $primaryKey = "country_id";
   public $timestamps = false;
   public $guarded = [];
   public function prods(){
-  return $this->hasMany("App\prods", "fk_origin";
+  return $this->hasMany("App\prods", "fk_origin");}
 }
