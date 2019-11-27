@@ -23,10 +23,10 @@
 
       @include('../nav')
       <div class="espacionav"id="espacionav"> </div>
-      <img src="../../fotosComunes/porronescut.jpg" alt="..." id="fototitulo">
+      <img src="../../fotosComunes/latas.jpg" alt="..." id="fototitulo">
         <div class="row" id="botonesbajofoto">
           <div class="col-sm">
-          <a href='../porrones/porrones'>
+          <a href='../latas/latas'>
               <button type="button" class="btn" id="botones">TODOS</button>
           </a>
           </div>
@@ -42,9 +42,9 @@
                 </div>
                 <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body" id="cardbotonesbajoimagen" >
-                    <form class="form-horizontal" id="amb" action="../productos/porrones" method="get" enctype="multipart/form-data">
+                    <form class="form-horizontal" id="amb" action="../productos/latas" method="get" enctype="multipart/form-data">
                     @foreach ($brands as $marcaproducto)
-                        <a href='../porrones/porronesbrand/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
+                        <a href='../latas/latasbrand/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
                     @endforeach
                   </form>
                   </div>
@@ -65,7 +65,7 @@
               <div id="collapseTWO" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body"id="cardbotonesbajoimagen" >
                   @foreach ($styles as $estiloproducto)
-                        <a href='../porrones/porronesstyle/{{$estiloproducto->style_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$estiloproducto->style_name}}</button> </a>
+                        <a href='../latas/latasstyle/{{$estiloproducto->style_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$estiloproducto->style_name}}</button> </a>
                   @endforeach
                 </div>
               </div>
@@ -85,7 +85,7 @@
             <div id="collapse3" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body" id="cardbotonesbajoimagen" >
                 @foreach ($origins as $paisproducto)
-                      <a href='../porrones/porronescountry/{{$paisproducto->country_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$paisproducto->country_origin}} </button> </a>
+                      <a href='../latas/latascountry/{{$paisproducto->country_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$paisproducto->country_origin}} </button> </a>
                 @endforeach
               </div>
             </div>
@@ -93,7 +93,7 @@
         </div>
       </div>
           <div class="col-sm">
-            <a href='../porronesrecomendados'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
+            <a href='../latas/latasrecomendados'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
           </div>
         </div>
         <div class="espacionav"id="espacionav"> </div>

@@ -26,8 +26,8 @@
       <img src="../fotosComunes/porronescut.jpg" alt="..." id="fototitulo">
         <div class="row" id="botonesbajofoto">
           <div class="col-sm">
-          <a href='../productos/porrones.php'>
-              <button type="button" class="btn" id="botones">TODOS</button>
+          <a href='../porrones/porrones'>
+            <button type="button" class="btn" id="botones">TODOS</button>
           </a>
           </div>
           <div class="col-sm" >
@@ -42,10 +42,9 @@
                 </div>
                 <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body" id="cardbotonesbajoimagen" >
-                    <form class="form-horizontal" id="amb" action="../productos/porrones" method="get" enctype="multipart/form-data">
-
+                    <form class="form-horizontal" id="amb" action="../productos/porronesbrand" method="get" enctype="multipart/form-data">
                     @foreach ($brands as $marcaproducto)
-                        <a href='../porrones/porrones/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
+                        <a href='../porrones/porronesbrand/{{$marcaproducto->brand_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$marcaproducto->brand_name}} </button> </a>
                     @endforeach
                   </form>
                   </div>
@@ -66,7 +65,7 @@
               <div id="collapseTWO" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body"id="cardbotonesbajoimagen" >
                   @foreach ($styles as $estiloproducto)
-                        <a href='../productos/porronesstyle.php?style_id={{$estiloproducto->style_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$estiloproducto->style_name}}</button> </a>
+                        <a href='../porrones/porronesstyle/{{$estiloproducto->style_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$estiloproducto->style_name}}</button> </a>
                   @endforeach
                 </div>
               </div>
@@ -86,7 +85,7 @@
             <div id="collapse3" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body" id="cardbotonesbajoimagen" >
                 @foreach ($origins as $paisproducto)
-                      <a href='../productos/porronescountry.php?country_id={{$paisproducto->country_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$paisproducto->country_origin}} </button> </a>
+                      <a href='../porrones/porronescountry/{{$paisproducto->country_id}}'>  <button type="button" class="btn" id="botonesdesplegables"  > {{$paisproducto->country_origin}} </button> </a>
                 @endforeach
               </div>
             </div>
@@ -94,7 +93,7 @@
         </div>
       </div>
           <div class="col-sm">
-            <a href='../productos/porronesrecomendados'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
+            <a href='../porrones/porronesrecomendados'> <button type="button" class="btn" id="botones" >RECOMENDADOS</button> </a>
           </div>
         </div>
         <div class="espacionav"id="espacionav"> </div>
@@ -123,7 +122,7 @@
                   <div class="col-sm-3 div-img"style="margin-bottom:1vw"  >
                     <div id="prodcontext">
                       <div id="stylefoto">
-                       <a href="../productos/productos.php?prod_id={{$producto->prod_id}}" id="linkproductos" >
+                        <a href="../../producto/{{$producto->prod_id}}" id="linkproductos" >
                         <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$producto->picture}}" alt="Helaera Corona" style="max-width:120px;">
                         <div id="productotexto"class="text"><b> {{$producto->prods_name}}</b></div>
                         <div id="productotexto"class="text"> ${{substr($producto->price,-10)}},00</div>
@@ -139,7 +138,7 @@
             </div>
           <div class="espacio" style="padding-top:8vw"></div>
       </section>
-      @include("../Footer");
+      @include("../Footer")
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

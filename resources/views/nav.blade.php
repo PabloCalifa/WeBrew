@@ -8,65 +8,20 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-        role="button" aria-haspopup="true" aria-expanded="false">PORRONES <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="../porrones/porrones">TODOS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/porronesbrand">POR MARCA</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/porronesstyle">POR ESTILO</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/porronescountry">POR PAIS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/porronesrecomendados">RECOMENDADOS</a></li>
-        </ul>
+      <li class="">
+        <a href="../porrones/porrones">PORRONES<span class="caret"></span></a>
+      </li>
+      <li class="">
+        <a href="../latas/latas">LATAS<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-        role="button" aria-haspopup="true" aria-expanded="true">LATAS <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="../productos/latas.php">TODOS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/latas.php">POR MARCA</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/latas.php">POR ESTILO</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/latas.php">POR PAIS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/latas.php">RECOMENDADOS</a></li>
-        </ul>
+        <a href="../porrones/porrones">BARRILES<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-        role="button" aria-haspopup="true" aria-expanded="true">BARRILES <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="../productos/barriles.php">TODOS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR MARCA</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR ESTILO</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">POR PAIS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/barriles.php">RECOMENDADOS</a></li>
-        </ul>
+        <a href="../porrones/porrones">GROWLERS<span class="caret"></span></a>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-        role="button" aria-haspopup="true" aria-expanded="false">GROWLERS<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="../productos/growlers.php">TODOS</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/growlers.php">POR MARCA</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/growlers.php">POR ESTILO</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="../productos/growlers.php">RECOMENDADOS</a></li>
-        </ul>
-      </li>
-      <li><a href="../contacto/contacto.php">CONTACTO</a></li>
+      <li>
+        <a href="../contacto/contacto.php">CONTACTO</a>
       </li>
     </ul>
     <form class=" form-inline my-2 my-lg-0" style="">

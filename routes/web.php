@@ -23,14 +23,22 @@ Route::get('/porrones/porrones', function () {
     return view('/porrones/porrones');
 });
 
-Route::get('/porrones/porrones', 'productosController@listadoPorronesAll');
-Route::get('/porrones/porrones/$primaryKey/', 'productosController@listadoPorronesMarcas');
+Route::get('/porrones/porrones/', 'productosController@listadoPorronesAll');
+Route::get("/porrones/porronesbrand/{brand_id}", "productosController@listadoPorronesMarcas");
+Route::get("/porrones/porronesstyle/{style_id}", "productosController@listadoPorronesStyle");
+Route::get("/porrones/porronescountry/{country_id}", "productosController@listadoPorronesCountry");
+Route::get("/porrones/porronesrecomendados/", "productosController@listadoPorronesRecomend");
+Route::get('/latas/latas/', 'productosController@listadoLatasAll');
+Route::get("/latas/latasbrand/{brand_id}", "productosController@listadoLatasMarcas");
+Route::get("/latas/latasstyle/{style_id}", "productosController@listadoLatasStyle");
+Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatasCountry");
+Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
+Route::get("/producto/{prod_id}/", "productosController@productos");
+Route::get("/index/index/{prod_id}", "productosController@productos");
 
 
 
-// Route::get('/porrones/porronesbrand', function () {
-//     return view('/porrones/porronesbrand');
-// Route::get('/porrones/porronesbrand/{$id}/', 'productosController@listadoPorronesMarcas');
+
 
 Auth::routes();
 

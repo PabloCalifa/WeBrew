@@ -43,7 +43,6 @@
               <li><a href="../singUp/cerrarSesion.php">Salir</a></li>
             </ul>
           <?php endif; ?>
-
         </div>
       </div>
     </footer>

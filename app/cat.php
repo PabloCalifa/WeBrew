@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class cat extends Model
 {
   public $table = "cat";
-  public $id = "cat_id";
+  public $primaryKey = "cat_id";
   public $timestamps = false;
   public $guarded = [];
   public function prods(){
