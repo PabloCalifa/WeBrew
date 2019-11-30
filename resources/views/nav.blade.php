@@ -21,7 +21,7 @@
         <a href="../porrones/porrones">GROWLERS<span class="caret"></span></a>
       </li>
       <li>
-        <a href="../contacto/contacto.php">CONTACTO</a>
+        <a href="../contacto">CONTACTO</a>
       </li>
     </ul>
     <form class=" form-inline my-2 my-lg-0" style="">

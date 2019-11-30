@@ -35,8 +35,12 @@ Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatas
 Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
 Route::get("/producto/{urlSlug}/", "productosController@productos");
 Route::get('/register', 'StorageController@save');
-
-
+Route::get('/contacto', function () {
+    return view('/contacto');
+});
+Route::get('/faq', function () {
+    return view('/faq');
+});
 
 
 Auth::routes();

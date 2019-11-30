@@ -12,10 +12,10 @@
         <div class="col">
           <h5 id="titulofooter">Ayuda</h5>
           <ul id="ulfooter">
-            <li><a href="../FAQ/faq.php">Preguntas frecuentes</a></li>
-            <li><a href="../FAQ/faq.php">Terminos y condiciones</a></li>
-            <li><a href="../FAQ/faq.php">Métodos de costo y envío</a></li>
-            <li><a href="../FAQ/faq.php">Política de devolución y cambios</a></li>
+            <li><a href="/faq">Preguntas frecuentes</a></li>
+            <li><a href="/faq">Terminos y condiciones</a></li>
+            <li><a href="/faq">Métodos de costo y envío</a></li>
+            <li><a href="/faq">Política de devolución y cambios</a></li>
           <ul>
         </div>
         <div class="col">
