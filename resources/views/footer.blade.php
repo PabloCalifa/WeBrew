@@ -28,19 +28,22 @@
           <ul>
         </div>
         <div class="col">
-          <?php if(!isset($_SESSION["email"])) : ?>
+              @if (Auth::guest())
           <h5 id="titulofooter">Mi cuenta</h5>
             <ul id="ulfooter">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Registro</a></li>
+              <li><a href="{{ url('/login') }}">Login</a></li>
+              <li><a href="{{ url('/register') }}">Registro</a></li>
             <ul>
           <?php else : ?>
-            <h5 id="titulofooter"><?=$_SESSION["nombre"]; ?></h5>
+            <h5 id="titulofooter">{{ Auth::user()->name }}</h5>
             <ul id="ulfooter">
               <li><a href="#">Compras</a></li>
               <li><a href="#">Favoritos</a></li>
-              <li><a href="../perfil/perfil.php">Mis datos</a></li>
-              <li><a href="../singUp/cerrarSesion.php">Salir</a></li>
+              <li><a href="#">Mis datos</a></li>
+              <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">Salir</a>     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form></li>
             </ul>
           <?php endif; ?>
         </div>

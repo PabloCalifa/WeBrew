@@ -121,7 +121,7 @@
                   <div class="col-sm-3 div-img"style="margin-bottom:1vw"  >
                     <div id="prodcontext">
                       <div id="stylefoto">
-                        <a href="../../producto/{{$producto->prod_id}}" id="linkproductos" >
+                        <a href="../../producto/{{$producto->urlSlug}}" id="linkproductos" >
                         <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$producto->picture}}" alt="Helaera Corona" style="max-width:120px;">
                         <div id="productotexto"class="text"><b> {{$producto->prods_name}}</b></div>
                         <div id="productotexto"class="text"> ${{substr($producto->price,-10)}},00</div>

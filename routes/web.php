@@ -33,9 +33,8 @@ Route::get("/latas/latasbrand/{brand_id}", "productosController@listadoLatasMarc
 Route::get("/latas/latasstyle/{style_id}", "productosController@listadoLatasStyle");
 Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatasCountry");
 Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
-Route::get("/producto/{prod_id}/", "productosController@productos");
-Route::get("/index/index/{prod_id}", "productosController@productos");
-
+Route::get("/producto/{urlSlug}/", "productosController@productos");
+Route::get('/register', 'StorageController@save');
 
 
 

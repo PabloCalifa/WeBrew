@@ -10,6 +10,7 @@ class brand extends Model
     public $primaryKey = "brand_id";
     public $timestamps = false;
     public $guarded = [];
+
     public function prods(){
     return $this->hasMany("App\prods", "fk_brand");
     }

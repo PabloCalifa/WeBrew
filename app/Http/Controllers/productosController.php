@@ -182,8 +182,8 @@ class productosController extends Controller
     return view("/latas/latasrecomendados", $vac);
   }
 
-  public function productos($prod_id) {
-    $productos = prods::where("prod_id",$prod_id)->get();
+  public function productos($urlSlug) {
+    $productos = prods::where("urlSlug",$urlSlug)->get();
     $vac = compact("productos");
     // dd($productos);
     return view("/producto", $vac);

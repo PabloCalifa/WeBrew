@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\provincia;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,6 +52,15 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'surname' => 'required|string|max:255',
+            'mes' => 'required|string|max:255',
+            'ano' => 'required|string|max:255',
+            'dia' => 'required|string|max:255',
+            'sex' => 'required|string|max:255',
+            'info' => 'required|int|max:1',
+
+            // 'avatar' => 'required|image',
+
         ]);
     }
 
@@ -66,6 +76,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'surname' => $data['surname'],
+            'born_date' => $data['ano'].'-'.$data['mes'].'-'.$data['dia'],
+            'sex' => $data['sex'],
+            'info' => $data['info'],
+            // 'avatar' => $data['avatar'],
+
         ]);
     }
 }

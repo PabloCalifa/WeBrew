@@ -1,6 +1,6 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark " id="navbar">
-  <a class="navbar-brand" href="../index/index">
+  <a class="navbar-brand" href="/">
     <img src="{{URL::asset('fotosComunes/weBrewnav.png')}}" class="miniLogoWeBrew" alt="...">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,26 +30,32 @@
     </form>
     <ul class="nav navbar-nav navbar-right" id="Loginreg">
       <li class="dropdown">
-        <?php if(!isset($_SESSION["email"])) : ?>
+      @if (Auth::guest())
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="../SingIn/SingIn.php">LOGIN</a></li>
+          <li><a href="{{ url('/login') }}">LOGIN</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="../singUp/singUp.php">REGISTRO</a></li>
+          <li><a href="{{ url('/register') }}">REGISTRO</a></li>
         </ul>
-        <?php else : ?>
+      @else
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
-          <?=$_SESSION["nombre"]; ?> <span class="caret"></span> </a>
+          {{ Auth::user()->name }} <span class="caret"></span> </a>
           <ul class="dropdown-menu">
             <li><a href="#">COMPRAS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">FAVORITOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="../perfil/perfil.php">MIS DATOS</a></li>
+            <li><a href="{{ url('/home') }}">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="../singUp/cerrarSesion.php">SALIR</a></li>
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">SALIR</a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     {{ csrf_field() }}
+                 </form>
+
+           </li>
           </ul>
-        <?php endif; ?>
+        @endif
       </li>
       <li id="market"><a href="../carrito/carrito.php" > <i class="fas fa-shopping-cart"></i></a></li>
     </ul>
