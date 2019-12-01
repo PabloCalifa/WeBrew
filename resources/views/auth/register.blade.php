@@ -27,11 +27,10 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Name</label>
 
+                                <label for="name" class="col-md-4 control-label">Name</label>
                                 <div class="col-md-10">
                                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('name') }}</strong>
@@ -124,12 +123,14 @@
                               </div>
                               </label>
 
-                              {{-- <label for="avatar" class="col control-label">Foto de Perfil</label>
+                              <div style="" class="col-md-10">
+                              <label for="avatar" class="col control-label">Foto de Perfil</label>
+                              </div>
+                            <div class="col-md-10">
+                              <input  name="file" type="file" value= "" class="form-control" id="avatar" >
                             </div>
-                            <div class="col">
-                              <input  name="avatar" type="file" value= "" class="form-control" id="avatar" >
-                            </div> --}}
                             <br>
+
                             <label>
                               <div class="row">
                                 <div class="col">

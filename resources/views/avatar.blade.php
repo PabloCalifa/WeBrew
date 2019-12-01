@@ -1,7 +1,7 @@
 <div class="card" id="card">
   <div class="imagen">
     <button name="avatar" type="file" value= "" class="form-control" id="avatar">Actualizar</button>
-    <img src="" alt="..." style="width:100%">
+    <img src="/storage/{{ Auth::user()->avatar}}" alt="..." style="width:100%">
   </div>
   <div class="texto">
     <h1>Hola, {{ Auth::user()->name }}</h1>

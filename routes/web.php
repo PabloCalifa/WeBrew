@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index/index', function () {
-    return view('/index/index');
-});
-
 Route::get('/porrones/porrones', function () {
     return view('/porrones/porrones');
 });
@@ -34,7 +30,7 @@ Route::get("/latas/latasstyle/{style_id}", "productosController@listadoLatasStyl
 Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatasCountry");
 Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
 Route::get("/producto/{urlSlug}/", "productosController@productos");
-Route::get('/register', 'StorageController@save');
+// Route::post('/register', 'RegisterController@save');
 Route::get('/contacto', function () {
     return view('/contacto');
 });

@@ -58,8 +58,7 @@ class RegisterController extends Controller
             'dia' => 'required|string|max:255',
             'sex' => 'required|string|max:255',
             'info' => 'required|int|max:1',
-
-            // 'avatar' => 'required|image',
+            'file' => 'required|image',
 
         ]);
     }
@@ -72,6 +71,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+         $path = $data['file']->store("public");
+         $nombre = basename($path);
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -80,8 +84,10 @@ class RegisterController extends Controller
             'born_date' => $data['ano'].'-'.$data['mes'].'-'.$data['dia'],
             'sex' => $data['sex'],
             'info' => $data['info'],
-            // 'avatar' => $data['avatar'],
+            'avatar' => $nombre,
 
         ]);
     }
+
+
 }
