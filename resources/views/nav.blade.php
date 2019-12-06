@@ -18,7 +18,7 @@
         <a href="../porrones/porrones">BARRILES<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="../porrones/porrones">GROWLERS<span class="caret"></span></a>
+        <a href="url('../porrones/porrones')">GROWLERS<span class="caret"></span></a>
       </li>
       <li>
         <a href="../contacto">CONTACTO</a>
@@ -57,7 +57,12 @@
           </ul>
         @endif
       </li>
-      <li id="market"><a href="../carrito/carrito.php" > <i class="fas fa-shopping-cart"></i></a></li>
+      @if (Auth::guest())
+        <li id="market"><a href="{{ url('/login') }}"> <i class="fas fa-shopping-cart"></i></a></li>
+      @else
+      <li id="market"><a href="../carrito" > <i class="fas fa-shopping-cart"></i></a></li>
+      @endif
+
     </ul>
   </div>
 </nav>

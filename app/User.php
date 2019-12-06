@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+  public function productosCarrito(){
+    return $this->belongsToMany("App\prods", "carrito", "user_id_fk", "prod_id_fk")->withPivot('cant');;
+    }
+
 }

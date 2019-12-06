@@ -27,6 +27,8 @@ class prods extends Model
     public function style(){
       return $this->belongsTo("App\style","fk_style");
     }
-
+    public function carritoUsuario(){
+      return $this->belongsToMany("App\User", "carrito", "user_id_fk","prod_id_fk");
+      }
 
 }

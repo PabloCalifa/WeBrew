@@ -8,6 +8,8 @@ use App\brand;
 use App\style;
 use App\origin;
 use App\cat;
+use App\carrito;
+use App\User;
 
 
 

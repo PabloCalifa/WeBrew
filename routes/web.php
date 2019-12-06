@@ -30,13 +30,17 @@ Route::get("/latas/latasstyle/{style_id}", "productosController@listadoLatasStyl
 Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatasCountry");
 Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
 Route::get("/producto/{urlSlug}/", "productosController@productos");
-// Route::post('/register', 'RegisterController@save');
 Route::get('/contacto', function () {
     return view('/contacto');
 });
 Route::get('/faq', function () {
     return view('/faq');
 });
+Route::get("/carrito", "carritoController@carrito");
+Route::get("/agregar_carrito/{id_producto}/{cant}", "carritoController@agregar");
+Route::post("/agregar_carrito/{id_producto}", "carritoController@agregarProducto");
+Route::post("/eliminar_carrito/{id}", "carritoController@borrarProducto");
+
 
 
 Auth::routes();

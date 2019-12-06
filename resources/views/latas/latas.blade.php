@@ -128,7 +128,14 @@
                         <div id="productotexto"class="text"> ${{substr($producto->price,-10)}},00</div>
                        </a>
                       </div>
-                      <button type="button" class="btn" id="botonesagregar" >Agregar al Carrito </button>
+                      <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="cant" value="1">
+                        <input type="hidden" name="id_producto" value="{{$producto->id}}">
+                        <a href="<?=url("/carrito")?>">
+                          <button type="button submit" value="{{$producto->id}}" class="btn" id="botonesagregar" >Agregar al Carrito </button>
+                        </a>
+                    </form>
                     </div>
                   </div>
                   @endforeach

@@ -1,5 +1,51 @@
 <!DOCTYPE html>
 <?php
+// require_once("../singUp/users.php");
+// require_once("../singUp/helpers.php");
+$destacados = DB::table('prods')
+     ->select('*')
+     ->join('origin', 'fk_origin', '=', 'origin.country_id')
+     ->join('brand', 'fk_brand', '=', 'brand.brand_id')
+     ->join('style', 'fk_style', '=', 'style.style_id')
+     ->join('cat', 'fk_cat', '=', 'cat.cat_id')
+     ->where('ishigh','1')
+     ->limit(5)
+     ->get();
+     // dd($destacados);
+$destacados2 = DB::table('prods')
+    ->select('*')
+    ->join('origin', 'fk_origin', '=', 'origin.country_id')
+    ->join('brand', 'fk_brand', '=', 'brand.brand_id')
+    ->join('style', 'fk_style', '=', 'style.style_id')
+    ->join('cat', 'fk_cat', '=', 'cat.cat_id')
+    ->where('ishigh','1')
+    ->limit(5)
+    ->offset(5)
+    ->get();
+    // dd($destacados2);
+$destacados3 = DB::table('prods')
+    ->select('*')
+    ->join('origin', 'fk_origin', '=', 'origin.country_id')
+    ->join('brand', 'fk_brand', '=', 'brand.brand_id')
+    ->join('style', 'fk_style', '=', 'style.style_id')
+    ->join('cat', 'fk_cat', '=', 'cat.cat_id')
+    ->where('ishigh','1')
+    ->limit(5)
+    ->offset(10)
+    ->get();
+    // dd($destacados3);
+$destacados4 = DB::table('prods')
+    ->select('*')
+    ->join('origin', 'fk_origin', '=', 'origin.country_id')
+    ->join('brand', 'fk_brand', '=', 'brand.brand_id')
+    ->join('style', 'fk_style', '=', 'style.style_id')
+    ->join('cat', 'fk_cat', '=', 'cat.cat_id')
+    ->where('ishigh','1')
+    ->limit(5)
+    ->offset(15)
+    ->get();
+    // dd($destacados4);
+
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -59,16 +105,13 @@
                       <h3>${{$producto->price*24*.90}}</h3>
                     </div>
                     </div>
-                  <div class="form-group">
-                    <!-- <label for="cantidad">Cantidad </label>
-                      <select name="cantidad" id="cantidad">
-                        <option>1</option><option>2</option> <option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-                        <option>8</option><option>9</option><option>10</option>
-                      </select> -->
-                    </label>
-                  </div>
                   <div class="espacio" style="padding-top:1.5vw"></div>
-                  <button type="button" class="btn" id="botonecompra">Agregar al Carrito</button>
+                  <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
+                    {{csrf_field()}}
+                  <input type="number" name="cant" value="1" min="1" max="{{$producto->stock}}" style="text-align:center;">
+                  <input type="hidden" name="id_producto" value="{{$producto->id}}">
+                  <a href="<?=url("/carrito")?>"> <button type="button submit" class="btn" id="botonecompra" value="{{$producto->id}}"  > Agregar al Carrito</button></a>
+                  </form>
                 </ul>
                 <div class="espacio" style="padding-top:2.5vw"></div>
               </div>
@@ -93,10 +136,124 @@
               <li> <b>Graduación alcohólica:</b> {{$producto->alc}} % </li>
               <li><b>IBU:</b> {{$producto->ibu}} </li>
               <li><b>Pais de Procedencia:</b> {{$producto->origin->country_origin}} </li>
-
             </ul>
           </div>
+
+          <div class="espacio" style="padding:30px;"></div>
+          <div id="fondodestacados">
+
+          <!-- CAROUSEL DE DESTACADOS -->
+          <div class="container" id="destacadoscarrouselback">
+            <img id="destacadoscarrousel" alt="Nuestros destacados"  src="../fotosComunes/destacados.jpg">
+          </div>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container mt-3 text-center">
+                  <div class="row text-center">
+                    @foreach ($destacados as $destacad)
+                      <div class="card" id="cardDestacados">
+                        <div class="card-body">
+                          <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                            <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                          </a>
+                        </div>
+                          <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                            <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                          </a>
+                        <div class="card-body">
+                          <h4 class="card-text">$ {{$destacad->price}}</H4>
+                          <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                        </div>
+                      </div>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+            <!-- cierre item carrousel -->
+            <div class="carousel-item">
+              <div class="container mt-3 text-center">
+                <div class="row text-center">
+                  @foreach ($destacados2 as $destacad)
+                    <div class="card" id="cardDestacados">
+                      <div class="card-body">
+                        <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                          <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                        </a>
+                      </div>
+                        <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                          <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                        </a>
+                      <div class="card-body">
+                        <h4 class="card-text">$ {{$destacad->price}}</H4>
+                        <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                      </div>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          <!-- cierre item carrousel -->
+          <div class="carousel-item">
+            <div class="container mt-3 text-center">
+              <div class="row text-center">
+                @foreach ($destacados3 as $destacad)
+                  <div class="card" id="cardDestacados">
+                    <div class="card-body">
+                      <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                        <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                      </a>
+                    </div>
+                      <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                        <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      </a>
+                    <div class="card-body">
+                      <h4 class="card-text">$ {{$destacad->price}}</H4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          <!-- cierre item carrousel -->
+          <div class="carousel-item">
+            <div class="container mt-3 text-center">
+              <div class="row text-center">
+                @foreach ($destacados4 as $destacad)
+                  <div class="card" id="cardDestacados">
+                    <div class="card-body">
+                      <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                        <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                      </a>
+                    </div>
+                      <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                        <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                      </a>
+                    <div class="card-body">
+                      <h4 class="card-text">$ {{$destacad->price}}</H4>
+                      <a href="#"><button type="button" class="btn" id="botonesdestacados">Agregar al Carrito </button></a>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          <!-- cierre item carrousel -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only"></span>
+            </a>
+          </div>
+          </div>
+          <!-- FIN DE CAROUSEL DE DESTACADOS -->
           <div class="espacio" style="padding-top:5vw"></div>
+        </div>
+
           <!-- CAROUSEL DE DESTACADOS -->
 
 

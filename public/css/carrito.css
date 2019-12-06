@@ -1,4 +1,13 @@
 
+body {
+  background-image: url("../fotosComunes/woodsfondo.jpg")
+}
+
+svg#carrito {
+  color: rgba(0,0,0,1);
+
+}
+
 .nav-tabs>li>a {
   background-color: darkgrey;
 }
@@ -15,9 +24,13 @@
 
 }
 
+div.row#rowcompras{
+background-color: rgba(255,255,255,0.8);
+}
+
 div.row#rowcompras .btn {
-  color: black;
-  background-color: #dddddd;
+  background-color: rgba(0,0,0,1);
+  color: rgba(255,255,255,1);
   margin-top: 1px;
   border-radius: 7px;
 }
@@ -30,8 +43,8 @@ div.row#rowcompras .btn {
 }
 
 .navbar#carrito{
-  background-color: rgba(0,0,0,0.8);
-  color: rgba(255,255,255,1);
+  background-color: rgba(255,255,255,0.8);
+  color: rgba(0,0,0,1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 4px;
   text-align: end;
@@ -41,7 +54,7 @@ div.row#rowcompras .btn {
 }
 
 .navbar-brand#carrito {
-  color: rgba(255,255,255,1);
+  color: rgba(0,0,0,1);
   padding: 0px;
   padding-left: 20px;
   font-weight: 700;
@@ -52,16 +65,18 @@ div.row#rowcompras .btn {
 
 .form-inline#carrito{
   padding-right: 10px;
+  color: rgba(0,0,0,1);
 
 }
 
 .row#carritorowproductos{
-  background-color: #dddddd;
+  background-color: rgba(0,0,0,0.8);
   margin: 0 auto;
   padding-top: 10px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+  color: white;
   }
 
 
@@ -69,6 +84,7 @@ div.row#rowcompras .btn {
 div.row#rowcompras  {
   padding: 0px;
   text-align: -webkit-center;
+  align-items: center;
 
 }
 
@@ -89,16 +105,14 @@ div.row#rowcompras .col-sm-3 {
 
 }
 
-div.row#rowcompras .btn {
-  border-radius: 0px;
 
-}
 
 div.row#rowcompras .btn.focus,
 div.row#rowcompras .btn:focus,
 div.row#rowcompras .btn:hover{
-  background-color: black;
-  color: white;
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
