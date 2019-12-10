@@ -4,6 +4,24 @@ body{
   width: 100%;
 }
 
+#CantidadProducto {
+  text-align: -webkit-center;
+  align-items: baseline;
+}
+
+
+
+input#CantidadProducto{
+border-radius: 51px;
+text-align: center;
+background-color: black;
+color: white;
+}
+
+
+
+
+
 div#rowCuadroProducto{
 margin:0px;
 background-color: black;

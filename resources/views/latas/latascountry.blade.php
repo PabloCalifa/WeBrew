@@ -127,14 +127,20 @@
                         <div id="productotexto"class="text"> ${{substr($producto->price,-10)}},00</div>
                        </a>
                       </div>
+                      @if (Auth::guest())
+                        <a href="{{ url('/login') }}">
+                          <button type="button submit" value="" class="btn" id="botonesagregar" >Agregar al Carrito </button>
+                          <a/>
+                        @else
                       <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="cant" value="1">
                         <input type="hidden" name="id_producto" value="{{$producto->id}}">
-                        <a href="<?=url("/carrito")?>">
-                          <button type="button submit" value="{{$producto->id}}" class="btn" id="botonesagregar" >Agregar al Carrito </button>
-                        <a/>
+                          <a href="<?=url("/carrito")?>">
+                            <button type="button submit" value="{{$producto->id}}" class="btn" id="botonesagregar" >Agregar al Carrito </button>
+                          <a/>
                       </form>
+                    @endif
                     </div>
                   </div>
                   @endforeach

@@ -7,7 +7,7 @@
     <h1>Hola, {{ Auth::user()->name }}</h1>
     <br><button id="avatarboton">Compras</button>
     <br><button id="avatarboton">Favoritos</button>
-    <br><button id="avatarboton" onclick="#"> Modificar Mis Datos</button>
+    <br><button id="avatarboton"  onclick="window.location.href='{{ url('/perfil') }}'"> Modificar Mis Datos</button>
     <br><button id="avatarboton" href="{{ route('logout') }}" onclick="event.preventDefault();
              document.getElementById('logout-form').submit();">Salir <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}</button>

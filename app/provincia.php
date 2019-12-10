@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class provincia extends Model
 {
-    //
     public $table = "provincia";
-    public $id = "provincia_id";
+    public $primaryKey= "provincia_id";
     public $timestamps = false;
     public $guarded = [];
+
+    public function provinciaUser(){
+      return $this->hasMany("App\Users", "provincia_fk");
+    }
+
 }

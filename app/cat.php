@@ -11,6 +11,6 @@ class cat extends Model
   public $timestamps = false;
   public $guarded = [];
   public function prods(){
-  return $this->hasMany("App\prods", "fk_cat";
+  return $this->hasMany("App\prods", "fk_cat");
   }
 }

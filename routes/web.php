@@ -40,6 +40,7 @@ Route::get("/carrito", "carritoController@carrito");
 Route::get("/agregar_carrito/{id_producto}/{cant}", "carritoController@agregar");
 Route::post("/agregar_carrito/{id_producto}", "carritoController@agregarProducto");
 Route::post("/eliminar_carrito/{id}", "carritoController@borrarProducto");
+Route::get("/perfil", 'singUpController@listadoProvincias');
 
 
 

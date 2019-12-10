@@ -109,14 +109,20 @@ $destacados4 = DB::table('prods')
                 </a>
               <div class="card-body">
                 <h4 class="card-text">$ {{$destacad->price}}</H4>
+                  @if (Auth::guest())
+                    <a href="{{ url('/login') }}">
+                      <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                      <a/>
+                    @else
                   <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
                     {{csrf_field()}}
                     <input type="hidden" name="cant" value="1">
                     <input type="hidden" name="id_producto" value="{{$destacad->id}}">
-                    <a href="<?=url("/carrito")?>">
-                      <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                    </a>
-                </form>
+                      <a href="<?=url("/carrito")?>">
+                        <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                      <a/>
+                  </form>
+                @endif
               </div>
             </div>
           @endforeach
@@ -139,14 +145,20 @@ $destacados4 = DB::table('prods')
               </a>
             <div class="card-body">
               <h4 class="card-text">$ {{$destacad->price}}</H4>
+                @if (Auth::guest())
+                  <a href="{{ url('/login') }}">
+                    <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                    <a/>
+                  @else
                 <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
                   {{csrf_field()}}
                   <input type="hidden" name="cant" value="1">
                   <input type="hidden" name="id_producto" value="{{$destacad->id}}">
-                  <a href="<?=url("/carrito")?>">
-                    <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                  </a>
-              </form>
+                    <a href="<?=url("/carrito")?>">
+                      <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                    <a/>
+                </form>
+              @endif
             </div>
           </div>
         @endforeach
@@ -169,14 +181,20 @@ $destacados4 = DB::table('prods')
             </a>
           <div class="card-body">
             <h4 class="card-text">$ {{$destacad->price}}</H4>
+              @if (Auth::guest())
+                <a href="{{ url('/login') }}">
+                  <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <a/>
+                @else
               <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
-                <a href="<?=url("/carrito")?>">
-                  <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                </a>
-            </form>
+                  <a href="<?=url("/carrito")?>">
+                    <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <a/>
+              </form>
+            @endif
           </div>
         </div>
       @endforeach
@@ -199,14 +217,20 @@ $destacados4 = DB::table('prods')
             </a>
           <div class="card-body">
             <h4 class="card-text">$ {{$destacad->price}}</H4>
+              @if (Auth::guest())
+                <a href="{{ url('/login') }}">
+                  <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <a/>
+                @else
               <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
-                <a href="<?=url("/carrito")?>">
-                  <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                </a>
-            </form>
+                  <a href="<?=url("/carrito")?>">
+                    <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <a/>
+              </form>
+            @endif
           </div>
         </div>
       @endforeach

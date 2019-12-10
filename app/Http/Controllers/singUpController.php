@@ -9,8 +9,8 @@ class singUpController extends Controller
 {
     //
     public function listadoProvincias() {
-      $provincias = provincias::All();
+      $provincias = provincia::All();
       $vac = compact("provincias");
-      return view("/register", $vac);
+      return view("/perfil", $vac);
     }
 }

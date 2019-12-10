@@ -32,4 +32,8 @@ class User extends Authenticatable
     return $this->belongsToMany("App\prods", "carrito", "user_id_fk", "prod_id_fk")->withPivot('cant');;
     }
 
+    public function userProvincia(){
+      return $this->belongsTo("App\provincia","provincia_fk");
+      }
+
 }

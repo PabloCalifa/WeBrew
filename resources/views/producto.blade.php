@@ -106,13 +106,29 @@ $destacados4 = DB::table('prods')
                     </div>
                     </div>
                   <div class="espacio" style="padding-top:1.5vw"></div>
-                  <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
-                    {{csrf_field()}}
-                  <input type="number" name="cant" value="1" min="1" max="{{$producto->stock}}" style="text-align:center;">
-                  <input type="hidden" name="id_producto" value="{{$producto->id}}">
-                  <a href="<?=url("/carrito")?>"> <button type="button submit" class="btn" id="botonecompra" value="{{$producto->id}}"  > Agregar al Carrito</button></a>
-                  </form>
-                </ul>
+                  <div id="CantidadProducto" class="row">
+                    @if (Auth::guest())
+                      <div class="col-sm-2" id="CantidadProducto">
+                        <input id="CantidadProducto" type="number" name="cant" value="1" min="1" max="{{$producto->stock}}" style="text-align:center;">
+                      </div>
+                      <div class="col-sm-10" id="CantidadProducto">
+                        <a href="{{ url('/login') }}"> <button type="button" class="btn" id="botonecompra" value=""  > Agregar al Carrito</button></a>
+                      </div>
+                    @else
+                      <div class="col-sm-2" id="CantidadProducto">
+                        <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
+                          {{csrf_field()}}
+                        <input id="CantidadProducto" type="number" name="cant" value="1" min="1" max="{{$producto->stock}}" style="text-align:center;">
+                        <input type="hidden" name="id_producto" value="{{$producto->id}}">
+                      </div>
+                      <div class="col-sm-10" id="CantidadProducto">
+                        <a href="<?=url("/carrito")?>">
+                           <button type="button submit" class="btn" id="botonecompra" value="{{$producto->id}}"> Agregar al Carrito</button>
+                        </a>
+                        </form>
+                      </div>
+                    @endif
+                  </div>
                 <div class="espacio" style="padding-top:2.5vw"></div>
               </div>
               <div class="col-sm-4" id="fotoproducto">
