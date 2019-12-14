@@ -126,10 +126,10 @@
                               <div style="" class="col-md-10">
                               <label for="avatar" class="col control-label">Foto de Perfil</label>
                               </div>
-                            <div class="col-md-10">
-                              <input  name="file" type="file" value= "" class="form-control" id="avatar" >
-                            </div>
-                            <br>
+                              <div class="col-md-10">
+                                <input  name="file" type="file" value= "" class="form-control" id="avatar" >
+                              </div>
+                              <br>
 
                             <label>
                               <div class="row">

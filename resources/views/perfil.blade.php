@@ -24,40 +24,12 @@
             <?php endif;?>
           <br>
         <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-        <form class="form-horizontal" id="singup" action="{{ url('/perfil') }}" method="post" enctype="multipart/form-data" >
+
+        {{-- //datos personales// --}}
+        <form class="form-horizontal" id="singup" action="<?=url("/perfil")?>" method="post" enctype="multipart/form-data" >
+            {{csrf_field()}}
           <div class="form-group">
-            <div class="titulo" style="text-align-last: center;"><h2>TUS DATOS</h2></label>
-            </div>
-          </div>
-          <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-          <div class="form-group">
-            <div class="row">
-            <div class="col">
-              <label for="email" class="col control-label">Email</label>
-            </div>
-            <div class="col">
-              <input required type="email" name="email" class="form-control" id="email" placeholder="Email" value="{{ Auth::user()->email  }}">
-            </div>
-            </div>
-          </div>
-          <div class="form-group">
-          <div class="row">
-            <div class="col">
-              <label for="password" class="col control-label">Contraseña</label>
-            </div>
-            <div class="col">
-                <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" value="" >
-            </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <label for="passwordRepeat" class="col control-label">Repetí tú contraseña</label>
-              </div>
-              <div class="col">
-                <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Repetí tú contraseña" value="" >
-              </div>
+            <div class="titulo" style="text-align-last: center;"><h2>TUS DATOS PERSONALES</h2></label>
             </div>
           </div>
           <div style="" class= "espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
@@ -84,23 +56,22 @@
               </div>
             </div>
           </div>
-
           <div class="espacio" style="" style="padding-top: 20px; padding-bottom: 10px"></div>
           <div class="titulo"  style="text-align-last: left;"><h4>Dirección</h4></label></div>
           <div class="form-group">
-            <label for="direccion" style="" class="col-sm-2 control-label">Calle</label>
+            <label for="calle" style="" class="col-sm-2 control-label">Calle</label>
             <div class="col-sm-10">
-              <input type="text" name="adress" style="" class="form-control" id="Calle" placeholder="Calle" value="{{ Auth::user()->calle }}">
+              <input type="text" name="calle" style="" class="form-control" id="Calle" placeholder="Calle" value="{{ Auth::user()->calle }}">
             </div>
           </div>
           <div class="form-group">
-            <label style="" for="numdireccion" class="col-sm-2 control-label">Número</label>
+            <label style="" for="calleNum" class="col-sm-2 control-label">Número</label>
             <div class="col-sm-10">
               <input style="" type="text" name="calleNum"class="form-control" id="Numero" placeholder="Número"value="{{ Auth::user()->calleNum }}">
             </div>
           </div>
           <div class="form-group">
-            <label for="pisodireccion" style="" class="col-sm-2 control-label">Piso</label>
+            <label for="piso" style="" class="col-sm-2 control-label">Piso</label>
             <div class="col-sm-10">
               <input style=""type="text" name="piso"class="form-control" id="Piso" placeholder="Piso"value="{{ Auth::user()->piso }}">
             </div>
@@ -111,8 +82,8 @@
                 <option>Argentina</option>
               </select>
             </label>
-            <label style="" for="provincia" class="col-sm-4 control-label">Provincia
-              <select style="" name="provincia" id="provincia" value="">
+            <label style="" for="provincia_fk" class="col-sm-4 control-label">Provincia
+              <select style="" name="provincia_fk" id="provincia" value="">
                 @foreach ($provincias as $provincia)
                   <option value="{{ $provincia->provincia_id }}">{{ $provincia->provincia_name }}</option>
                 @endforeach
@@ -139,7 +110,7 @@
         </form>
           <br>
           <div class="col">
-           <a type="" class="btn"  id="botones" style="width:50%" href="../Perfil/perfil.php"> Volver </a>
+           <a type="" class="btn"  id="botones" style="width:50%" href="<?=url("/home")?>"> Volver </a>
           </div>
       </div>
       </div>

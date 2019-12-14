@@ -37,13 +37,20 @@ Route::get('/faq', function () {
     return view('/faq');
 });
 Route::get("/carrito", "carritoController@carrito");
-Route::get("/agregar_carrito/{id_producto}/{cant}", "carritoController@agregar");
-Route::post("/agregar_carrito/{id_producto}", "carritoController@agregarProducto");
-Route::post("/eliminar_carrito/{id}", "carritoController@borrarProducto");
+Route::get('/carrito', 'carritoController@carrito')->name('cart')->middleware('auth');
+Route::post('/cart/{productId}', 'carritoController@agregarProducto')->name('addProductToCart');
+Route::delete('/carrito/{productId}', 'carritoController@borrarProducto')->name('removeProductFromCart');
 Route::get("/perfil", 'singUpController@listadoProvincias');
+Route::post("/perfil", 'UsuariosController@perfilUpdate');
 
 
+
+// Route::get("/perfilpassword", function () {
+//     return view('/perfilpassword');
+//   });
+// Route::post("/perfilpassword", 'UsuariosController@passUpdate');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post("/home", "OrdenController@addOrder");

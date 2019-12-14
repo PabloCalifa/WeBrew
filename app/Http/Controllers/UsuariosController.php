@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\Rules\MatchOldPassword;
 
 class UsuariosController extends Controller
 {
@@ -39,7 +44,7 @@ $reglas = [
       ];
       $this->validate($req, $reglas, $mensajes);
           $user = Auth::user();
-          $user->name = $req["nombre"];
+          $user->name = $req["name"];
           $user->surname = $req["surname"];
           $user->calle = $req["calle"];
           $user->calleNum = $req["calleNum"];
@@ -50,33 +55,29 @@ $reglas = [
           $user->codigoPostal = $req["codigoPostal"];
           $user->save();
           return redirect ("/perfil");
-
         }
 
 
-
-
-
-
-
-
-  protected function create(array $data)
-  {
-
-       $path = $data['file']->store("public");
-       $nombre = basename($path);
-
-
-      return User::create([
-          'name' => $data['name'],
-          'email' => $data['email'],
-          'password' => bcrypt($data['password']),
-          'surname' => $data['surname'],
-          'born_date' => $data['ano'].'-'.$data['mes'].'-'.$data['dia'],
-          'sex' => $data['sex'],
-          'info' => $data['info'],
-          'avatar' => $nombre,
-
-      ]);
-  }
+        public function passUpdate(Request $req){
+            $usuario = Auth::user();
+            $reglas = [
+              "old-pass" => 'required',
+              "password" => "min:6|required|same:repeat-pass",
+            ];
+            $mensajes = [
+              "required" => "El campo :attribute es obligatorio",
+              "min" => "La :attribute debe tener un mínimo de :min caracteres",
+              "same" => "Las contraseñas no coinciden"
+            ];
+            $this->validate($req, $reglas, $mensajes);
+            if (Hash::check($req->password, $usuario->password)) {
+               $user->fill([
+                'password' => Hash::make($req["password"])
+                ])->save();
+            return redirect ("/perfil");
+            } else {
+                $req->session()->flash('error', 'Password does not match');
+                return redirect('/perfil');
+            }
+        }
 }

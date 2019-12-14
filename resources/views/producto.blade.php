@@ -67,6 +67,7 @@ $destacados4 = DB::table('prods')
           <div id="rowCuadroProducto" class="row">
             <div class="espacio" style="padding-top:8vw"></div>
               <div class="col-sm-5" id="cuadroproducto">
+                <div class="container">
                 <div id="cuadros" class="row">
                   <div class="col-sm-9" id="titulosprod">
                     <br>
@@ -116,14 +117,14 @@ $destacados4 = DB::table('prods')
                       </div>
                     @else
                       <div class="col-sm-2" id="CantidadProducto">
-                        <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
+                        <form class="" action="{{ route('addProductToCart', ['productId' => $producto->id]) }}" method="post">
                           {{csrf_field()}}
                         <input id="CantidadProducto" type="number" name="cant" value="1" min="1" max="{{$producto->stock}}" style="text-align:center;">
                         <input type="hidden" name="id_producto" value="{{$producto->id}}">
                       </div>
                       <div class="col-sm-10" id="CantidadProducto">
                         <a href="<?=url("/carrito")?>">
-                           <button type="button submit" class="btn" id="botonecompra" value="{{$producto->id}}"> Agregar al Carrito</button>
+                           <button type="button submit" class="btn" id="botonecompra"> Agregar al Carrito</button>
                         </a>
                         </form>
                       </div>
@@ -131,6 +132,8 @@ $destacados4 = DB::table('prods')
                   </div>
                 <div class="espacio" style="padding-top:2.5vw"></div>
               </div>
+            </div>
+
               <div class="col-sm-4" id="fotoproducto">
                 <div id="colorfondo">
                   <img id="imagenproducto" class="d-block w-100" src="/imagenesDB/{{$producto->picture}}"  alt="foto">

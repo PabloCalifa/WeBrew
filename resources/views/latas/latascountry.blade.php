@@ -132,7 +132,7 @@
                           <button type="button submit" value="" class="btn" id="botonesagregar" >Agregar al Carrito </button>
                           <a/>
                         @else
-                      <form class="" action="<?=url("/agregar_carrito/{$producto->id}")?>" method="post">
+                      <form class="" action="{{ route('addProductToCart', ['productId' => $producto->id]) }}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="cant" value="1">
                         <input type="hidden" name="id_producto" value="{{$producto->id}}">

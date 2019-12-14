@@ -28,12 +28,28 @@ class User extends Authenticatable
     ];
 
 
-  public function productosCarrito(){
-    return $this->belongsToMany("App\prods", "carrito", "user_id_fk", "prod_id_fk")->withPivot('cant');;
+  public function userProvincia(){
+    return $this->belongsTo("App\provincia","provincia_fk");
     }
 
-    public function userProvincia(){
-      return $this->belongsTo("App\provincia","provincia_fk");
+      public function productsInCart() {
+          return $this->hasMany('App\carrito', 'user_id_fk');
       }
 
-}
+      public function cartTotal() {
+          $total = $this->productsInCart->reduce(function ($acum, $productInCart) {
+              return $acum + ($productInCart->products->price * $productInCart->cant);
+          });
+
+          return $total;
+      }
+
+      public function orders() {
+          return $this->hasMany('App\orden', "user_id_ordfk");
+      }
+
+
+
+
+
+    }

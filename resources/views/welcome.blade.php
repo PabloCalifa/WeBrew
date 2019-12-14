@@ -109,18 +109,18 @@ $destacados4 = DB::table('prods')
                 </a>
               <div class="card-body">
                 <h4 class="card-text">$ {{$destacad->price}}</H4>
-                  @if (Auth::guest())
-                    <a href="{{ url('/login') }}">
-                      <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                      <a/>
+                    @if (Auth::guest())
+                    <a href="{{ url('/login') }}" >
+                      <button type="button submit" value="" class="btn" id="botonesdestacados" > Agregar al Carrito </button>
+                    </a>
                     @else
-                  <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
+                  <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
                     {{csrf_field()}}
                     <input type="hidden" name="cant" value="1">
                     <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                       <a href="<?=url("/carrito")?>">
                         <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                      <a/>
+                      </a>
                   </form>
                 @endif
               </div>
@@ -148,15 +148,15 @@ $destacados4 = DB::table('prods')
                 @if (Auth::guest())
                   <a href="{{ url('/login') }}">
                     <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                    <a/>
+                  </a>
                   @else
-                <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
+                  <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
                   {{csrf_field()}}
                   <input type="hidden" name="cant" value="1">
                   <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                     <a href="<?=url("/carrito")?>">
                       <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                    <a/>
+                    </a>
                 </form>
               @endif
             </div>
@@ -184,15 +184,15 @@ $destacados4 = DB::table('prods')
               @if (Auth::guest())
                 <a href="{{ url('/login') }}">
                   <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                  <a/>
+                </a>
                 @else
-              <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
+                <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                   <a href="<?=url("/carrito")?>">
                     <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                  <a/>
+                  </a>
               </form>
             @endif
           </div>
@@ -220,15 +220,15 @@ $destacados4 = DB::table('prods')
               @if (Auth::guest())
                 <a href="{{ url('/login') }}">
                   <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                  <a/>
+                </a>
                 @else
-              <form class="" action="<?=url("/agregar_carrito/{$destacad->id}")?>" method="post">
+                <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                   <a href="<?=url("/carrito")?>">
                     <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
-                  <a/>
+                  </a>
               </form>
             @endif
           </div>
@@ -272,9 +272,24 @@ $destacados4 = DB::table('prods')
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h3 class="card-title" >Pack Corona</h3>
-                        <p class="card-text">Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad, su sabor distintivo e imagen. Es una cerveza que transmite tranquilidad y relajación, invitando a los consumidores a desconectarse de la monotonía diaria a través de experiencias agradables.</p>
-                        <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
+                        <h3 class="card-title" >Pack Corona (12 unidades)</h3>
+                        <div class="card-text">Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad,
+                          su sabor distintivo e imagen. Es una cerveza que transmite tranquilidad y relajación, invitando a los consumidores
+                          a desconectarse de la monotonía diaria a través de experiencias agradables.</div>
+                          @if (Auth::guest())
+                          <a href="{{ url('/login') }}">
+                            <button type="button submit" value="" class="btn" id="botones" >Agregar al Carrito </button>
+                          </a>
+                          @else
+                          <form class="" action="{{ route('addProductToCart', ['productId' => 4]) }}" method="post">
+                          {{csrf_field()}}
+                          <input type="hidden" name="cant" value="12">
+                          <input type="hidden" name="id_producto" value="4">
+                            <a href="<?=url("/carrito")?>">
+                              <button type="button submit" class="btn" id="botones" >Agregar al Carrito </button>
+                            </a>
+                          </form>
+                      @endif
                       </div>
                     </div>
                   </div>
@@ -286,9 +301,22 @@ $destacados4 = DB::table('prods')
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h3 class="card-title">Pack Stella</h3>
-                        <p class="card-text">La cerveza belga número 1 en ventas a nivel mundial. Stella Artois tiene una rica herencia que se remonta al año 1366 en Leuven, Bélgica, y es hoy en día el estándar de oro de la calidad en más de 80 países. El arte y la ciencia de disfrutar una Stella Artois abarca desde los más selectos ingredientes hasta el preciso ritual de 9 pasos para servirla en su especialmente fabricado cáliz.</p>
-                        <a href="#" ><button type="button" class="btn" id="botones">Agregar al Carrito </button></a>
+                        <h3 class="card-title">Pack Stella (12 unidades)</h3>
+                        <div class="card-text">La cerveza belga número 1 en ventas a nivel mundial. Stella Artois tiene una rica herencia que se remonta al año 1366 en Leuven, Bélgica, y es hoy en día el estándar de oro de la calidad en más de 80 países. El arte y la ciencia de disfrutar una Stella Artois abarca desde los más selectos ingredientes hasta el preciso ritual de 9 pasos para servirla en su especialmente fabricado cáliz.</div>
+                          @if (Auth::guest())
+                          <a href="{{ url('/login') }}">
+                            <button type="button submit" value="" class="btn" id="botones" >Agregar al Carrito </button>
+                          </a>
+                          @else
+                          <form class="" action="{{ route('addProductToCart', ['productId' => 29]) }}" method="post">
+                          {{csrf_field()}}
+                          <input type="hidden" name="cant" value="12">
+                          <input type="hidden" name="id_producto" value="29">
+                            <a href="<?=url("/carrito")?>">
+                              <button type="button submit" class="btn" id="botones" >Agregar al Carrito </button>
+                            </a>
+                          </form>
+                      @endif
                       </div>
                     </div>
                   </div>

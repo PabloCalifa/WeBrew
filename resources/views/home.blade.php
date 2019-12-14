@@ -21,9 +21,7 @@
             <div>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist" id="perfil">
-                <li role="presentation" class="active" > <a class="perfil" href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab"> <button class="btn" id="botonesperfil">  Pedidos </button> </a>  </li>
-                <li role="presentation"><a class="perfil" href="#pedidosencurso" aria-controls="pedidosencurso" role="tab" data-toggle="tab"> <button class="btn" id="botonesperfil"> Pedidos en curso</button></a></li>
-                <li role="presentation"><a class="perfil" href="#volveracomprar" aria-controls="volveracomprar" role="tab" data-toggle="tab"> <button class="btn" id="botonesperfil"> Volver a comprar</button></a></li>
+                <li role="presentation" class="active" > <a class="perfil" href="#pedidos" aria-controls="pedidos" role="tab" data-toggle="tab"> <button class="btn" id="botonesperfil">  Ordenes  </button> </a>  </li>
                 <li role="presentation"><a class="perfil" href="#fav" aria-controls="fav" role="tab" data-toggle="tab"> <button class="btn" id="botonesperfil"> Favoritos</button></a></li>
               </ul>
               <!-- Tab panes -->
@@ -32,7 +30,7 @@
               <div role="tabpanel" class="tab-pane active" id="pedidos" style="padding-top:10px">
                 <!-- INICIO NAV -->
                 <nav class="navbar" id="perfil">
-                  <a class="navbar-brand"id="perfil">TUS PEDIDOS</a>
+                  <a class="navbar-brand"id="perfil">TUS ORDENES</a>
                   <form class="form-inline">
                     <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
                     <button class="btn" id="search" type="submit">Buscar</button>
@@ -44,101 +42,54 @@
                 <!-- INICIO DESCRIPCION DE PRODUCTOS -->
                 <div class="row" id="rowcompras" >
                   <div class="col">
-                    <div class"fotoproducto">
-                        <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
-                    </div>
-                  </div>
-                  <div class="col">
+                    <div class="espacio" style="margin-top:20px;" ></div>
+                    @if (Auth::user()->orders->isNotEmpty())
+                      @foreach (Auth::user()->orders as $order)
                     <div class="detalleProducto" id="detalleproducto">
-                        <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
-                        <p><b>Cantidad:</b>12 unidades</p>
-                        <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
-                        <p><b>Valor :</b>$50,00</p>
-                        <button class="btn" type="submit">Volver a Comprar</button>
-                    </div>
-                  </div>
-                  <div class="row" id="rowbotones" >
-                    <div class="col">
-                      <button class="btn " style="width:100%" type="submit">Pedir reembolso</button>
-                      <button class="btn " style="width:100%" type="submit">Problema con el pedido</button>
-                      <button class="btn " style="width:100%" type="submit">Evaluar compra</button>
-                      <button class="btn " style="width:100%" type="submit">Ocultar pedido</button>
-                      <button class="btn " style="width:100%" type="submit">Ver productos simiilares</button>
-                    </div>
-                  </div>
+                      <div class="row" id="order" >
+                        <div class="col-sm-4">
+                        <h5>orden:  {{ $order->orden_id }}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                          <h5>Fecha de compra: {{ $order->created_at }}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                        <h5>Valor  ${{ $order->total }}</h5>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row" id="rowproducto" >
+                        @foreach($order->productsInOrder as $productoCarrito)
+                      <div class="col-sm-4">
+                        <div class"fotoproducto">
+                          <p> <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" >
+                          <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$productoCarrito->products->picture}}" alt="Helaera Corona" style="max-width:120px;">
+                        </a>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="detalleProducto">
+                          <br>
+                          <br>
+                            <h5 style="text-transform:uppercase"> {{$productoCarrito->products->prods_name}}</h5>
+                            <b>Cantidad:</b> {{$productoCarrito->cant}} unidades
+                            <br><b>Valor:</b> ${{$productoCarrito->cant * $productoCarrito->products->price}}
+                          </div>
+                        </div>
+                          <div class="col-sm-4">
+                            <div class="detalleProducto">
+                              <a href="../../producto/{{$productoCarrito->urlSlug}}" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Comprar nuevamente</button> </a>
+                             <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button>
+                          </div>
+                        </div>
+                      @endforeach
+                        <div class="espacioEntreOrdenes" id="espacioEntreOrdenes" ></div>
+                      </div>
                 </div>
-                <!-- FIN DE DESCRIPCION PRODUCTOS -->
-              </div>
-              <!-- FIN INIDIVIDUAL TABPANE -->
-              <!-- INICIO INIDIVIDUAL TABPANE -->
-              <div role="tabpanel" class="tab-pane" id="pedidosencurso" style="padding-top:10px;">
-                <!-- INICIO NAV -->
-                <nav class="navbar" id="perfil">
-                  <a class="navbar-brand"id="perfil">PEDIDOS EN CURSO</a>
-                  <form class="form-inline">
-                    <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
-                    <button class="btn" id="search" type="submit">Buscar</button>
-                  </form>
-                </nav>
-
-                <br> </br>
-                <!-- INICIO DESCRIPCION DE PRODUCTOS -->
-                <div class="row" id="rowcompras" >
-                  <div class="col">
-                    <div class"fotoproducto">
-                        <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="detalleProducto" id="detalleproducto">
-                        <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
-                        <p><b>Cantidad:</b>12 unidades</p>
-                        <p><b>Fecha de arribo :</b>23 de julio de 2019</p>
-                        <p><b>Valor :</b>$50,00</p>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Volver a Comprar</button>
-                    </div>
-                  </div>
-                  <div class="row" id="rowbotones" >
-                    <div class="col">
-                      <button class="btn " style="width:100%" type="submit">Pedir reembolso</button>
-                      <button class="btn " style="width:100%" type="submit">Problema con el pedido</button>
-                      <button class="btn " style="width:100%" type="submit">Evaluar compra</button>
-                      <button class="btn " style="width:100%" type="submit">Ocultar pedido</button>
-                      <button class="btn " style="width:100%" type="submit">Ver productos simiilares</button>
-                    </div>
-                  </div>
-                </div>
-                <!-- FIN DE DESCRIPCION PRODUCTOS -->
-              </div>
-              <!-- FIN INIDIVIDUAL TABPANE -->
-              <!-- INICIO INIDIVIDUAL TABPANE -->
-              <div role="tabpanel" class="tab-pane" id="volveracomprar"style="padding-top:10px;">
-                <!-- INICIO NAV -->
-                <nav class="navbar" id="perfil">
-                  <a class="navbar-brand"id="perfil">VOLVER A COMPRAR</a>
-                  <form class="form-inline">
-                    <input class="form-control mr-sm-4" type="search" placeholder="Encontra tu pedido" aria-label="Search">
-                    <button class="btn" id="search" type="submit">Buscar</button>
-                  </form>
-                </nav>
-                <!-- FIN DEL NAV -->
-                <br> </br>
-                <!-- INICIO DESCRIPCION DE PRODUCTOS -->
-                <div class="row" id="rowcompras" >
-                  <div class="col">
-                    <div class"fotoproducto">
-                        <a href="#" ><img alt="..." class="img-responsive" src="../index/productos/porrones/porron1.PNG"></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="detalleProducto" id="detalleproducto">
-                        <a href="#" ><h4>Cerveza Corona 355 cc</h4></a>
-                        <p><b>Cantidad:</b>12 unidades</p>
-                        <p><b>Última compra:</b>22 de julio de 2019</p>
-                        <p><b>Valor :</b>$50,00</p>
-                        <button class="btn" type="submit">Volver a Comprar</button>
-                        <br></br>
-                    </div>
+              @endforeach
+              @else
+                <p>Aún no hiciste ninguna compra</p>
+              @endif
                   </div>
                 </div>
                 <!-- FIN DE DESCRIPCION PRODUCTOS -->

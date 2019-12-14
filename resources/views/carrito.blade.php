@@ -30,19 +30,19 @@
         <div class="col-sm-3">
           <div class"fechaderecepcion">
               <h5>CANTIDAD DE PRODUCTOS</h5>
-              <p>{{$usuario->productosCarrito->count()}}</p>
+              <p>{{Auth::user()->productsInCart->count()}}</p>
           </div>
           </div>
         <div class="col-sm-3">
           <div class"Total">
               <h5>TOTAL</h5>
-              <p>${{$total}}</p>
+              <p>${{Auth::user()->cartTotal()}}</p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class"direccion">
               <h5>DIRECCIÓN</h5>
-
+              {{ Auth::user()->calle ." ". Auth::user()->calleNum." ". Auth::user()->piso." ". Auth::user()->provincia." ". Auth::user()->ciudad." ". Auth::user()->codigoPostal }}
           </div>
         </div>
         <div class="col-sm-3 center">
@@ -56,11 +56,12 @@
       <br> </br>
       <!-- INICIO DESCRIPCION DE PRODUCTOS -->
       <div class="row" id="rowcompras" >
-        @foreach ($usuario->productosCarrito as $productoCarrito)
+        @if (Auth::user()->productsInCart->isNotEmpty())
+        @foreach (Auth::user()->productsInCart as $productoCarrito)
         <div class="col-sm-4">
           <div class"fotoproducto">
-            <p> <a href="../../producto/{{$productoCarrito->urlSlug}}" id="linkproductos" >
-            <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$productoCarrito->picture}}" alt="Helaera Corona" style="max-width:120px;">
+            <p> <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" >
+            <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$productoCarrito->products->picture}}" alt="Helaera Corona" style="max-width:120px;">
           </a>
           </div>
         </div>
@@ -68,42 +69,46 @@
           <div class="detalleProducto">
             <br>
             <br>
-              <h5 style="text-transform:uppercase"> {{$productoCarrito->prods_name}}</h5>
-              <b>Cantidad:</b> {{$productoCarrito->pivot->cant}} unidades
-              <br><b>Valor:</b> ${{$productoCarrito->pivot->cant * $productoCarrito->price}}
+              <h5 style="text-transform:uppercase"> {{$productoCarrito->products->prods_name}}</h5>
+              <b>Cantidad:</b> {{$productoCarrito->cant}} unidades
+              <br><b>Valor:</b> ${{$productoCarrito->cant * $productoCarrito->products->price}}
             </div>
           </div>
             <div class="col-sm-4">
               <div class="detalleProducto">
-                <a href="../../producto/{{$productoCarrito->urlSlug}}" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Agregar más</button> </a>
-                <form  action="<?=url("/eliminar_carrito/{$productoCarrito->id}")?>" method="post" style="margin:0px;">
+                <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Agregar más</button> </a>
+                <form  action="{{ route('removeProductFromCart', ['productId' => $productoCarrito->products->id]) }}" method="post" style="margin:0px;">
                   {{csrf_field()}}
-                 <a href="/carrito"> <button class="btn" id="boton"style="width:100% "type="submit" value="{{$productoCarrito->id}}">Eliminar del Carrito</button></a>
+                 <input type="hidden" name="_method" value="DELETE">
+                 <input type="hidden" name="product_id" value="{{$productoCarrito->products->id}}">
+                 <button  class="btn" id="boton" style="width:100% "type="submit" >Eliminar del Carrito</button>
                </form>
                <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button>
             </div>
           </div>
         @endforeach
+        @else
+              <h3><br>No tienes productos en el carrito</h3>
+        @endif
       <!-- INICI DEL ROW -->
-
       </div>
       <div class="row" id="carritorowproductos">
         <div class="col-sm-3">
           <div class"fechaderecepcion">
               <h5>CANTIDAD DE PRODUCTOS</h5>
-              <p> {{$usuario->productosCarrito->count()}} </p>
+              <p> {{Auth::user()->productsInCart->count()}} </p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class"Total">
               <h5>TOTAL</h5>
-              <p>${{$total}}</p>
+              <p>${{Auth::user()->cartTotal()}}</p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class"direccion">
               <h5>DIRECCIÓN</h5>
-
+              {{ Auth::user()->calle ." ". Auth::user()->calleNum." ". Auth::user()->piso." ". Auth::user()->provincia." ". Auth::user()->ciudad." ". Auth::user()->codigoPostal }}
           </div>
         </div>
         <div class="col-sm-3">
@@ -135,13 +140,65 @@
               </div>
             </div>
             <div class="container" id="compra">
-              <input type="submit" value="Finalizar compra" class="btn" id="compra">
+              <form class="form-horizontal"  action="<?=url("/home")?>" method="post"  >
+              {{csrf_field()}}
+              <button class="btn" id="boton" type="submit">Finalizar Compra</button>
+            </form>
             </div>
         </div>
       </div>
       </div>
     </div>
   </div>
+
+  {{-- @if (Auth::user()->productsInCart->isNotEmpty())
+        <table class="table table-borderless products-in-cart">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach(Auth::user()->productsInCart as $productInCart)
+              <tr>
+                <td>
+                  <img src="{{ $productInCart->product->imageUrl }}" alt="{{ $productInCart->product->name }}" />
+                  <td>{{ $productInCart->product->name }}</td>
+                </th>
+                <td>{{ $productInCart->count }}</td>
+                <td>${{ $productInCart->product->price }}</td>
+                <td>
+                  <form action="{{ route('removeProductFromCart', ['productId' => $productInCart->product->id]) }}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="product_id" value="{{ $productInCart->product->id }}">
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                  </form>
+                </td>
+              </tr>
+            @endforeach
+              <tr>
+                <td colspan="3" class="text-right h2">Total</td>
+                <td class="h2">${{ Auth::user()->cartTotal() }}</td>
+                <td>
+                  <form action="{{ route('order') }}" method="post">
+                    {{ csrf_field() }}
+                    <button class="btn btn-dark btn-lg" type="submit">Comprar</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        @else
+          <p>No hay productos en el carrito</p>
+        @endif
+    </div>
+  </div>
+</div> --}}
 
   @include("../Footer")
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

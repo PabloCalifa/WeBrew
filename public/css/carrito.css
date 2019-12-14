@@ -139,9 +139,15 @@ div.container#compra .btn#compra.focus, div.container#compra .btn#compra:hover{
 }
 
 
-.btn#compra{
+#compra button#boton.btn{
   color: black;
   background-color: #dddddd;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#compra button#boton.btn:focus,#compra button#boton.btn:hover{
+  color: black;
+  background-color: rgba(255, 193, 0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

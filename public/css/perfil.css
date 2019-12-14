@@ -133,3 +133,26 @@ div.row#rowcompras .btn:hover{
   background-color: rgba(255, 193, 0,1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+#espacioEntreOrdenes{
+margin: 50px;
+border-bottom: solid 0.5px rgba(0,0,0,0.2);
+width:100%;
+
+}
+
+div#order.row h5{
+text-transform: uppercase;
+color: rgba(0, 0, 0, 0.4);
+text-align: -webkit-center;
+
+}
+
+div#rowproducto.row div.col-sm-4 {
+  text-align: -webkit-center;
+  align-self: center;
+
+
+
+
+}
