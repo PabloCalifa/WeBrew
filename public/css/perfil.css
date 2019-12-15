@@ -90,10 +90,9 @@ font-weight: 700;
 div.row#rowcompras{
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 padding: 0px;
-padding-top: 5px;
 margin: 0 auto;
 border-radius: 5px;
-background-color: white
+background-color: rgba(255, 255, 255, 0.8)
 }
 
 #detalleproducto>a>h4{
@@ -134,17 +133,18 @@ div.row#rowcompras .btn:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#espacioEntreOrdenes{
-margin: 50px;
-border-bottom: solid 0.5px rgba(0,0,0,0.2);
-width:100%;
+div#order.row h5{
+text-transform: uppercase;
+color: rgba(255, 255, 255, 1);
+text-align: -webkit-center;
 
 }
 
-div#order.row h5{
-text-transform: uppercase;
-color: rgba(0, 0, 0, 0.4);
-text-align: -webkit-center;
+div#order.row{
+padding-top: 10px;
+background-color: rgba(0, 0, 0, 0.9);
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 
 }
 
@@ -152,7 +152,25 @@ div#rowproducto.row div.col-sm-4 {
   text-align: -webkit-center;
   align-self: center;
 
+}
 
+div#detalleproducto{
+padding: 0px;
+margin: 0px;
 
+}
+
+div#ordertarjeta.row h5{
+text-transform: uppercase;
+color: rgba(255, 255, 255, 1);
+text-align: -webkit-center;
+
+}
+
+div#ordertarjeta.row{
+padding-top: 10px;
+background-color: rgba(0, 0, 0, 0.9);
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
 
 }

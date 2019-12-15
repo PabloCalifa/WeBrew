@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-// require_once("../singUp/users.php");
-// require_once("../singUp/helpers.php");
+use Illuminate\Support\Str;
 $destacados = DB::table('prods')
      ->select('*')
      ->join('origin', 'fk_origin', '=', 'origin.country_id')
@@ -101,7 +100,7 @@ $destacados4 = DB::table('prods')
             <div class="card" id="cardDestacados">
               <div class="card-body">
                 <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                  <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                  <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
                 </a>
               </div>
                 <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
@@ -137,7 +136,7 @@ $destacados4 = DB::table('prods')
           <div class="card" id="cardDestacados">
             <div class="card-body">
               <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+                <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
               </a>
             </div>
               <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
@@ -173,7 +172,7 @@ $destacados4 = DB::table('prods')
         <div class="card" id="cardDestacados">
           <div class="card-body">
             <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-              <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+              <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
             </a>
           </div>
             <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
@@ -209,7 +208,7 @@ $destacados4 = DB::table('prods')
         <div class="card" id="cardDestacados">
           <div class="card-body">
             <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-              <h5 class="card-title"> {{$destacad->prods_name}}</h5>
+              <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
             </a>
           </div>
             <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >

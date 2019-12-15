@@ -1,5 +1,10 @@
 <html lang="en" dir="ltr">
+@php
+use Illuminate\Support\Str;
+@endphp
+
   <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,19 +47,34 @@
                 <!-- INICIO DESCRIPCION DE PRODUCTOS -->
                 <div class="row" id="rowcompras" >
                   <div class="col">
-                    <div class="espacio" style="margin-top:20px;" ></div>
                     @if (Auth::user()->orders->isNotEmpty())
                       @foreach (Auth::user()->orders as $order)
                     <div class="detalleProducto" id="detalleproducto">
                       <div class="row" id="order" >
                         <div class="col-sm-4">
-                        <h5>orden:  {{ $order->orden_id }}</h5>
+                        <h5><b>orden:</b>{{ $order->orden_id }}</h5>
                         </div>
                         <div class="col-sm-4">
-                          <h5>Fecha de compra: {{ $order->created_at }}</h5>
+                          <h5><b>Fecha de compra:</b>{{ $order->created_at }}</h5>
                         </div>
                         <div class="col-sm-4">
-                        <h5>Valor  ${{ $order->total }}</h5>
+                        <h5><b>Valor:</b>  ${{ $order->total }}</h5>
+                        </div>
+                      </div>
+                      <div class="row" id="ordertarjeta" >
+                        <div class="col-sm-12">
+                        <h5><b>Enviado a:</b> {{ $order->denvio }}</h5>
+                        </div>
+                      </div>
+                      <div class="row" id="ordertarjeta" >
+                        <div class="col-sm-4">
+                        <h5><b>Tarjeta:</b>{{ $order->Cbrand }}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                          <h5><b>Fecha de pago:</b>{{ $order->created_at }}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                        <h5><b>Numero de tarjeta:</b>{{@Str::limit($order->cnumber,4) }}</h5>
                         </div>
                       </div>
                       <br>
@@ -83,7 +103,6 @@
                           </div>
                         </div>
                       @endforeach
-                        <div class="espacioEntreOrdenes" id="espacioEntreOrdenes" ></div>
                       </div>
                 </div>
               @endforeach

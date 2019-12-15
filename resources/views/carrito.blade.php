@@ -121,85 +121,52 @@
       <br></br>
 
     <div class="row" id="formadepago">
-        <div class="container">
-              <div class="col-sm-12" id="formadepago">
-                <h3>Forma de pago</h3>
-                <label for="fname">Tarjetas aceptadas</label>
-                  <i class="fab fa-cc-visa" style="color:white;"></i>
-                  <i class="fab fa-cc-amex" style="color:white;"></i>
-                  <i class="fab fa-cc-mastercard" style="color:white;"></i>
-                  <i class="fab fa-cc-discover" style="color:white;"></i>
-                <p>
-                  Apellido y Nombre <input type="text" id="cname" name="cardname" placeholder="Apellido y Nombre">
-                  <label for="ccnum">Numero de tarjeta</label>
-                  <input type="text" id="cnumber" name="cnumber" placeholder="1111-2222-3333-4444">
-                  <input type="text" id="cexp" name="cardexp" placeholder="Expiración MM/AA">
-                  <input type="text" id="cvv" name="cvv" placeholder="CVV">
-                </p>
-                </div>
+      <div class="container">
+              <div class="row" id="formadepago">
+                <div class="container">
+                  <div class="col-sm-12" id="formadepago">
+                    <div class="row" id="tarjetas">
+                      <div class="col-sm-3" id="tarjetas">
+                        <h3>Forma de pago</h3>
+                      </div>
+                      <div class="col-sm-9" id="tarjetas">
+                        Tarjetas aceptadas
+                        <i class="fab fa-cc-visa" style="color:white;"></i>
+                        <i class="fab fa-cc-amex" style="color:white;"></i>
+                        <i class="fab fa-cc-mastercard" style="color:white;"></i>
+                        <i class="fab fa-cc-discover" style="color:white;"></i>
+                      </div>
+                    </div>
+                    <div class="row" id="datostarjeta">
+                    <div class="container" id="datostarjeta">
+
+                      <form class="form-horizontal"  action="<?=url("/home")?>" method="post"  >
+                        {{csrf_field()}}
+                      <label >Apellido y Nombre</label> <input required type="text" id="cname" name="cname" placeholder="Apellido y Nombre">
+                      <select class="" name="Cbrand">
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Maestro">Maestro</option>
+                        <option value="American Express">American Express</option>
+                      </select>
+                      <label >Numero de tarjeta</label>
+                      <input required type="number" min="16" id="cnumber" name="cnumber" placeholder="1111-2222-3333-4444">
+                      <input required type="string" min="5" id="cexp" name="cexp" placeholder="Expiración MM/AA">
+                      <input required type="number" min="3" id="cvv" name="cvv" placeholder="CVV">
+                      <input hidden type="string"  id="direccionenvio" name="denvio" value="{{ Auth::user()->calle ." ". Auth::user()->calleNum." ". Auth::user()->piso." ". Auth::user()->provincia." ". Auth::user()->ciudad." ". Auth::user()->codigoPostal }} ">
+
+                      <div class="container" id="compra">
+                        <button class="btn" id="boton" type="submit">Finalizar Compra</button>
+                      </div>
+                      </form>
+                    </div>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div class="container" id="compra">
-              <form class="form-horizontal"  action="<?=url("/home")?>" method="post"  >
-              {{csrf_field()}}
-              <button class="btn" id="boton" type="submit">Finalizar Compra</button>
-            </form>
-            </div>
-        </div>
-      </div>
-      </div>
+             </div>
     </div>
   </div>
-
-  {{-- @if (Auth::user()->productsInCart->isNotEmpty())
-        <table class="table table-borderless products-in-cart">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Producto</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach(Auth::user()->productsInCart as $productInCart)
-              <tr>
-                <td>
-                  <img src="{{ $productInCart->product->imageUrl }}" alt="{{ $productInCart->product->name }}" />
-                  <td>{{ $productInCart->product->name }}</td>
-                </th>
-                <td>{{ $productInCart->count }}</td>
-                <td>${{ $productInCart->product->price }}</td>
-                <td>
-                  <form action="{{ route('removeProductFromCart', ['productId' => $productInCart->product->id]) }}" method="post">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="product_id" value="{{ $productInCart->product->id }}">
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
-                  </form>
-                </td>
-              </tr>
-            @endforeach
-              <tr>
-                <td colspan="3" class="text-right h2">Total</td>
-                <td class="h2">${{ Auth::user()->cartTotal() }}</td>
-                <td>
-                  <form action="{{ route('order') }}" method="post">
-                    {{ csrf_field() }}
-                    <button class="btn btn-dark btn-lg" type="submit">Comprar</button>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        @else
-          <p>No hay productos en el carrito</p>
-        @endif
-    </div>
   </div>
-</div> --}}
-
   @include("../Footer")
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

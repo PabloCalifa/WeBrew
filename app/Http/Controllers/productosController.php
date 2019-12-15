@@ -10,7 +10,7 @@ use App\origin;
 use App\cat;
 use App\carrito;
 use App\User;
-
+use Illuminate\Support\Str;
 
 
 class productosController extends Controller
