@@ -25,7 +25,7 @@
     font-size: 20px;
   }
 
-  #linkproductos.black{
+  h5.card-title.black{
     text-decoration: none;
     color: black;
   }
@@ -40,6 +40,10 @@
     width: 19%;
     margin-left: 1%;
     background-color: rgba(255,255,255,0.9);
+  }
+
+  #cardDestacados h4.card-text.black{
+  color: black;
   }
 
   #cardDestacados:hover, #cardDestacados:focus {
@@ -254,7 +258,7 @@
     font-size: 20px;
   }
 
-  #linkproductos{
+  h5.card-title{
     text-decoration: none;
     color: white;
   }
@@ -456,5 +460,9 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   }
+
+#linkproductos{
+  text-decoration: none;
+}
 
 }

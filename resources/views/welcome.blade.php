@@ -68,9 +68,7 @@ $destacados4 = DB::table('prods')
         <img src="/fotosComunes/logowebrew.png" class="logoWeBrew" alt="...">
         <img src="/fotosComunes/maderanav.jpg" class="fondonav"alt="...">
       </div>
-      <script src='https://code.jquery.com/jquery-3.2.1.min.js'>
-
-    </script>
+      <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 </head>
 <p style="display:none" id="result">El usuario tiene tema </p>
       <section id="seccion">
