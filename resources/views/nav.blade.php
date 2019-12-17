@@ -37,26 +37,52 @@
           <li role="separator" class="divider"></li>
           <li><a href="{{ url('/register') }}">REGISTRO</a></li>
         </ul>
-      @else
+      @elseif (Auth::user()->is_admin == 1)
+        {{-- usuario  ADMIN --}}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
           {{ Auth::user()->name }} <span class="caret"></span> </a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/home') }}">PERFIL</a></li>
+            <li><a href="{{url('/adm/admproductos')}}">PRODUCTOS</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{url('/adm/admmarcas')}}">MARCAS</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{url('/adm/admpaises')}}">PAISES</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{url('/adm/admestilo')}}">ESTILOS</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{url('/adm/admsegmentos')}}">SEGMENTOS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ url('/perfil') }}">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
             <li id="result"><a href="#" id="tema">TEMA</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/carrito') }}">CARRITO</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">SALIR</a>
            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                {{ csrf_field() }}
            </form>
-
            </li>
           </ul>
+          @else
+            {{-- usuario NO ADMIN --}}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
+              {{ Auth::user()->name }} <span class="caret"></span> </a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ url('/home') }}">PERFIL</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ url('/perfil') }}">MIS DATOS</a></li>
+                <li role="separator" class="divider"></li>
+                <li id="result"><a href="#" id="tema">TEMA</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ url('/carrito') }}">CARRITO</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">SALIR</a>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                   {{ csrf_field() }}
+               </form>
+               </li>
+              </ul>
         @endif
       </li>
       @if (Auth::guest())

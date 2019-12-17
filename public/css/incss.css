@@ -1,10 +1,10 @@
 #body{
-    background-image: url("../fotosComunes/fondoIndex.jpg");
+    background-image: url("../fotosComunes/fondoIndexL.jpg");
     width: 100%;
   }
 
   #body.black{
-      background-image: url("../fotosComunes/fondoIndexL.jpg");
+      background-image: url("../fotosComunes/fondoIndex.jpg");
       width: 100%;
     }
 

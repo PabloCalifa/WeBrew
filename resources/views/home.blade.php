@@ -16,7 +16,6 @@ use Illuminate\Support\Str;
     <link rel="stylesheet" type="text/css" href="{{asset('css/navCss.css')}}" />
     <title>- - - - - We Brew- - - - - </title>
   </head>
-  <body class="{{ $theme . '-theme' }}">
     @include('../nav')
     <div class="espacio" style="padding-top:5vw"></div>
     <div class="espacio" style="padding-top:100px;"></div>
