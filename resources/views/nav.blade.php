@@ -9,16 +9,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
       <li class="">
-        <a href="../porrones/porrones">PORRONES<span class="caret"></span></a>
+        <a href="<?=url("/porrones/porrones")?>">PORRONES<span class="caret"></span></a>
       </li>
       <li class="">
-        <a href="../latas/latas">LATAS<span class="caret"></span></a>
+        <a href="<?=url("/latas/latas")?>">LATAS<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="../porrones/porrones">BARRILES<span class="caret"></span></a>
+        <a href="<?=url("/porrones/porrones")?>">BARRILES<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="url('../porrones/porrones')">GROWLERS<span class="caret"></span></a>
+        <a href="<?=url("/porrones/porrones")?>">GROWLERS<span class="caret"></span></a>
       </li>
       <li>
         <a href="../contacto">CONTACTO</a>
@@ -41,17 +41,19 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
           {{ Auth::user()->name }} <span class="caret"></span> </a>
           <ul class="dropdown-menu">
-            <li><a href="#">COMPRAS</a></li>
+            <li><a href="{{ url('/home') }}">PERFIL</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">FAVORITOS</a></li>
+            <li><a href="{{ url('/perfil') }}">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/home') }}">MIS DATOS</a></li>
+            <li id="result"><a href="#" id="tema">TEMA</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ url('/carrito') }}">CARRITO</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">SALIR</a>
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     {{ csrf_field() }}
-                 </form>
+               document.getElementById('logout-form').submit();">SALIR</a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+               {{ csrf_field() }}
+           </form>
 
            </li>
           </ul>

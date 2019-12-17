@@ -26,8 +26,8 @@ $reglas = [
           'calle' => 'required|string|max:45',
           'calleNum' => 'required|string|max:45',
           'piso' => 'string|max:45',
-          'pais' => 'required|string|max:45',
-          'provincia_fk' => 'required|string|max:45',
+          'country' => 'required|string|max:45',
+          'province' => 'required|string|max:45',
           'ciudad' => 'required|string|max:45',
           'codigoPostal' => 'required|string|max:45',
 
@@ -42,6 +42,7 @@ $reglas = [
         // "mimes" => "La imagen debe ser .jpg o png",
         // "same" => "Las contraseñas no coinciden"
       ];
+
       $this->validate($req, $reglas, $mensajes);
           $user = Auth::user();
           $user->name = $req["name"];
@@ -49,8 +50,8 @@ $reglas = [
           $user->calle = $req["calle"];
           $user->calleNum = $req["calleNum"];
           $user->piso = $req["piso"];
-          $user->pais = $req["pais"];
-          $user->provincia_fk = $req["provincia_fk"];
+          $user->pais = $req["country"];
+          $user->provincia_fk = $req["province"];
           $user->ciudad = $req["ciudad"];
           $user->codigoPostal = $req["codigoPostal"];
           $user->save();
@@ -69,6 +70,7 @@ $reglas = [
               "min" => "La :attribute debe tener un mínimo de :min caracteres",
               "same" => "Las contraseñas no coinciden"
             ];
+
             $this->validate($req, $reglas, $mensajes);
             if (Hash::check($req->password, $usuario->password)) {
                $user->fill([

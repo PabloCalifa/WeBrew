@@ -85,6 +85,7 @@ class RegisterController extends Controller
             'sex' => $data['sex'],
             'info' => $data['info'],
             'avatar' => $nombre,
+            'is_admin'=> 0,
 
         ]);
     }

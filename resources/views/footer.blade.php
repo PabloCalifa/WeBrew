@@ -4,7 +4,7 @@
         <div class="col">
           <h5 id="titulofooter">Acerca de</h5>
           <ul id="ulfooter">
-            <li><a href="../index/index.php">We Brew</a></li>
+            <li><a href="/">We Brew</a></li>
             <li><a href="#">Investors</a></li>
             <li><a href="#">Trending</a></li>
             <ul>
@@ -28,24 +28,24 @@
           <ul>
         </div>
         <div class="col">
-              @if (Auth::guest())
+          @if(Auth::guest())
           <h5 id="titulofooter">Mi cuenta</h5>
             <ul id="ulfooter">
               <li><a href="{{ url('/login') }}">Login</a></li>
               <li><a href="{{ url('/register') }}">Registro</a></li>
             <ul>
-          <?php else : ?>
+          @else
             <h5 id="titulofooter">{{ Auth::user()->name }}</h5>
             <ul id="ulfooter">
               <li><a href="#">Compras</a></li>
               <li><a href="#">Favoritos</a></li>
               <li><a href="#">Mis datos</a></li>
-              <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">Salir</a>     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form></li>
+              <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Salir</a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+              </form></li>
             </ul>
-          <?php endif; ?>
+          @endif
         </div>
       </div>
     </footer>

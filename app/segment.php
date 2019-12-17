@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class segment extends Model
 {
   public $table = "segment";
-  public $id = "segment_id";
+  public $primaryKey = "segment_id";
   public $timestamps = false;
   public $guarded = [];
   public function prods(){
-  return $this->hasMany("App\prods", "segment";
+  return $this->hasMany("App\prods", "segment");
   }
 }
