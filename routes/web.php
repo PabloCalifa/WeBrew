@@ -10,27 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-view()->composer('home', function ($view) {
-    $theme = \Cookie::get('theme');
-    if ($theme != 'dark' && $theme != 'light') {
-        $theme = 'light';
-    }
-    $view->with('theme', $theme);
-});
-view()->composer('avatar', function ($view) {
-    $theme = \Cookie::get('theme');
-    if ($theme != 'dark' && $theme != 'light') {
-        $theme = 'light';
-    }
-    $view->with('theme', $theme);
-});
-view()->composer('welcome', function ($view) {
-    $theme = \Cookie::get('theme');
-    if ($theme != 'dark' && $theme != 'light') {
-        $theme = 'light';
-    }
-    $view->with('theme', $theme);
-});
 
 Route::get('/', function () {
     return view('welcome');
@@ -80,12 +59,17 @@ Route::get('/perfil', function () {
 Route::post("/perfil", 'UsuariosController@perfilUpdate');
 
 Route::group(['middleware' => 'admin'], function () {
-  Route::get("/adm/admproductos", "admController@listadoadmCat");
-  Route::get("/adm/admmarcas", "admController@listadoadmmarcas");
-  Route::get("/adm/admestilo", "admController@listadoadmestilos");
-  Route::get("/adm/admsegmentos", "admController@listadoadmsegmentos");
-  Route::get("/adm/admpaises", "admController@listadoadmPaises");
-  Route::post("/adm/admproductos", "admController@productoUpdate");
+Route::get("/adm/admproductos", "admController@listadoProds");
+Route::get("/adm/admproductos", "admController@listadoadmCat");
+Route::get("/adm/admmarcas", "admController@listadoadmmarcas");
+Route::get("/adm/admestilo", "admController@listadoadmestilos");
+Route::get("/adm/admsegmentos", "admController@listadoadmsegmentos");
+Route::get("/adm/admpaises", "admController@listadoadmPaises");
+Route::post("/adm/admproductos", "admController@addProducto");
+Route::post("/adm/admmarcas", "admController@addMarca");
+Route::post("/adm/admpaises", "admController@addPais");
+Route::post("/adm/admsegmentos", "admController@addSegmento", "admController@listadoadmsegmentos");
+Route::post("/adm/admestilo", "admController@addEstilo");
 });
 
 Auth::routes();

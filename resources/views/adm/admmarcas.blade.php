@@ -15,54 +15,78 @@
   </head>
   <body>
     @include('../nav')
-  <br>
-  <div class="cuadro">
-      <div class="titulo" style="text-align-last: center;"><h2>TABLAS</h2></div>
-    <div class="row" id="tablas" style="padding-left:2%; padding-right:2%;">
-      <div class="col-sm">
-        <a href= "/adm/admmarcas"><button class="btn" id="botones" onclick="/adm/admmarcas">MARCAS</button></a>
-
-      </div>
-      <div class="col-sm">
-        <a href="/adm/admproductos"><button class="btn" id="botones"onclick="">PRODUCTOS</button>
-      </div></a>
-
-      <div class="col-sm">
-        <a href="/adm/admpaises"><button class="btn" id="botones" onclick="">PAISES</button></a>
-      </div>
-      <div class="col-sm">
-        <a href="/adm/admestilo"><button class="btn" id="botones" onclick""=>ESTILOS</button></a>
-      </div>
-      <div class="col-sm">
-        <a href="/adm/admsegmentos"><button class="btn" id="botones" onclick="">SEGMENTOS</button></a>
-
-      </div>
-    </div>
-  </div>
-  <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
-
-  </div>
-  </div>
-  <div class="espacio" style="padding-top:3vw"></div>
-  <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
-    <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-    <form class="form-horizontal" id="amb" action="../AMB/countryes.php" method="post" enctype="multipart/form-data">
-      <div class="cuadro">
-
-    <div class="titulo" style="text-align-last: center;"><h2>CARGA NUEVA MARCA</h2></label>
-      <div class="row" id="rowcarga" >
-      <div class="col-sm" id="colcarga">
-        NOMBRE
-      </div>
-      <div class="col-sm" id="colcarga">
-        <input type="text" name="name" >
-      </div>
-    </div>
     <br>
-    <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Marca</button>
-    </form>
+    <div class="cuadro">
+        <div class="titulo" style="text-align-last: center;"><h2>TABLAS</h2></div>
+      <div class="row" id="tablas" style="padding-left:2%; padding-right:2%;">
+        <div class="col-sm">
+          <a href= "/adm/admmarcas"><button class="btn" id="botones" onclick="/adm/admmarcas">MARCAS</button></a>
+
+        </div>
+        <div class="col-sm">
+          <a href="/adm/admproductos"><button class="btn" id="botones"onclick="">PRODUCTOS</button>
+        </div></a>
+
+        <div class="col-sm">
+          <a href="/adm/admpaises"><button class="btn" id="botones" onclick="">PAISES</button></a>
+        </div>
+        <div class="col-sm">
+          <a href="/adm/admestilo"><button class="btn" id="botones" onclick""=>ESTILOS</button></a>
+        </div>
+        <div class="col-sm">
+          <a href="/adm/admsegmentos"><button class="btn" id="botones" onclick="">SEGMENTOS</button></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
+
+    <div class="container">
+      <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
+          {{ csrf_field () }}
+    <table class="table-dark table-hover table-bordered" style="text-align-last: center">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">MARCA</th>
+        <th scope="col">MODIFY</th>
+        <th scope="col">BORRAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php  foreach ($brands as $brand):?>
+        <tr>
+          <th scope="row"><?=substr($brand['brand_id'],-10);?></th>
+          <td><?=substr($brand["brand_name"],-10);?></td>
+          <td><a href="/adm/admmarcas=<?= $brand["id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
+          <td><a href="/adm/admmarcas=<?= $brand["id"] ?>"> <i class="fas fa-trash"></i></a></td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+  </table>
+  </form>
   </div>
-  </div>
+    <div class="espacio" style="padding-top:3vw"></div>
+    <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
+      <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
+      <form class="form-horizontal" id="amb" action="/adm/admmarcas" method="post" enctype="multipart/form-data">
+  {{ csrf_field() }}
+        <div class="cuadro">
+
+      <div class="titulo" style="text-align-last: center;"><h2>CARGA NUEVA MARCA</h2></label>
+        <div class="row" id="rowcarga" >
+        <div class="col-sm" id="colcarga">
+          NOMBRE
+        </div>
+        <div class="col-sm" id="colcarga">
+          <input type="text" name="brand_name" >
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Marca</button>
+      </form>
+    </div>
+    </div>
 
   <div class="espacio" style="padding-top:3vw"> </div>
   <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>

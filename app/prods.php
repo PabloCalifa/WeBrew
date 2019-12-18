@@ -10,7 +10,7 @@ class prods extends Model
   public $foreignKey = "prod_id";
   public $timestamps = false;
   public $guarded = [];
-
+  protected $fillable = ['prods_name','fk_cat','fk_brand','fk_style','fk_segment','stock','ibu','alc','capacity_cm3','fk_origin','detail','picture','ishigh','price'];
 
   public function brand(){
     return $this->belongsTo("App\brand", "fk_brand");
@@ -27,5 +27,6 @@ class prods extends Model
     public function style(){
       return $this->belongsTo("App\style","fk_style");
     }
+
 
 }

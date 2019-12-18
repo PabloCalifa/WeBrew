@@ -15,7 +15,7 @@
   </head>
   <body>
     @include('../nav')
-  <br>
+    <br>
   <div class="cuadro">
       <div class="titulo" style="text-align-last: center;"><h2>TABLAS</h2></div>
     <div class="row" id="tablas" style="padding-left:2%; padding-right:2%;">
@@ -40,13 +40,44 @@
     </div>
   </div>
   <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
-
-  </div>
-  </div>
+  <div class="container">
+    <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
+        {{ csrf_field () }}
+  <table class="table-dark table-hover table-bordered" style="text-align-last: center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">SEGMENTO</th>
+      <th scope="col">MODIFY</th>
+      <th scope="col">BORRAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php  foreach ($segments as $segmentoproducto):?>
+      <tr>
+        <th scope="row"><?=substr($segmentoproducto['segment_id'],-10);?></th>
+        <td><?=substr($segmentoproducto["segment_name"],-10);?></td>
+<form class="" action="index.html" method="post">
+  {{ csrf_field () }}
+  {{method_field('PATCH')}}
+  <td><a href="/adm/admsegmentos=<?= $segmentoproducto["segment_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
+</form>
+<form class="" action='/adm/admsegmentos' method="post">
+  {{ csrf_field () }}
+  {{method_field('DELETE')}}
+        <td><a onclick="return confirm('Borrar Registro ?')" href="/adm/admsegmentos=<?= $segmentoproducto["segment_id"] ?>"> <i class="fas fa-trash"></i></a></td>
+</form>
+      </tr>
+    <?php endforeach ?>
+  </tbody>
+</table>
+</form>
+</div>
   <div class="espacio" style="padding-top:3vw"></div>
   <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
     <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-    <form class="form-horizontal" id="amb" action="../AMB/countryes.php" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" id="amb" action="/adm/admsegmentos" method="post" enctype="multipart/form-data">
+{{ csrf_field() }}
       <div class="cuadro">
 
     <div class="titulo" style="text-align-last: center;"><h2>NUEVO SEGMENTO</h2></label>
@@ -55,7 +86,7 @@
         NOMBRE
       </div>
       <div class="col-sm" id="colcarga">
-        <input type="text" name="name" >
+        <input type="text" name="segment_name" >
       </div>
     </div>
     <br>
