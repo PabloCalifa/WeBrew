@@ -43,6 +43,7 @@
           <div class"direccion">
               <h5>DIRECCIÓN</h5>
               {{ Auth::user()->calle ." ". Auth::user()->calleNum." ". Auth::user()->piso." ". Auth::user()->provincia." ". Auth::user()->ciudad." ". Auth::user()->codigoPostal }}
+              <br><button id="avatarboton"  onclick="window.location.href='{{ url('/direccionMod') }}'"> MODIFICAR DIRECCIÓN</button>
           </div>
         </div>
         <div class="col-sm-3 center">

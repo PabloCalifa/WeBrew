@@ -28,9 +28,9 @@
                               </div></div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label">E-Mail</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
@@ -42,9 +42,9 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
+                                <label for="password" class="col-md-4 control-label">Constraseña</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <input id="password" type="password" class="form-control" name="password" required>
 
                                     @if ($errors->has('password'))
@@ -59,21 +59,20 @@
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordame
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-8 col-md-offset-4">
+                                <div class="col-md-12">
                                     <button type="submit" id="botones" class="btn" style="width: 30%">
                                         Login
                                     </button>
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Forgot Your Password?
-                                    </a>
+                                    <a class="btn btn-link" href="{{ route('register') }}"> Todavia no tenes Cuenta? </a>
+                                    <a class="btn btn-link" href="{{ route('password.request') }}"> Olvidaste tu Contraseña?</a>
+                                  </div>
                                 </div>
                             </div>
                         </form>

@@ -42,13 +42,15 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
           {{ Auth::user()->name }} <span class="caret"></span> </a>
           <ul class="dropdown-menu black">
+            <li><a href="{{ url('/home') }}">PERFIL</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admproductos')}}">PRODUCTOS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admmarcas')}}">MARCAS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admpaises')}}">PAISES</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="{{url('/adm/admestilo')}}">ESTILOS</a></li>
+            <li><a href="{{url('/adm/admestilos')}}">ESTILOS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admsegmentos')}}">SEGMENTOS</a></li>
             <li role="separator" class="divider"></li>

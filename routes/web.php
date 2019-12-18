@@ -55,7 +55,10 @@ Route::get('/perfil', function () {
     return view('/perfil');
 });
 Route::post("/perfil", 'UsuariosController@perfilUpdate');
-
+Route::get('/direccionMod', function () {
+    return view('/direccionMod');
+});
+Route::post("/direccionMod", 'UsuariosController@direccionUpdate');
 Route::group(['middleware' => 'admin'], function () {
 Route::get("/adm/admproductos", "admController@listadoProds");
 Route::post("/adm/admproductos", "admController@addProducto");
