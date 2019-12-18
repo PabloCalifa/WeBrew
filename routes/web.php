@@ -20,8 +20,6 @@ Route::get('/porrones/porrones', function () {
 });
 
 
-
-
 Route::get('/porrones/porrones/', 'productosController@listadoPorronesAll');
 Route::get("/porrones/porronesbrand/{brand_id}", "productosController@listadoPorronesMarcas");
 Route::get("/porrones/porronesstyle/{style_id}", "productosController@listadoPorronesStyle");
@@ -59,13 +57,13 @@ Route::get('/perfil', function () {
 Route::post("/perfil", 'UsuariosController@perfilUpdate');
 
 Route::group(['middleware' => 'admin'], function () {
+Route::post("/adm/admproductos", "admController@addProducto");
 Route::get("/adm/admproductos", "admController@listadoProds");
 Route::get("/adm/admproductos", "admController@listadoadmCat");
 Route::get("/adm/admmarcas", "admController@listadoadmmarcas");
 Route::get("/adm/admestilo", "admController@listadoadmestilos");
 Route::get("/adm/admsegmentos", "admController@listadoadmsegmentos");
 Route::get("/adm/admpaises", "admController@listadoadmPaises");
-Route::post("/adm/admproductos", "admController@addProducto");
 Route::post("/adm/admmarcas", "admController@addMarca");
 Route::post("/adm/admpaises", "admController@addPais");
 Route::post("/adm/admsegmentos", "admController@addSegmento", "admController@listadoadmsegmentos");
