@@ -53,6 +53,16 @@ Route::get("/latas/latasbrand/{brand_id}", "productosController@listadoLatasMarc
 Route::get("/latas/latasstyle/{style_id}", "productosController@listadoLatasStyle");
 Route::get("/latas/latascountry/{country_id}", "productosController@listadoLatasCountry");
 Route::get("/latas/latasrecomendados/", "productosController@listadoLatasRecomend");
+Route::get('/barriles/barriles/', 'productosController@listadoBarrilesAll');
+Route::get("/barriles/barrilesbrand/{brand_id}", "productosController@listadoBarrilesMarcas");
+Route::get("/barriles/barrilesstyle/{style_id}", "productosController@listadoBarrilesStyle");
+Route::get("/barriles/barrilescountry/{country_id}", "productosController@listadoBarrilesCountry");
+Route::get("/barriles/barrilesrecomendados/", "productosController@listadoBarrilesRecomend");
+Route::get('/growlers/growlers/', 'productosController@listadoGrowlersAll');
+Route::get("/growlers/growlersbrand/{brand_id}", "productosController@listadoGrowlersMarcas");
+Route::get("/growlers/growlersstyle/{style_id}", "productosController@listadoGrowlersStyle");
+Route::get("/growlers/growlerscountry/{country_id}", "productosController@listadoGrowlersCountry");
+Route::get("/growlers/growlersrecomendados/", "productosController@listadoGrowlersRecomend");
 Route::get("/producto/{urlSlug}/", "productosController@productos");
 Route::get('/contacto', function () {
     return view('/contacto');

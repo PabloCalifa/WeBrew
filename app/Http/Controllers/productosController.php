@@ -10,7 +10,7 @@ use App\origin;
 use App\cat;
 use App\carrito;
 use App\User;
-use Illuminate\Support\Str;
+
 
 
 class productosController extends Controller
@@ -182,6 +182,174 @@ class productosController extends Controller
     $vac = compact("productos","styles","brands","origins","ishigh");
     // dd($brand);
     return view("/latas/latasrecomendados", $vac);
+  }
+
+  public function listadoBarrilesAll() {
+    $productos = prods::where("fk_cat",3)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    // dd($origins);
+    $vac = compact("productos","styles","brands","origins");
+    return view("/barriles/barriles", $vac);
+  }
+
+  public function listadoBarrilesMarcas($brand_id) {
+    $productos = prods::where("fk_cat",3)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $brand = prods::where("fk_cat",3)->where("fk_brand",$brand_id)->get();
+    $vac = compact("productos","styles","brands","origins","brand");
+    // dd($brand);
+    return view("/barriles/barrilesbrand", $vac);
+  }
+
+  public function listadoBarrilesStyle($style_id) {
+    $productos = prods::where("fk_cat",3)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $style = prods::where("fk_cat",3)->where("fk_style",$style_id)->get();
+    $vac = compact("productos","styles","brands","origins","style");
+    // dd($brand);
+    return view("/barriles/barrilesstyle", $vac);
+  }
+
+  public function listadoBarrilesCountry($country_id) {
+    $productos = prods::where("fk_cat",3)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $origin = prods::where("fk_cat",3)->where("fk_origin",$country_id)->get();
+    $vac = compact("productos","styles","brands","origins","origin");
+    // dd($brand);
+    return view("/barriles/barrilescountry", $vac);
+  }
+
+  public function listadoBarrilesRecomend() {
+    $productos = prods::where("fk_cat",3)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $ishigh = prods::where("fk_cat",3)->where("ishigh",1)->get();
+    $vac = compact("productos","styles","brands","origins","ishigh");
+    // dd($brand);
+    return view("/barriles/barrilesrecomendados", $vac);
+  }
+
+  public function listadoGrowlersAll() {
+    $productos = prods::where("fk_cat",4)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    // dd($origins);
+    $vac = compact("productos","styles","brands","origins");
+    return view("/growlers/growlers", $vac);
+  }
+
+  public function listadoGrowlersMarcas($brand_id) {
+    $productos = prods::where("fk_cat",4)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $brand = prods::where("fk_cat",4)->where("fk_brand",$brand_id)->get();
+    $vac = compact("productos","styles","brands","origins","brand");
+    // dd($brand);
+    return view("/growlers/growlersbrand", $vac);
+  }
+
+  public function listadoGrowlersStyle($style_id) {
+    $productos = prods::where("fk_cat",4)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $style = prods::where("fk_cat",4)->where("fk_style",$style_id)->get();
+    $vac = compact("productos","styles","brands","origins","style");
+    // dd($brand);
+    return view("/growlers/growlersstyle", $vac);
+  }
+
+  public function listadoGrowlersCountry($country_id) {
+    $productos = prods::where("fk_cat",4)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $origin = prods::where("fk_cat",4)->where("fk_origin",$country_id)->get();
+    $vac = compact("productos","styles","brands","origins","origin");
+    // dd($brand);
+    return view("/growlers/growlerscountry", $vac);
+  }
+
+  public function listadoGrowlersRecomend() {
+    $productos = prods::where("fk_cat",4)->get();
+    $brands = $productos->map(function($prod){
+      return $prod->brand;
+    })->unique();
+    $styles = $productos->map(function($prod){
+      return $prod->style;
+    })->unique();
+    $origins = $productos->map(function($prod){
+      return $prod->origin;
+    })->unique();
+    $ishigh = prods::where("fk_cat",4)->where("ishigh",1)->get();
+    $vac = compact("productos","styles","brands","origins","ishigh");
+    // dd($brand);
+    return view("/growlers/growlersrecomendados", $vac);
   }
 
   public function productos($urlSlug) {

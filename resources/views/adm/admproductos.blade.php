@@ -22,12 +22,10 @@
     <div class="row" id="tablas" style="padding-left:2%; padding-right:2%;">
       <div class="col-sm">
         <a href= "/adm/admmarcas"><button class="btn" id="botones" onclick="/adm/admmarcas">MARCAS</button></a>
-
       </div>
       <div class="col-sm">
         <a href="/adm/admproductos"><button class="btn" id="botones"onclick="">PRODUCTOS</button>
       </div></a>
-
       <div class="col-sm">
         <a href="/adm/admpaises"><button class="btn" id="botones" onclick="">PAISES</button></a>
       </div>
@@ -47,7 +45,8 @@
     <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
       <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
       <div class="cuadro">
-      <form class="form-horizontal" id="amb" action="amb.php" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" id="amb" action="{{ url('/adm/admproductos') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
       <div class="titulo" style="text-align-last: center;"><h2>CARGA DE PRODUCTOS</h2></div>
       <br>
       <div class="container">

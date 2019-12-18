@@ -1,5 +1,15 @@
-.row#rowfooter {
+.row#rowfooter.black {
   background-color: black;
+  text-align: -webkit-center;
+  color:antiquewhite;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row#rowfooter {
+  background-color: darkgrey;
   text-align: -webkit-center;
   color:antiquewhite;
   text-decoration: none;

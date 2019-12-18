@@ -61,7 +61,7 @@ $destacados4 = DB::table('prods')
     <link rel="stylesheet" type="text/css" href="{{asset('css/incss.css')}}" />
     <title>We Brew</title>
   </head>
-  <body id="body">
+  <body class="black"id="body">
   @include('../nav')
   <br>
       <div class="">
@@ -91,7 +91,7 @@ $destacados4 = DB::table('prods')
         </div>
         <div class="espacio" style="padding:30px;"></div>
 <!-- CAROUSEL DE DESTACADOS -->
-<div class="container" id="destacadoscarrouselback">
+<div class="container black" id="destacadoscarrouselback">
   <img id="destacadoscarrousel" alt="Nuestros destacados"  src="../fotosComunes/destacados.jpg">
 </div>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -100,20 +100,20 @@ $destacados4 = DB::table('prods')
       <div class="container mt-3 text-center">
         <div class="row text-center">
           @foreach ($destacados as $destacad)
-            <div class="card" id="cardDestacados">
+            <div class="card black" id="cardDestacados">
               <div class="card-body">
-                <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                  <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
+                <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
+                  <h5 class="card-title black"> {{@Str::limit($destacad->prods_name,12)}}</h5>
                 </a>
               </div>
-                <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+                <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
                   <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                 </a>
               <div class="card-body">
-                <h4 class="card-text">$ {{$destacad->price}}</H4>
+                <h4 class="card-text black">$ {{$destacad->price}}</H4>
                     @if (Auth::guest())
                     <a href="{{ url('/login') }}" >
-                      <button type="button submit" value="" class="btn" id="botonesdestacados" > Agregar al Carrito </button>
+                      <button type="button submit" value="" class="btn black" id="botonesdestacados" > Agregar al Carrito </button>
                     </a>
                     @else
                   <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
@@ -121,7 +121,7 @@ $destacados4 = DB::table('prods')
                     <input type="hidden" name="cant" value="1">
                     <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                       <a href="<?=url("/carrito")?>">
-                        <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                        <button type="button submit" value="{{$destacad->id}}" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                       </a>
                   </form>
                 @endif
@@ -136,20 +136,20 @@ $destacados4 = DB::table('prods')
     <div class="container mt-3 text-center">
       <div class="row text-center">
         @foreach ($destacados2 as $destacad)
-          <div class="card" id="cardDestacados">
+          <div class="card black" id="cardDestacados">
             <div class="card-body">
-              <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
+              <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
+                <h5 class="card-title black"> {{@Str::limit($destacad->prods_name,12)}}</h5>
               </a>
             </div>
-              <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+              <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
                 <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
               </a>
             <div class="card-body">
-              <h4 class="card-text">$ {{$destacad->price}}</H4>
+              <h4 class="card-text black">$ {{$destacad->price}}</H4>
                 @if (Auth::guest())
                   <a href="{{ url('/login') }}">
-                    <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                    <button type="button submit" value="" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                   </a>
                   @else
                   <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
@@ -157,7 +157,7 @@ $destacados4 = DB::table('prods')
                   <input type="hidden" name="cant" value="1">
                   <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                     <a href="<?=url("/carrito")?>">
-                      <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                      <button type="button submit" value="{{$destacad->id}}" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                     </a>
                 </form>
               @endif
@@ -172,20 +172,20 @@ $destacados4 = DB::table('prods')
   <div class="container mt-3 text-center">
     <div class="row text-center">
       @foreach ($destacados3 as $destacad)
-        <div class="card" id="cardDestacados">
+        <div class="card black" id="cardDestacados">
           <div class="card-body">
-            <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-              <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
+            <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
+              <h5 class="card-title black"> {{@Str::limit($destacad->prods_name,12)}}</h5>
             </a>
           </div>
-            <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+            <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
               <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
             </a>
           <div class="card-body">
-            <h4 class="card-text">$ {{$destacad->price}}</H4>
+            <h4 class="card-text black">$ {{$destacad->price}}</H4>
               @if (Auth::guest())
                 <a href="{{ url('/login') }}">
-                  <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <button type="button submit" value="" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                 </a>
                 @else
                 <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
@@ -193,7 +193,7 @@ $destacados4 = DB::table('prods')
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                   <a href="<?=url("/carrito")?>">
-                    <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                    <button type="button submit" value="{{$destacad->id}}" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                   </a>
               </form>
             @endif
@@ -208,20 +208,20 @@ $destacados4 = DB::table('prods')
   <div class="container mt-3 text-center">
     <div class="row text-center">
       @foreach ($destacados4 as $destacad)
-        <div class="card" id="cardDestacados">
+        <div class="card black" id="cardDestacados">
           <div class="card-body">
-            <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-              <h5 class="card-title"> {{@Str::limit($destacad->prods_name,12)}}</h5>
+            <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
+              <h5 class="card-title black"> {{@Str::limit($destacad->prods_name,12)}}</h5>
             </a>
           </div>
-            <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
+            <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
               <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
             </a>
           <div class="card-body">
-            <h4 class="card-text">$ {{$destacad->price}}</H4>
+            <h4 class="card-text black">$ {{$destacad->price}}</H4>
               @if (Auth::guest())
                 <a href="{{ url('/login') }}">
-                  <button type="button submit" value="" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                  <button type="button submit" value="" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                 </a>
                 @else
                 <form class="" action="{{ route('addProductToCart', ['productId' => $destacad->id]) }}" method="post">
@@ -229,7 +229,7 @@ $destacados4 = DB::table('prods')
                 <input type="hidden" name="cant" value="1">
                 <input type="hidden" name="id_producto" value="{{$destacad->id}}">
                   <a href="<?=url("/carrito")?>">
-                    <button type="button submit" value="{{$destacad->id}}" class="btn" id="botonesdestacados" >Agregar al Carrito </button>
+                    <button type="button submit" value="{{$destacad->id}}" class="btn black" id="botonesdestacados" >Agregar al Carrito </button>
                   </a>
               </form>
             @endif
@@ -257,8 +257,7 @@ $destacados4 = DB::table('prods')
         <div class="container" style="padding:40px;border-bottom: solid rgba(255,193,0,0.8)"></div>
         <br>
         <div class="container" style="padding:40px;"></div>
-        <!-- <div class="container" id="destacadoscarrouselback"> -->
-        <div class="container" id="destacadoscarrouselback">
+        <div class="container black" id="destacadoscarrouselback">
           <img id="destacadoscarrousel" alt="ofertas especial"  src="../fotosComunes/ofertasEspeciales.jpg">
         </div>
       <!-- </div> -->
@@ -268,19 +267,20 @@ $destacados4 = DB::table('prods')
             <div class="container">
               <div class="row">
                 <div class=" card border-light card mb-3" id="cardOfertasEspeciales">
-                  <div class="row no-gutters">
+                  <div class="row no-gutters black" id="rownog">
                     <div class="col-md-4">
-                      <img src="/productos/packCorona.jpg" class="card-img" alt="...">
+                      <img src="/productos/packCorona.png" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h3 class="card-title" >Pack Corona (12 unidades)</h3>
-                        <div class="card-text">Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad,
+                        <h3 class="card-title black" >Pack Corona (12 unidades)</h3>
+                        <div class="card-text black">Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad,
                           su sabor distintivo e imagen. Es una cerveza que transmite tranquilidad y relajación, invitando a los consumidores
                           a desconectarse de la monotonía diaria a través de experiencias agradables.</div>
+                          <br>
                           @if (Auth::guest())
                           <a href="{{ url('/login') }}">
-                            <button type="button submit" value="" class="btn" id="botones" >Agregar al Carrito </button>
+                            <button type="button submit" value="" class="btn black" id="botones" >Agregar al Carrito </button>
                           </a>
                           @else
                           <form class="" action="{{ route('addProductToCart', ['productId' => 4]) }}" method="post">
@@ -288,7 +288,7 @@ $destacados4 = DB::table('prods')
                           <input type="hidden" name="cant" value="12">
                           <input type="hidden" name="id_producto" value="4">
                             <a href="<?=url("/carrito")?>">
-                              <button type="button submit" class="btn" id="botones" >Agregar al Carrito </button>
+                              <button type="button submit" class="btn black" id="botones" >Agregar al Carrito </button>
                             </a>
                           </form>
                       @endif
@@ -297,17 +297,18 @@ $destacados4 = DB::table('prods')
                   </div>
                 </div>
                 <div class=" card border-light card mb-3" id="cardOfertasEspeciales">
-                  <div class="row no-gutters">
+                  <div class="row no-gutters black"id="rownog" >
                     <div class="col-md-4">
-                      <img src="/productos/stellaPack.jpg" class="card-img" alt="...">
+                      <img src="/productos/stellaPack.png" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h3 class="card-title">Pack Stella (12 unidades)</h3>
-                        <div class="card-text">La cerveza belga número 1 en ventas a nivel mundial. Stella Artois tiene una rica herencia que se remonta al año 1366 en Leuven, Bélgica, y es hoy en día el estándar de oro de la calidad en más de 80 países. El arte y la ciencia de disfrutar una Stella Artois abarca desde los más selectos ingredientes hasta el preciso ritual de 9 pasos para servirla en su especialmente fabricado cáliz.</div>
+                        <h3 class="card-title black">Pack Stella (12 unidades)</h3>
+                        <div class="card-text black">La cerveza belga número 1 en ventas a nivel mundial. Stella Artois tiene una rica herencia que se remonta al año 1366 en Leuven, Bélgica, y es hoy en día el estándar de oro de la calidad en más de 80 países. El arte y la ciencia de disfrutar una Stella Artois abarca desde los más selectos ingredientes hasta el preciso ritual de 9 pasos para servirla en su especialmente fabricado cáliz.</div>
+                        <br>
                           @if (Auth::guest())
                           <a href="{{ url('/login') }}">
-                            <button type="button submit" value="" class="btn" id="botones" >Agregar al Carrito </button>
+                            <button type="button submit" value="" class="btn black" id="botones" >Agregar al Carrito </button>
                           </a>
                           @else
                           <form class="" action="{{ route('addProductToCart', ['productId' => 29]) }}" method="post">
@@ -315,7 +316,7 @@ $destacados4 = DB::table('prods')
                           <input type="hidden" name="cant" value="12">
                           <input type="hidden" name="id_producto" value="29">
                             <a href="<?=url("/carrito")?>">
-                              <button type="button submit" class="btn" id="botones" >Agregar al Carrito </button>
+                              <button type="button submit" class="btn black" id="botones" >Agregar al Carrito </button>
                             </a>
                           </form>
                       @endif

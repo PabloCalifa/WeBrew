@@ -45,8 +45,14 @@ nav#navbar {
 
 }
 
-.navbar-nav>li>.dropdown-menu{
+.navbar-nav>li>.dropdown-menu.black{
   background-color: rgba(0,0,0,1);
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.navbar-nav>li>.dropdown-menu{
+  background-color: darkgrey;
   text-decoration: none;
   margin-left: 15px;
 }

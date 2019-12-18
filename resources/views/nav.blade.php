@@ -1,5 +1,5 @@
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark " id="navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark black" id="navbar">
   <a class="navbar-brand" href="/">
     <img src="{{URL::asset('fotosComunes/weBrewnav.png')}}" class="miniLogoWeBrew" alt="...">
   </a>
@@ -15,10 +15,10 @@
         <a href="<?=url("/latas/latas")?>">LATAS<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="<?=url("/porrones/porrones")?>">BARRILES<span class="caret"></span></a>
+        <a href="<?=url("/barriles/barriles")?>">BARRILES<span class="caret"></span></a>
       </li>
       <li class="dropdown">
-        <a href="<?=url("/porrones/porrones")?>">GROWLERS<span class="caret"></span></a>
+        <a href="<?=url("/growlers/growlers")?>">GROWLERS<span class="caret"></span></a>
       </li>
       <li>
         <a href="../contacto">CONTACTO</a>
@@ -32,7 +32,7 @@
       <li class="dropdown">
       @if (Auth::guest())
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <span class="caret"></span></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu black">
           <li><a href="{{ url('/login') }}">LOGIN</a></li>
           <li role="separator" class="divider"></li>
           <li><a href="{{ url('/register') }}">REGISTRO</a></li>
@@ -41,7 +41,7 @@
         {{-- usuario  ADMIN --}}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
           {{ Auth::user()->name }} <span class="caret"></span> </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu black">
             <li><a href="{{url('/adm/admproductos')}}">PRODUCTOS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admmarcas')}}">MARCAS</a></li>
@@ -51,8 +51,6 @@
             <li><a href="{{url('/adm/admestilo')}}">ESTILOS</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{url('/adm/admsegmentos')}}">SEGMENTOS</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/perfil') }}">MIS DATOS</a></li>
             <li role="separator" class="divider"></li>
             <li id="result"><a href="#" id="tema">TEMA</a></li>
             <li role="separator" class="divider"></li>
@@ -67,7 +65,7 @@
             {{-- usuario NO ADMIN --}}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="text-transform: uppercase">
               {{ Auth::user()->name }} <span class="caret"></span> </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu black">
                 <li><a href="{{ url('/home') }}">PERFIL</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ url('/perfil') }}">MIS DATOS</a></li>

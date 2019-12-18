@@ -1,6 +1,6 @@
     <footer>
       <div class="" style="border-bottom: solid 0.5px rgba(255,193,0,0.8); width:100%"></div>
-            <div class="row" id="rowfooter">
+            <div class="row black"  id="rowfooter">
         <div class="col">
           <h5 id="titulofooter">Acerca de</h5>
           <ul id="ulfooter">

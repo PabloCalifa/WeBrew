@@ -12,22 +12,26 @@ var btns = document.querySelectorAll('.btn');
 var cardnumbers = document.querySelectorAll('h4');
 var cartitles = document.querySelectorAll('h5');
 var cartitles = document.querySelectorAll('h5');
-var rowno = document.querySelectorAll('row no-gutters');
+var rowno = document.querySelectorAll('div#rownog');
+var navbar = document.querySelector('#navbar');
+var footer = document.querySelector('#rowfooter');
+var dropdown = document.querySelector('.navbar-nav>li>.dropdown-menu');
+
 
 
 storagetheme = localStorage.getItem("storagetheme");
 
 
-rowno.forEach(function(h5) {
+rowno.forEach(function(rownog) {
   if(storagetheme == 'oscuro'){
   result.innerHTML += 'oscuro';
-  $(h5).addClass( "black" );
+  $(rownog).addClass( "black" );
   }else{result.innerHTML += 'claro'}
 });
 
-rowno.forEach(function(h5) {
+rowno.forEach(function(rownog) {
   $(tema).click(function() {
-    $( h5 ).toggleClass( "black" );
+    $( rownog ).toggleClass( "black" );
     revisartema();
   });
 });
@@ -96,36 +100,6 @@ result.innerHTML += 'oscuro';
 $(cuerpo).addClass( "black" );
 }else{result.innerHTML += 'claro'}
 
-if(storagetheme == 'oscuro'){
-result.innerHTML += 'oscuro';
-$(cardDestacados).addClass( "black" );
-}else{result.innerHTML += 'claro'}
-
-if(storagetheme == 'oscuro'){
-result.innerHTML += 'oscuro';
-$(rowIndex).addClass( "black" );
-}else{result.innerHTML += 'claro'}
-
-if(storagetheme == 'oscuro'){
-result.innerHTML += 'oscuro';
-$(linkproductos).addClass( "black" );
-}else{result.innerHTML += 'claro'}
-
-if(storagetheme == 'oscuro'){
-result.innerHTML += 'oscuro';
-$(destacadoscarrousel).addClass( "black" );
-}else{result.innerHTML += 'claro'}
-
-if(storagetheme == 'oscuro'){
-result.innerHTML += 'oscuro';
-$(destacadoscarrouselback).addClass( "black" );
-}else{result.innerHTML += 'claro'}
-
-$(tema).click(function() {
-  $( cardtext ).toggleClass( "black" );
-  revisartema();
-});
-
 
 $(tema).click(function() {
   $( cuerpo ).toggleClass( "black" );
@@ -133,26 +107,38 @@ $(tema).click(function() {
 });
 
 
+if(storagetheme == 'oscuro'){
+result.innerHTML += 'oscuro';
+$(navbar).addClass( "black" );
+}else{result.innerHTML += 'claro'}
+
+
 $(tema).click(function() {
-  $( rowIndex ).toggleClass( "black" );
+  $( navbar ).toggleClass( "black" );
   revisartema();
 });
 
+if(storagetheme == 'oscuro'){
+result.innerHTML += 'oscuro';
+$(footer).addClass( "black" );
+}else{result.innerHTML += 'claro'}
+
+
 $(tema).click(function() {
-  $( linkproductos ).toggleClass( "black" );
+  $( footer ).toggleClass( "black" );
   revisartema();
 });
 
-$(tema).click(function() {
-  $( destacadoscarrousel ).toggleClass( "black" );
-  revisartema();
-});
+if(storagetheme == 'oscuro'){
+result.innerHTML += 'oscuro';
+$(dropdown).addClass( "black" );
+}else{result.innerHTML += 'claro'}
+
 
 $(tema).click(function() {
-  $( destacadoscarrouselback ).toggleClass( "black" );
+  $( dropdown ).toggleClass( "black" );
   revisartema();
 });
-
 
 function revisartema(){
 storagetheme = localStorage.getItem("storagetheme");
