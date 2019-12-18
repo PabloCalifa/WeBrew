@@ -107,7 +107,7 @@ $destacados4 = DB::table('prods')
                 </a>
               </div>
                 <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
-                  <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                  <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                 </a>
               <div class="card-body">
                 <h4 class="card-text black">$ {{$destacad->price}}</H4>
@@ -143,7 +143,7 @@ $destacados4 = DB::table('prods')
               </a>
             </div>
               <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
-                <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
               </a>
             <div class="card-body">
               <h4 class="card-text black">$ {{$destacad->price}}</H4>
@@ -179,7 +179,7 @@ $destacados4 = DB::table('prods')
             </a>
           </div>
             <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
-              <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+              <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
             </a>
           <div class="card-body">
             <h4 class="card-text black">$ {{$destacad->price}}</H4>
@@ -215,7 +215,7 @@ $destacados4 = DB::table('prods')
             </a>
           </div>
             <a href="../../producto/{{$destacad->urlSlug}}" class="black" id="linkproductos" >
-              <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+              <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
             </a>
           <div class="card-body">
             <h4 class="card-text black">$ {{$destacad->price}}</H4>

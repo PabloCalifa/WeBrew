@@ -59,7 +59,7 @@
           <th scope="row"><?=substr($style['style_id'],-10);?></th>
           <td><?=substr($style["style_name"],-10);?></td>
           <td><a href="/adm/admestilos=<?= $style["id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
-          <td><a href="/adm/admestilos=<?= $style["id"] ?>"> <i class="fas fa-trash"></i></a></td>
+          <td><a href="<?= url("/eliminar_estilo/{$style->style_id}")?>"> <i class="fas fa-trash"></i></a></td>
         </tr>
       <?php endforeach ?>
     </tbody>
@@ -69,7 +69,7 @@
     <div class="espacio" style="padding-top:3vw"></div>
     <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
       <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-      <form class="form-horizontal" id="amb" action="../../adm/admestilos" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" id="amb" action="../adm/admestilos" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}
         <div class="cuadro">
       <div class="titulo" style="text-align-last: center;"><h2>CARGA NUEVO ESTILO</h2></label>

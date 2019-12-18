@@ -57,17 +57,24 @@ Route::get('/perfil', function () {
 Route::post("/perfil", 'UsuariosController@perfilUpdate');
 
 Route::group(['middleware' => 'admin'], function () {
-Route::post("/adm/admproductos", "admController@addProducto");
 Route::get("/adm/admproductos", "admController@listadoProds");
-Route::get("/adm/admproductos", "admController@listadoadmCat");
+Route::post("/adm/admproductos", "admController@addProducto");
+Route::get('/eliminar_producto/{id_producto}', 'admController@borrarProducto');
+Route::post('/editar_producto/{id_producto}', 'admController@editar');
+Route::get("/adm/admproductosEdit/{id_producto}", "admController@ProdAEditar" );
 Route::get("/adm/admmarcas", "admController@listadoadmmarcas");
-Route::get("/adm/admestilo", "admController@listadoadmestilos");
 Route::get("/adm/admsegmentos", "admController@listadoadmsegmentos");
 Route::get("/adm/admpaises", "admController@listadoadmPaises");
+Route::get('/eliminar_pais/{country_id_origen}', 'admController@borrarPais');
 Route::post("/adm/admmarcas", "admController@addMarca");
+Route::get('/eliminar_marca/{brand_id_brand}', 'admController@borrarMarca');
 Route::post("/adm/admpaises", "admController@addPais");
 Route::post("/adm/admsegmentos", "admController@addSegmento", "admController@listadoadmsegmentos");
-Route::post("/adm/admestilo", "admController@addEstilo");
+Route::get('/eliminar_segmento/{segment_id_segmentoproducto}', 'admController@borrarSegmento');
+Route::get("/adm/admestilos", "admController@listadoadmestilos");
+Route::post("/adm/admestilos", "admController@addEstilo");
+Route::get('/eliminar_estilo/{style_id_style}', 'admController@borrarEstilo');
+
 });
 
 Auth::routes();

@@ -57,16 +57,9 @@
       <tr>
         <th scope="row"><?=substr($segmentoproducto['segment_id'],-10);?></th>
         <td><?=substr($segmentoproducto["segment_name"],-10);?></td>
-<form class="" action="index.html" method="post">
-  {{ csrf_field () }}
-  {{method_field('PATCH')}}
-  <td><a href="/adm/admsegmentos=<?= $segmentoproducto["segment_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
-</form>
-<form class="" action='/adm/admsegmentos' method="post">
-  {{ csrf_field () }}
-  {{method_field('DELETE')}}
-        <td><a onclick="return confirm('Borrar Registro ?')" href="/adm/admsegmentos=<?= $segmentoproducto["segment_id"] ?>"> <i class="fas fa-trash"></i></a></td>
-</form>
+        <td><a href="/adm/admsegmentos=<?= $segmentoproducto["segment_id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
+        <td><a href="<?= url("/eliminar_segmento/{$segmentoproducto->segment_id}")?>"> <i class="fas fa-trash"></i></a></td>
+    </form>
       </tr>
     <?php endforeach ?>
   </tbody>

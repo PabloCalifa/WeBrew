@@ -136,7 +136,7 @@ $destacados4 = DB::table('prods')
 
               <div class="col-sm-4" id="fotoproducto">
                 <div id="colorfondo">
-                  <img id="imagenproducto" class="d-block w-100" src="/imagenesDB/{{$producto->picture}}"  alt="foto">
+                  <img id="imagenproducto" class="d-block w-100" src="/storage/{{$producto->picture}}"  alt="foto">
                   <div class="espacio" style="padding-top:5vw"></div>
                 </div>
                 </div>
@@ -178,7 +178,7 @@ $destacados4 = DB::table('prods')
                           </a>
                         </div>
                           <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                            <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                            <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                           </a>
                         <div class="card-body">
                           <h4 class="card-text">$ {{$destacad->price}}</H4>
@@ -201,7 +201,7 @@ $destacados4 = DB::table('prods')
                         </a>
                       </div>
                         <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                          <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                          <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                         </a>
                       <div class="card-body">
                         <h4 class="card-text">$ {{$destacad->price}}</H4>
@@ -224,7 +224,7 @@ $destacados4 = DB::table('prods')
                       </a>
                     </div>
                       <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                        <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                        <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                       </a>
                     <div class="card-body">
                       <h4 class="card-text">$ {{$destacad->price}}</H4>
@@ -247,7 +247,7 @@ $destacados4 = DB::table('prods')
                       </a>
                     </div>
                       <a href="../../producto/{{$destacad->urlSlug}}" id="linkproductos" >
-                        <img src="/imagenesDB/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
+                        <img src="/storage/{{$destacad->picture}}" class="card-img-top" alt="..." style="max-width:120px;  align-self: center;">
                       </a>
                     <div class="card-body">
                       <h4 class="card-text">$ {{$destacad->price}}</H4>

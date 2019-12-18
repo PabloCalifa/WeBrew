@@ -61,7 +61,7 @@
         <div class="col-sm-4">
           <div class"fotoproducto">
             <p> <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" >
-            <img id="productoventa"  class="img"  class="productoBuscado" src="/imagenesDB/{{$productoCarrito->products->picture}}" alt="Helaera Corona" style="max-width:120px;">
+            <img id="productoventa"  class="img"  class="productoBuscado" src="/storage/{{$productoCarrito->products->picture}}" alt="Helaera Corona" style="max-width:120px;">
           </a>
           </div>
         </div>

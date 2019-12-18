@@ -38,12 +38,9 @@
         </div>
       </div>
       <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
-
         <div class="espacio" style="padding-top:3vw"></div>
         <div class="container">
-
-          <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
-              {{ csrf_field () }}
+        <form class="form-horizontal" id="amb" action="/adm/admproductos" method="get" >
         <table class="table-dark table-hover table-bordered" style="text-align-last: center">
         <thead>
           <tr>
@@ -62,12 +59,10 @@
             <th scope="col">FOTO</th>
             <th scope="col">OFERTA</th>
             <th scope="col">$</th>
-            <th scope="col">MODIFY</th>
-            <th scope="col">BORRAR</th>
           </tr>
         </thead>
         <tbody>
-          <?php  foreach ($productos as $producto):?>
+          <?php  foreach ($productosE as $producto):?>
             <tr>
               <th scope="row"><?=substr($producto['id'],-10);?></th>
               <td><?=substr($producto["fk_cat"],-10);?></td>
@@ -84,8 +79,6 @@
               <td><?=substr($producto['picture'],-10);?></td>
               <td><?=substr($producto['ishigh'],-10);?></td>
               <td><?=substr($producto['price'],-10);?></td>
-              <td><a href="<?= url("/adm/admproductosEdit/{$producto->id}")?>"> <i class="fas fa-file-alt"></i></a></td>
-              <td><a href="<?= url("/eliminar_producto/{$producto->id}")?>"> <i class="fas fa-trash"></i></a></td>
             </tr>
           <?php endforeach ?>
         </tbody>
@@ -95,7 +88,7 @@
         <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
           <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
           <div class="cuadro">
-          <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
+          <form class="form-horizontal" id="amb" action="<?=url("editar_producto/{$producto->id}")?>" method="post" enctype="multipart/form-data">
             {{ csrf_field () }}
           <div class="titulo" style="text-align-last: center;"><h2>CARGA DE PRODUCTOS</h2></div>
           <br>
@@ -105,7 +98,7 @@
                 NOMBRE
               </div>
               <div class="col-sm" id="colcarga">
-                <input type="text" name="prods_name" >
+                <input type="text" name="prods_name" value="{{$producto->prods_name}}" >
               </div>
               <div class="col-sm" id="colcarga">
                 CATEGORIA
@@ -147,7 +140,7 @@
                 STOCK
               </div>
               <div class="col-sm" id="colcarga">
-              <select name="stock" id="stock" value="">
+              <select name="stock" id="stock" value="{{$producto->stock}}">
                   @for ($i=01; $i < 50; $i++)
                     <option value="{{ $i }}">{{ $i }}</option>
                   @endfor
@@ -159,7 +152,7 @@
                 IBU
               </div>
               <div class="col-sm" id="colcarga">
-                <select name="ibu" id="ibu" value="">
+                <select name="ibu" id="ibu" value="{{$producto->ibu}}">
                       @for ($i=01; $i < 100; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
                       @endfor
@@ -170,7 +163,7 @@
               </div>
               <div class="col-sm" id="colcarga">
 
-                  <select name="alc" id="alc" value="">
+                  <select name="alc" id="alc" value="{{$producto->alc}}">
                         @for ($i=1; $i < 19; $i=$i+0.1)
                           <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
@@ -183,13 +176,13 @@
                 CAPACIDAD
               </div>
               <div class="col-sm" id="colcarga">
-                <input type="text" name="capacity_cm3">
+                <input type="text" name="capacity_cm3" value="{{$producto->capacity_cm3}}">
               </div>
               <div class="col-sm" id="colcarga">
                 MARCA
               </div>
               <div class="col-sm" id="colcarga">
-                <select name="fk_brand" id="brand" value="">
+                <select name="fk_brand" id="brand" value="{{$producto->fk_brand}}">
                   @foreach ($brands as $marcaproducto)
                     <option value="{{$marcaproducto->brand_id}}">{{$marcaproducto->brand_name}}</option>
                   @endforeach
@@ -213,7 +206,7 @@
                 DETALLE
               </div>
               <div class="col-sm" id="colcarga">
-                <input type="text" name="detail">
+                <input type="text" name="detail" value="{{$producto->detail}}">
               </div>
             </div>
             <br>
@@ -237,7 +230,7 @@
               PRECIO
             </div>
             <div class="col-sm" id="colcarga">
-              <input type="text" name="price">
+              <input type="text" name="price" value="{{$producto->price}}">
             </div>
           </div>
           <br>
@@ -245,8 +238,8 @@
             <button type="submit" class="btn" id="botones" name="Submit" value="Enviar" style="width:50%">Agregar Producto</button>
           </form>
         </div>
-      </div>
     </div>
+
 
   <div class="espacio" style="padding-top:3vw"> </div>
   <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>

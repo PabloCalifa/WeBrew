@@ -42,8 +42,7 @@
     <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
 
     <div class="container">
-      <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
-          {{ csrf_field () }}
+      <form class="form-horizontal" id="amb" action="{{url('../adm/admmarcas')}}" method="post" enctype="multipart/form-data">
     <table class="table-dark table-hover table-bordered" style="text-align-last: center">
     <thead>
       <tr>
@@ -59,7 +58,7 @@
           <th scope="row"><?=substr($brand['brand_id'],-10);?></th>
           <td><?=substr($brand["brand_name"],-10);?></td>
           <td><a href="/adm/admmarcas=<?= $brand["id"] ?>"> <i class="fas fa-file-alt"></i></a></td>
-          <td><a href="/adm/admmarcas=<?= $brand["id"] ?>"> <i class="fas fa-trash"></i></a></td>
+          <td><a href="<?= url("/eliminar_marca/{$brand->brand_id}")?>"> <i class="fas fa-trash"></i></a></td>
         </tr>
       <?php endforeach ?>
     </tbody>
@@ -69,7 +68,7 @@
     <div class="espacio" style="padding-top:3vw"></div>
     <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
       <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>
-      <form class="form-horizontal" id="amb" action="/adm/admmarcas" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" id="amb" action="{{url('../adm/admmarcas')}}" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}
         <div class="cuadro">
 
