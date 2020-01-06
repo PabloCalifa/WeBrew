@@ -38,59 +38,56 @@
         </div>
       </div>
       <div class="espacio" style="padding-top: 20px; padding-bottom: 20px"></div>
-
-        <div class="espacio" style="padding-top:3vw"></div>
-        <div class="container">
-
-          <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
+      <div class="espacio" style="padding-top:3vw"></div>
+      <div class="container">
+        <form class="form-horizontal" id="amb" action="/adm/admproductos" method="post" enctype="multipart/form-data">
               {{ csrf_field () }}
-        <table class="table-dark table-hover table-bordered" style="text-align-last: center">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">CAT</th>
-            <th scope="col">SEGMENTO</th>
-            <th scope="col">ESTILO</th>
-            <th scope="col">NOMBRE</th>
-            <th scope="col">STOCK</th>
-            <th scope="col">IBU</th>
-            <th scope="col">%ALC</th>
-            <th scope="col">CM3</th>
-            <th scope="col">MARCA</th>
-            <th scope="col">ORIGEN</th>
-            <th scope="col">DETALLE</th>
-            <th scope="col">FOTO</th>
-            <th scope="col">OFERTA</th>
-            <th scope="col">$</th>
-            <th scope="col">MODIFY</th>
-            <th scope="col">BORRAR</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php  foreach ($productos as $producto):?>
-            <tr>
-              <th scope="row"><?=substr($producto['id'],-10);?></th>
-              <td><?=substr($producto["fk_cat"],-10);?></td>
-              <td><?=substr($producto["fk_segment"],-10);?></td>
-              <td><?=substr($producto["fk_style"],-10);?></td>
-              <td><?=substr($producto['prods_name'],-10);?></td>
-              <td><?=substr($producto['stock'],-10);?></td>
-              <td><?=substr($producto['ibu'],-10);?></td>
-              <td><?=substr($producto['alc'],-10);?></td>
-              <td><?=substr($producto['capacity_cm3'],-10);?></td>
-              <td><?=substr($producto['fk_brand'],-10);?></td>
-              <td><?=substr($producto['fk_origin'],-10);?></td>
-              <td><?=substr($producto['detail'],-10);?></td>
-              <td><?=substr($producto['picture'],-10);?></td>
-              <td><?=substr($producto['ishigh'],-10);?></td>
-              <td><?=substr($producto['price'],-10);?></td>
-              <td><a href="<?= url("/adm/admproductosEdit/{$producto->id}")?>"> <i class="fas fa-file-alt"></i></a></td>
-              <td><a href="<?= url("/eliminar_producto/{$producto->id}")?>"> <i class="fas fa-trash"></i></a></td>
-            </tr>
-          <?php endforeach ?>
-        </tbody>
-      </table>
-    </form>
+
+              <div class="container">
+                <table class="table " style="text-align-last: center;">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">FOTO</th>
+                    <th scope="col">DETALLE</th>
+                    <th scope="col">MODIFY</th>
+                    <th scope="col">BORRAR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($productos as $producto)
+                     <tr>
+                    <td scope="row"> <b> {{$producto->id}} </b> </td>
+                    <td>
+                      <img id="imagenproducto" class="d-block w-100" src="/storage/{{$producto->picture}}"  alt="foto">
+                    </td>
+                    <td>
+                      <b>CAT</b> {{$producto->cat->cat_name}}
+                      <b>SEGMENTO</b> {{$producto->segment->segment_name}}
+                      <b>ESTILO</b> {{ $producto->style->style_name }}
+                      <b>NOMBRE</b> {{ $producto->prods_name }}
+                      <b>STOCK</b> {{ $producto->stock }}
+                      <b>IBU</b> {{ $producto->ibu }}
+                      <b>%ALC</b> {{ $producto->alc }}
+                      <b>CM3</b> {{ $producto->capacity_cm3 }}
+                      <b>MARCA</b> {{ $producto->brand->brand_name }}
+                      <b>ORIGEN</b> {{ $producto->origin->country_origin }}
+                      <b>DETALLE</b> {{ $producto->detail }}
+                      <b>PRECIO</b> {{ $producto->price }}
+                      <b>OFERTA</b>
+
+                      @if ( $producto->ishigh == 1) si
+                      @else no
+                      @endif
+
+                    </td>
+                    <td><a href="<?= url("/adm/admproductosEdit/{$producto->id}")?>"> <i id="fafas" class="fas fa-file-alt"></i></a></td>
+                    <td><a href="<?= url("/eliminar_producto/{$producto->id}")?>"> <i id="fafas" class="fas fa-trash"></i></a></td>
+                  @endforeach
+              </tbody>
+            </table>
+          </div>
+        </form>
       </div>
         <div class="" id="singin" style="text-align: -webkit-center; padding:0px; margin:0 auto"> </div>
           <div class="espacio" style="padding-top: 20px; padding-bottom: 10px"></div>

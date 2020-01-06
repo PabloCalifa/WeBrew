@@ -84,7 +84,15 @@
                  <input type="hidden" name="product_id" value="{{$productoCarrito->products->id}}">
                  <button  class="btn" id="boton" style="width:100% "type="submit" >Eliminar del Carrito</button>
                </form>
-               <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button>
+               @if ( $productoCarrito->products->fk_cat == 1 )
+                 <a href="../../porrones/porrones" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver Similares</button> </a>
+               @elseif ($productoCarrito->products->fk_cat == 2)
+                 <a href="../../latas/latas" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver Similares</button> </a>
+               @elseif ($productoCarrito->products->fk_cat == 3)
+                 <a href="../../barriles/barriles" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver Similares</button> </a>
+               @else
+                 <a href="../../growlers/growlers" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver Similares</button> </a>
+               @endif
             </div>
           </div>
         @endforeach

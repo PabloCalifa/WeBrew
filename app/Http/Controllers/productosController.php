@@ -359,6 +359,13 @@ class productosController extends Controller
     return view("/producto", $vac);
   }
 
+  public function searchProds(Request $req) {
+    $productos = prods::where("urlSlug",'LIKE', "%$req->search%")->get();
+    $busquedas = $req->search;
+    $vac = compact("productos", "busquedas");
+    // dd($productos);
+    return view("/search", $vac);
+  }
 
 
 }

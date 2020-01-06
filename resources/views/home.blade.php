@@ -21,6 +21,9 @@ use Illuminate\Support\Str;
     <div class="espacio" style="padding-top:100px;"></div>
       <div class="container">
         <div class="row" id="perfil">
+          <div class="col-sm-4">
+            @include('avatar')
+          </div>
           <div class="col-sm-8"id="perfil">
             <div>
               <!-- Nav tabs -->
@@ -81,9 +84,7 @@ use Illuminate\Support\Str;
                         @foreach($order->productsInOrder as $productoCarrito)
                       <div class="col-sm-4">
                         <div class"fotoproducto">
-                          <p> <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" >
                           <img id="productoventa"  class="img"  class="productoBuscado" src="/storage/{{$productoCarrito->products->picture}}" alt="Helaera Corona" style="max-width:120px;">
-                        </a>
                         </div>
                       </div>
                       <div class="col-sm-4">
@@ -97,10 +98,21 @@ use Illuminate\Support\Str;
                         </div>
                           <div class="col-sm-4">
                             <div class="detalleProducto">
-                              <a href="../../producto/{{$productoCarrito->urlSlug}}" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Comprar nuevamente</button> </a>
-                             <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button>
+                              <a href="../../producto/{{$productoCarrito->products->urlSlug}}" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Comprar nuevamente</button> </a>
+                             @if ( $productoCarrito->products->fk_cat == 1 )
+                               <a href="../../porrones/porrones" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button> </a>
+                             @elseif ($productoCarrito->products->fk_cat == 2)
+                               <a href="../../latas/latas" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button> </a>
+                             @elseif ($productoCarrito->products->fk_cat == 3)
+                               <a href="../../barriles/barriles" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button> </a>
+                             @else
+                               <a href="../../growlers/growlers" id="linkproductos" > <button class="btn" id="boton" style="width:100% " type="submit">Ver similares</button> </a>
+                             @endif
                           </div>
+                          <br>
                         </div>
+                        <div class="container" style="width:80%;border-bottom: solid rgba(255,255,255,0.5)"></div>
+
                       @endforeach
                       </div>
                 </div>
@@ -149,9 +161,7 @@ use Illuminate\Support\Str;
             </div>
           </div>
         </div>
-      <div class="col-sm-4">
-      @include('avatar')
-    </div>
+
   </div>
   </div>
   <div class="espacio" style="padding-top:8vw"></div>

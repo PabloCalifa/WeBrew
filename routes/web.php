@@ -19,7 +19,8 @@ Route::get('/porrones/porrones', function () {
     return view('/porrones/porrones');
 });
 
-
+Route::get('/search', 'productosController@searchProds');
+Route::post('/search', 'productosController@searchProds');
 Route::get('/porrones/porrones/', 'productosController@listadoPorronesAll');
 Route::get("/porrones/porronesbrand/{brand_id}", "productosController@listadoPorronesMarcas");
 Route::get("/porrones/porronesstyle/{style_id}", "productosController@listadoPorronesStyle");
@@ -44,6 +45,7 @@ Route::get("/producto/{urlSlug}/", "productosController@productos");
 Route::get('/contacto', function () {
     return view('/contacto');
 });
+
 Route::get('/faq', function () {
     return view('/faq');
 });
@@ -59,6 +61,7 @@ Route::get('/direccionMod', function () {
     return view('/direccionMod');
 });
 Route::post("/direccionMod", 'UsuariosController@direccionUpdate');
+
 Route::group(['middleware' => 'admin'], function () {
 Route::get("/adm/admproductos", "admController@listadoProds");
 Route::post("/adm/admproductos", "admController@addProducto");

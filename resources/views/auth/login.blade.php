@@ -13,7 +13,7 @@
   </head>
   <body>
     @include('../nav')
-    <div class="espacio" style="padding-top:5vw"></div>
+    <div class="espacio" style="padding-top:80px"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -70,8 +70,8 @@
                                     <button type="submit" id="botones" class="btn" style="width: 30%">
                                         Login
                                     </button>
-                                    <a class="btn btn-link" href="{{ route('register') }}"> Todavia no tenes Cuenta? </a>
-                                    <a class="btn btn-link" href="{{ route('password.request') }}"> Olvidaste tu Contraseña?</a>
+                                    <a class="btn btn-link" href="{{ route('register') }}" id="botonlink">Todavia No Tenes Cuenta?</a>
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" id="botonlink">Olvidaste Tu Contraseña?</a>
                                   </div>
                                 </div>
                             </div>
@@ -83,8 +83,6 @@
     </div>
     <div class="espacio" style="padding-top:8vw"></div>
     @include("../Footer")
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

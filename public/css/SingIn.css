@@ -8,6 +8,7 @@ img.miniLogoWeBrew {
   left: 3%;
 }
 
+
 img.logoWeBrew {
     margin-left: -150px;
     position: absolute;
@@ -52,3 +53,17 @@ form.form-horizontal {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   }
+
+#botonlink{
+
+color: rgba(255, 255, 255,1);
+}
+
+
+#botonlink:hover, #botonlink:focus{
+color: rgba(255, 193, 0,1);
+text-decoration: none;
+text-transform: capitalize;
+
+
+}

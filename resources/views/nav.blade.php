@@ -24,8 +24,9 @@
         <a href="../contacto">CONTACTO</a>
       </li>
     </ul>
-    <form class=" form-inline my-2 my-lg-0" style="">
-      <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando? " aria-label="Close">
+    <form class=" form-inline my-2 my-lg-0" action="{{url('/search') }}" method="POST">
+      {{ csrf_field() }}
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="¿Qué estás buscando?"  value="">
       <button class="btn  my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
     <ul class="nav navbar-nav navbar-right" id="Loginreg">

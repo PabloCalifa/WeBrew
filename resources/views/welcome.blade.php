@@ -253,9 +253,7 @@ $destacados4 = DB::table('prods')
 <!-- FIN DE CAROUSEL DE DESTACADOS -->
 
 <!-- OFERTAS -->
-        <br>
         <div class="container" style="padding:40px;border-bottom: solid rgba(255,193,0,0.8)"></div>
-        <br>
         <div class="container" style="padding:40px;"></div>
         <div class="container black" id="destacadoscarrouselback">
           <img id="destacadoscarrousel" alt="ofertas especial"  src="../fotosComunes/ofertasEspeciales.jpg">
